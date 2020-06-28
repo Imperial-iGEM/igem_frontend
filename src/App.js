@@ -1,14 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import FileUpload from './FileUpload'
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <FileUpload/>
-    </div>
-  );
+import React, { Component } from 'react'
+import NavBar from './components/NavBar'
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <NavBar />
+      </div>
+    )
+  }
 }
-
-export default App;
+export default App
