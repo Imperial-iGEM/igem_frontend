@@ -54,6 +54,7 @@ export default function FileUpload(props) {
             backgroundColor: "#fafafa",
             color: '#bdbdbd',
             outline: 'none',
+            margin: 10
         }
     }));
     const classes = useStyles();
@@ -74,7 +75,9 @@ export default function FileUpload(props) {
             <List className={classes.list}>
                 {files.length > 0 && files.map((acceptedFile, index) => (
                     <ListItem key={index}>
+                        <Paper elevation={3} className={classes.dropZone} >
                         <a href={URL.createObjectURL(acceptedFile)} download={acceptedFile.name}>{acceptedFile.name}</a>
+                        </Paper>
                     </ListItem>
                 ))}
             </List>
