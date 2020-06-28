@@ -13,52 +13,26 @@ import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-const drawerWidth = 240;
-const useStyles = makeStyles(theme => ({
-    root: {
-        display: 'flex',
-    },
-    drawer: {
-        [theme.breakpoints.up('sm')]: {
-            width: drawerWidth,
-            flexShrink: 0,
-        },
-    },
-    appBar: {
-        zIndex: theme.zIndex.drawer + 1,
-    },
-    menuButton: {
-        marginRight: theme.spacing(2),
-        [theme.breakpoints.up('sm')]: {
-            display: 'none',
-        },
-    },
-    toolbar: theme.mixins.toolbar,
-    drawerPaper: {
-        width: drawerWidth
-    },
-    content: {
-        flexGrow: 1,
-        padding: theme.spacing(3),
-    },
-    closeMenuButton: {
-        marginRight: 'auto',
-        marginLeft: 0,
-    },
-}));
+const drawerWidth = 300;
+
 export default function MenuDrawer(props) {
-    const dummyCategories = ['Gene Design', 'Combitorial Specifications', 'Generate Protocol']
+    const sideBarCategories = props.sideBarCategories
     const classes = useStyles();
     const theme = useTheme();
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [drawerOpen, setDrawerOpen] = React.useState(false);
     function handleDrawerToggle() {
-        setMobileOpen(!mobileOpen)
+        setDrawerOpen(!drawerOpen)
+    }
+
+    function handleTabSelection(text, index) {
+        console.log(`In Menu Component; Text: ${text}, Index: ${index}`)
+        props.handleTabSelection(text, index)
     }
     const drawer = (
         <div>
             <List>
-                {dummyCategories.map((text, index) => (
-                    <ListItem button key={text}>
+                {sideBarCategories.map((text, index) => (
+                    <ListItem button key={index} onClick={()=>handleTabSelection(text, index)}>
                         <ListItemText primary={text} />
                     </ListItem>
                 ))}
@@ -86,12 +60,10 @@ export default function MenuDrawer(props) {
             </AppBar>
 
             <nav className={classes.drawer}>
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                <Hidden smUp implementation="css">
                     <Drawer
                         variant="temporary"
                         anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-                        open={mobileOpen}
+                        open={drawerOpen}
                         onClose={handleDrawerToggle}
                         classes={{
                             paper: classes.drawerPaper,
@@ -105,22 +77,37 @@ export default function MenuDrawer(props) {
                         </IconButton>
                         {drawer}
                     </Drawer>
-                </Hidden>
-                <Hidden xsDown implementation="css">
-                    <Drawer
-                        className={classes.drawer}
-                        variant="permanent"
-                        classes={{
-                            paper: classes.drawerPaper,
-                        }}
-                    >
-                        <div className={classes.toolbar} />
-                        {drawer}
-                    </Drawer>
-                </Hidden>
             </nav>
 
         </div>
     );
 }
 
+const useStyles = makeStyles(theme => ({
+    root: {
+        display: 'flex',
+        marginBottom: 80
+    },
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0,
+    },
+    appBar: {
+        zIndex: theme.zIndex.drawer + 1,
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+    },
+    toolbar: theme.mixins.toolbar,
+    drawerPaper: {
+        width: drawerWidth
+    },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing(3),
+    },
+    closeMenuButton: {
+        marginRight: 'auto',
+        marginLeft: 0,
+    },
+}));
