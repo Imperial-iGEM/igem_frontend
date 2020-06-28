@@ -17,36 +17,54 @@ export default function FileUpload(props) {
         console.log(files);
     }, [files]);
 
+
+
+
     const useStyles = makeStyles((theme) => ({
         root: {
             display: 'flex',
             flexDirection: 'column',
             minHeight: 100,
             justifyContent: 'center',
-            flex: 1
         },
         dropZone: {
             display: 'flex',
             minHeight: 100,
+            alignItems: 'center',
             justifyContent: 'center',
-            flex: 1
+            flex: 1,
+            margin: 10
         },
         list: {
             display: 'flex',
-            width: '100%',
+            alignItems: 'center',
             justifyContent: 'center',
             flex: 1
+        },
+        dropZone2: {
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: 20,
+            borderWidth: 2,
+            borderRadius: 2,
+            borderColor: '#eeeeee',
+            borderStyle: 'dashed',
+            backgroundColor: "#fafafa",
+            color: '#bdbdbd',
+            outline: 'none',
         }
     }));
     const classes = useStyles();
     return (
         <div className={classes.root}>
             <Paper elevation={3} className={classes.dropZone} >
-            <Dropzone onDrop={acceptedFiles => acceptFiles(acceptedFiles)}>
+            <Dropzone onDrop={acceptedFiles => acceptFiles(acceptedFiles) }>
                 {({getRootProps, getInputProps}) => (
-                    <section>
-                        <div {...getRootProps()}>
-                            <input {...getInputProps()} />
+                    <section className={classes.dropZone2}>
+                        <div {...getRootProps()} >
+                            <input {...getInputProps()}  />
                             <p>Drag 'n' drop some files here, or click to select files</p>
                         </div>
                     </section>
