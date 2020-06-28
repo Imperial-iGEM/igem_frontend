@@ -1,5 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import Dropzone from 'react-dropzone'
+import Paper from '@material-ui/core/Paper'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+
+import { makeStyles } from '@material-ui/core/styles';
 
 export default function FileUpload(props) {
     const [files, setFiles] = useState([]);
@@ -12,8 +17,31 @@ export default function FileUpload(props) {
         console.log(files);
     }, [files]);
 
+    const useStyles = makeStyles((theme) => ({
+        root: {
+            display: 'flex',
+            flexDirection: 'column',
+            minHeight: 100,
+            justifyContent: 'center',
+            flex: 1
+        },
+        dropZone: {
+            display: 'flex',
+            minHeight: 100,
+            justifyContent: 'center',
+            flex: 1
+        },
+        list: {
+            display: 'flex',
+            width: '100%',
+            justifyContent: 'center',
+            flex: 1
+        }
+    }));
+    const classes = useStyles();
     return (
-        <div>
+        <div className={classes.root}>
+            <Paper elevation={3} className={classes.dropZone} >
             <Dropzone onDrop={acceptedFiles => acceptFiles(acceptedFiles)}>
                 {({getRootProps, getInputProps}) => (
                     <section>
@@ -24,14 +52,14 @@ export default function FileUpload(props) {
                     </section>
                 )}
             </Dropzone>
-
-            <ul>
+            </Paper>
+            <List className={classes.list}>
                 {files.length > 0 && files.map((acceptedFile, index) => (
-                    <li key={index}>
+                    <ListItem key={index}>
                         <a href={URL.createObjectURL(acceptedFile)} download={acceptedFile.name}>{acceptedFile.name}</a>
-                    </li>
+                    </ListItem>
                 ))}
-            </ul>
-        </div>
+            </List>
+    </div>
     )
 }
