@@ -17,9 +17,6 @@ export default function FileUpload(props) {
         console.log(files);
     }, [files]);
 
-
-
-
     const useStyles = makeStyles((theme) => ({
         root: {
             display: 'flex',
