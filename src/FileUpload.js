@@ -35,7 +35,7 @@ export default function FileUpload(props) {
                 <Paper elevation={3} className={classes.dropZone}>
                     <Dropzone onDrop={acceptedFiles => acceptFiles(acceptedFiles)}>
                         {({getRootProps, getInputProps}) => (
-                            <section className={classes.dropZone2}>
+                            <section className={classes.dropZoneInner}>
                                 <div {...getRootProps()} >
                                     <input {...getInputProps()}  />
                                     <p>Drag 'n' drop some files here, or click to select files</p>
@@ -46,8 +46,8 @@ export default function FileUpload(props) {
                 </Paper>
                 <List className={classes.list}>
                     {files.length > 0 && files.map((acceptedFile, index) => (
-                        <ListItem key={index}>
-                            <Paper elevation={3} className={classes.dropZone}>
+                        <ListItem key={index} className={classes.listItem}>
+                            <Paper elevation={3} className={classes.listItemPaper}>
                                 <a href={URL.createObjectURL(acceptedFile)}
                                    download={acceptedFile.name}>{acceptedFile.name}</a>
                             </Paper>
@@ -65,6 +65,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         minHeight: 100,
         justifyContent: 'center',
+        margin: 20
     },
     dropZone: {
         display: 'flex',
@@ -72,15 +73,28 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1,
-        margin: 10
+    },
+    listItemPaper: {
+        display: 'flex',
+        minHeight: 100,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+        padding: 0,
+    },
+    listItem: {
+        padding: 0,
     },
     list: {
         display: 'flex',
         alignItems: 'center',
+        flexDirection: 'column',
         justifyContent: 'center',
-        flex: 1
+        flex: 1,
+
+
     },
-    dropZone2: {
+    dropZoneInner: {
         flex: 1,
         display: 'flex',
         flexDirection: 'column',
