@@ -38,7 +38,7 @@ export default function CombinatorialSpecifications(props) {
                 <PartsSelection/>
                 <ConstructViewer/>
                 <AssemblyMethod/>
-		            <Annotations/>
+		            <Annotations className={classes.Annotations} />
 
             </div>
         </div>
@@ -50,9 +50,12 @@ export default function CombinatorialSpecifications(props) {
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'row',
         minHeight: 600,
         justifyContent: 'center',
         margin: 20
+    },
+    Annotations: {
+        flex: 1
     }
 }));
