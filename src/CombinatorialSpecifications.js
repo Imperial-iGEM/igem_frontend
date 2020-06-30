@@ -8,7 +8,7 @@ import Annotations from "./Annotations ";
 import {makeStyles} from "@material-ui/core/styles";
 
 
-export default function GeneDesign(props) {
+export default function CombinatorialSpecifications(props) {
     const [navigate, setNavigate] = useState(false);
     const [navigateTo, setNavigateTo] = useState({})
     let currentLocation = useLocation();
