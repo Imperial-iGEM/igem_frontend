@@ -38,35 +38,24 @@ export default function CombinatorialSpecifications(props) {
         <div>
             <MenuDraw {...props} handleTabSelection={handleTabSelection}/>
             <div className={classes.root}>
-                <Grid container direction="column" spacing={10}>
-                    <Grid container item spacing={3}>
-                        <Grid item xs={4}>
-                            <Grid container direction="row" item spacing={3}>
-                                <Grid item>
+                <Grid container direction="column" justify="space-evenly" alignItems="center" spacing={10}>
+                    <Grid container item justify="space-evenly" alignItems="flex-start" spacing={3} >
+                            <Grid container direction="row"   justify="space-around" alignItems="flex-start" item className={classes.topRow} xs>
                                     <ConstructSelection/>
-                                </Grid>
-                                <Grid item>
                                     <DoE/>
-                                </Grid>
                             </Grid>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <AssemblyMethod />
-                        </Grid>
-                        <Grid item xs={4}>
+
+                        <Grid item xs className={classes.topRow}>
                             <Preview/>
                         </Grid>
+                        <Grid item xs className={classes.topRow}>
+                            <AssemblyMethod />
+                        </Grid>
                     </Grid>
-                    <Grid container direction="row" item spacing={3} >
-                        <Grid item xs={4}>
+                    <Grid container direction="row"  alignItems="flex-end"  justify="space-around" item spacing={1} >
                             <ProtocolSelect/>
-                        </Grid>
-                        <Grid item xs={4}>
-                                <RobotSelect/>
-                        </Grid>
-                        <Grid item xs={4}>
+                            <RobotSelect/>
                             <Generate/>
-                        </Grid>
                     </Grid>
                 </Grid>
             </div>
@@ -93,12 +82,7 @@ const useStyles = makeStyles((theme) => ({
         margin: 20,
     },
     topRow:{
-        display: 'flex',
-        flexDirection: 'row',
-        minHeight: 600,
-        justifyContent: 'center',
-        margin: 20,
-        flex: 10
+        height: '66vh',
     },
     evenSplit:{
         display: 'flex',

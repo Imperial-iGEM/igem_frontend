@@ -1,15 +1,14 @@
 import React, {useState, useEffect} from 'react'
-import {Paper, Typography} from "@material-ui/core";
+import {Button, Paper, Typography} from "@material-ui/core";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 
 
-export default function RobotSelect(props){
+export default function RobotSelect(props) {
 
 
-    return(
-        <Paper elevation={3}>
-            <Typography variant="h1" component="h2">
-                Robot Select
-            </Typography>
-        </Paper>
+    return (
+        <Button size="large" variant="contained" color="secondary" endIcon={<ArrowForwardIosIcon/>}>
+            Robot Select
+        </Button>
     )
 }
