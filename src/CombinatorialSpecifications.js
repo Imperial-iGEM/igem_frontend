@@ -51,14 +51,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         flexDirection: 'row',
-        minHeight: 600,
+        minHeight: 60,
         justifyContent: 'center',
         margin: 20
     },
-    Annotations: {
-        flex: 1
-    },
-    AssemblyMethod: {
-        flex: 130
-    }
+
 }));
