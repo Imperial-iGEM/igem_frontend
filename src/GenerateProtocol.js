@@ -9,7 +9,7 @@ import Preview from "./Preview";
 import RobotSelect from "./RobotSelect";
 import Generate from "./Generate";
 import {makeStyles} from "@material-ui/core/styles";
-
+import {Grid} from "@material-ui/core";
 
 export default function CombinatorialSpecifications(props) {
     const [navigate, setNavigate] = useState(false);
@@ -38,22 +38,37 @@ export default function CombinatorialSpecifications(props) {
         <div>
             <MenuDraw {...props} handleTabSelection={handleTabSelection}/>
             <div className={classes.root}>
-                <div className={classes.topRow}>
-                    <div className={classes.columns}>
-                        <div className={classes.evenSplit}>
-                            <ConstructSelection />
-                            <DoE />
-                        </div>
-                        <AssemblyMethod className={classes.topColumns}/>
-                        <Preview  className={classes.topColumns}/>
-                    </div>
-
-                </div>
-                <div className={classes.bottomRow}>
-                    <ProtocolSelect  />
-                    <RobotSelect  />
-                    <Generate  />
-                </div>
+                <Grid container direction="column" spacing={10}>
+                    <Grid container item spacing={3}>
+                        <Grid item xs={4}>
+                            <Grid container direction="row" item spacing={3}>
+                                <Grid item>
+                                    <ConstructSelection/>
+                                </Grid>
+                                <Grid item>
+                                    <DoE/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <AssemblyMethod />
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Preview/>
+                        </Grid>
+                    </Grid>
+                    <Grid container direction="row" item spacing={3} >
+                        <Grid item xs={4}>
+                            <ProtocolSelect/>
+                        </Grid>
+                        <Grid item xs={4}>
+                                <RobotSelect/>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Generate/>
+                        </Grid>
+                    </Grid>
+                </Grid>
             </div>
         </div>
     )
