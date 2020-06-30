@@ -1,41 +1,54 @@
 import React, {useState} from 'react'
 import NavBar from './NavBar'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 import FileUpload from './FileUpload'
 import MenuDraw from './MenuDraw'
+import GeneDesign from "./GeneDesign";
+import Home from './Home';
+import CombinatorialSpecifications from "./CombinatorialSpecifications";
+import GenerateProtocol from "./GenerateProtocol";
+
 function App() {
-    const [sideBarCategories, setSideBarCategories] = useState(['Home', 'Gene Design', 'Combinatorial Specifications', 'Generate Protocol', 'File Upload'])
-    const [currentPageIndex, setCurrentPageIndex] = useState(0)
-    // Function that is to be passed into MenuDraw to handles tab selections
-    let handleTabSelection = function (text, index){
-        console.log(`In App Root Component; Text: ${text}, Index: ${index}`)
-        setCurrentPageIndex(index)
-    }
-
+    const [sideBarCategories, setSideBarCategories] = useState([{text: 'Home', path: '/'}, {
+        text: 'Gene Design',
+        path: 'gene_design'
+    }, {text: 'Combinatorial Specifications', path: '/combinatorial_specifications'}, {
+        text: 'Generate Protocol',
+        path: '/generate_protocol'
+    }, {text: 'File Upload', path: '/file_upload'}])
     return (
+        <Router>
+            <div>
+                <Switch>
+                    <Route exact path="/">
+                        <Home name="Imperial iGEM 2020 – Home" sideBarCategories={sideBarCategories}/>
+                    </Route>
 
-        <div>
-            {currentPageIndex === 0 &&
-            <MenuDraw name="Imperial iGEM 2020 – Home" sideBarCategories={sideBarCategories}
-                      handleTabSelection={handleTabSelection} />
-            }
-            {currentPageIndex === 1 &&
-            <MenuDraw name="Imperial iGEM 2020 – Gene Design" sideBarCategories={sideBarCategories}
-                      handleTabSelection={handleTabSelection} />
-            }
-            {currentPageIndex === 2 &&
-            <MenuDraw name="Imperial iGEM 2020 – Combinatorial Specifications" sideBarCategories={sideBarCategories}
-                      handleTabSelection={handleTabSelection} />
-            }
-            {currentPageIndex === 3 &&
-            <MenuDraw name="Imperial iGEM 2020 – Generate Protocol" sideBarCategories={sideBarCategories}
-                      handleTabSelection={handleTabSelection} />
-            }
-            {currentPageIndex === 4 &&
-            <FileUpload name="Imperial iGEM 2020 – File Upload" sideBarCategories={sideBarCategories}
-                        handleTabSelection={handleTabSelection}/>
-            }
+                    <Route exact path="/gene_design">
+                        <GeneDesign name="Imperial iGEM 2020 – Gene Design" sideBarCategories={sideBarCategories}/>
+                    </Route>
+                    <Route exact path="/combinatorial_specifications">
+                        <CombinatorialSpecifications name="Imperial iGEM 2020 – Combinatorial Specifications"
+                                                     sideBarCategories={sideBarCategories}/>
+                    </Route>
+                    <Route path="/generate_protocol">
+                        <GenerateProtocol name="Imperial iGEM 2020 – Generate Protocol"
+                                          sideBarCategories={sideBarCategories}/>
+                    </Route>
+                    <Route path="/file_upload">
+                        <FileUpload name="Imperial iGEM 2020 – File Upload" sideBarCategories={sideBarCategories}/>
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
 
-        </div>
+
     )
 }
+
 export default App

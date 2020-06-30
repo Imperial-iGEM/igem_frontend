@@ -24,16 +24,16 @@ export default function MenuDrawer(props) {
         setDrawerOpen(!drawerOpen)
     }
 
-    function handleTabSelection(text, index) {
-        console.log(`In Menu Component; Text: ${text}, Index: ${index}`)
-        props.handleTabSelection(text, index)
+    function handleTabSelection(location, index) {
+        console.log(`In Menu Component; Text: ${location.text}, Path: ${location.path}, Index: ${index}`)
+        props.handleTabSelection(location, index)
     }
     const drawer = (
         <div>
             <List>
-                {sideBarCategories.map((text, index) => (
-                    <ListItem button key={index} onClick={()=>handleTabSelection(text, index)}>
-                        <ListItemText primary={text} />
+                {sideBarCategories.map((location, index) => (
+                    <ListItem button key={index} onClick={()=>handleTabSelection(location, index)}>
+                        <ListItemText primary={location.text} />
                     </ListItem>
                 ))}
             </List>

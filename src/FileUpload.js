@@ -6,9 +6,13 @@ import ListItem from '@material-ui/core/ListItem'
 
 import {makeStyles} from '@material-ui/core/styles';
 import MenuDraw from "./MenuDraw";
+import {Redirect, useLocation} from "react-router-dom";
 
 export default function FileUpload(props) {
     const [files, setFiles] = useState([]);
+    const [navigate, setNavigate] = useState(false);
+    const [navigateTo, setNavigateTo] = useState({})
+    let currentLocation = useLocation();
 
     function acceptFiles(acceptedFiles) {
         setFiles(files.concat(acceptedFiles))
@@ -21,16 +25,26 @@ export default function FileUpload(props) {
 
     const classes = useStyles();
 
-    /*Custom function to intercept tab selection to allow for saving of data etc before changing tabs.
-    Last line should call parents handleTabSelection through props.handleTabSelection(text, index)*/
-    let handleTabSelection = function (text, index) {
-        console.log(`In FileUpload Component; Text: ${text}, Index: ${index}`)
-        props.handleTabSelection(text, index)
+    //Custom function to intercept tab selection to allow for saving of data etc before changing tabs.
+    let handleTabSelection = function (location, index) {
+        console.log(`In FileUpload Component; Text: ${location.text}, Path: ${location.path}, Index: ${index}`)
+        setNavigateTo({path: location.path, push: true, state: {referrer: currentLocation}})
+        setNavigate(true)
+    }
+    // If we need to navigate render a Redirect object with push to save history
+    if (navigate) {
+        return (<Redirect
+            to={{
+                pathname: navigateTo.path,
+                push: navigateTo.push,
+                state: navigateTo.state
+            }}
+        />)
     }
     return (
         <div>
-            {/* Include MenuDraw at top, ensuring props are passed through and optionally a function for handleTabSelection*/}
-            <MenuDraw {...props}  handleTabSelection={handleTabSelection}/>
+            {/* Include MenuDraw at top, ensuring props are passed through function for handleTabSelection*/}
+            <MenuDraw {...props} handleTabSelection={handleTabSelection}/>
             <div className={classes.root}>
                 <Paper elevation={3} className={classes.dropZone}>
                     <Dropzone onDrop={acceptedFiles => acceptFiles(acceptedFiles)}>
