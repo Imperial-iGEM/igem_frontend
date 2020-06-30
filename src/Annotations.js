@@ -8,7 +8,7 @@ export default function Annotations(props){
     return(
         <Paper elevation={3}>
             <Typography variant="h1" component="h2">
-                Annotations
+                Annotations ioiio
             </Typography>
         </Paper>
     )
