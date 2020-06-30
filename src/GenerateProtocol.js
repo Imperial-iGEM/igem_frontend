@@ -38,13 +38,22 @@ export default function CombinatorialSpecifications(props) {
         <div>
             <MenuDraw {...props} handleTabSelection={handleTabSelection}/>
             <div className={classes.root}>
-                <ConstructSelection />
-                <DoE />
-                <AssemblyMethod />
-		            <ProtocolSelect  />
-                <Preview  />
-                <RobotSelect  />
-                <Generate  />
+                <div className={classes.topRow}>
+                    <div className={classes.columns}>
+                        <div className={classes.evenSplit}>
+                            <ConstructSelection />
+                            <DoE />
+                        </div>
+                        <AssemblyMethod className={classes.topColumns}/>
+                        <Preview  className={classes.topColumns}/>
+                    </div>
+
+                </div>
+                <div className={classes.bottomRow}>
+                    <ProtocolSelect  />
+                    <RobotSelect  />
+                    <Generate  />
+                </div>
             </div>
         </div>
     )
@@ -55,12 +64,47 @@ export default function CombinatorialSpecifications(props) {
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+        flexDirection: 'column',
+        minHeight: 60,
+        justifyContent: 'center',
+        margin: 20,
+    },
+
+    columns: {
+        display: 'flex',
         flexDirection: 'row',
         minHeight: 60,
         justifyContent: 'center',
         margin: 20,
-
     },
+    topRow:{
+        display: 'flex',
+        flexDirection: 'row',
+        minHeight: 600,
+        justifyContent: 'center',
+        margin: 20,
+        flex: 10
+    },
+    evenSplit:{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        margin: 20,
+        flex: 1
+    },
+    bottomRow:{
+        display: 'flex',
+        flexDirection: 'row',
+        minHeight: 60,
+        justifyContent: 'center',
+        margin: 20,
+        flex: 1
+    },
+    topColumns:{
+        flex: 1,
+        maxWidth:100,
+        margin:10
+    }
 
 
 }));
