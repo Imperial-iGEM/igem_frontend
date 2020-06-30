@@ -35,9 +35,9 @@ export default function CombinatorialSpecifications(props) {
         <div>
             <MenuDraw {...props} handleTabSelection={handleTabSelection}/>
             <div className={classes.root}>
-                <PartsSelection/>
-                <ConstructViewer/>
-                <AssemblyMethod/>
+                <PartsSelection className={classes.PartsSelection}/>
+                <ConstructViewer className={classes.ConstructViewer}/>
+                <AssemblyMethod className={classes.AssemblyMethod}/>
 		            <Annotations className={classes.Annotations} />
 
             </div>
