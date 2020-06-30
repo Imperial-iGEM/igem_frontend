@@ -54,23 +54,23 @@ const useStyles = makeStyles((theme) => ({
         minHeight: 60,
         justifyContent: 'center',
         margin: 20,
-        maxWidth: 40
+
     },
     PartsSelection: {
         flex: 4,
-        maxWidth: 40
+        maxWidth: 10
     },
     ConstructViewer: {
         flex: 2,
-        maxWidth: 40
+        maxWidth: 10
     },
     AssemblyMethod: {
         flex: 3,
-        maxWidth: 40
+        maxWidth: 10
     },
     Annotations: {
         flex: 1,
-        maxWidth: 40
+        maxWidth: 10
     }
 
 }));
