@@ -16,7 +16,7 @@ export default function CombinatorialSpecifications(props) {
 
     //Custom function to intercept tab selection to allow for saving of data etc before changing tabs.
     let handleTabSelection = function (location, index) {
-@@ -23,5 +28,28 @@ export default function CombinatorialSpecifications(props) {
+@@ -18,0 +25,0 @@ export default function CombinatorialSpecifications(props) {
             }}
         />)
     }
