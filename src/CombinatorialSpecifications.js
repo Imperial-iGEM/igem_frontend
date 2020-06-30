@@ -53,7 +53,8 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'row',
         minHeight: 60,
         justifyContent: 'center',
-        margin: 20
+        margin: 20,
+        maxWidth: 40
     },
     PartsSelection: {
         flex: 4,
