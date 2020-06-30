@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     },
     PartsSelection: {
         flex: 4,
-        width: 100
+        width: 700
     },
     ConstructViewer: {
         flex: 2,
@@ -68,7 +68,8 @@ const useStyles = makeStyles((theme) => ({
         width: 100
     },
     Annotations: {
-        flex: 1
+        flex: 1,
+        width: 100
     }
 
 }));
