@@ -57,5 +57,8 @@ const useStyles = makeStyles((theme) => ({
     },
     Annotations: {
         flex: 1
+    },
+    AssemblyMethod: {
+        flex: 130
     }
 }));
