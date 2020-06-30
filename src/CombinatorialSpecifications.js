@@ -16,7 +16,7 @@ export default function GeneDesign(props) {
 
     //Custom function to intercept tab selection to allow for saving of data etc before changing tabs.
     let handleTabSelection = function (location, index) {
-@ -23,5 +28,28 @@ export default function GeneDesign(props) {
+@ -23,5 +28,28 @@ export default function CombinatorialSpecifications(props) {
             }}
         />)
     }
