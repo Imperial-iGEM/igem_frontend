@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Paper, Typography} from "@material-ui/core";
 
 
-export default function PartsInfo(props){
+export default function PartsSelection(props){
 
 
     return(
