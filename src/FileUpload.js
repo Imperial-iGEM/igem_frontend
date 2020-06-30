@@ -21,7 +21,7 @@ export default function FileUpload(props) {
     useEffect(() => {
         console.log(files);
     }, [files]);
-ppp
+
 
     const classes = useStyles();
 
