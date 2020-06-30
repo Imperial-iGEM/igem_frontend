@@ -57,19 +57,19 @@ const useStyles = makeStyles((theme) => ({
     },
     PartsSelection: {
         flex: 4,
-        width: 700
+        maxWidth: 100
     },
     ConstructViewer: {
         flex: 2,
-        width: 100
+        maxWidth: 100
     },
     AssemblyMethod: {
         flex: 3,
-        width: 100
+        maxWidth: 100
     },
     Annotations: {
         flex: 1,
-        width: 100
+        maxWidth: 100
     }
 
 }));
