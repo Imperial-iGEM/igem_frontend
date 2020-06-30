@@ -56,16 +56,16 @@ const useStyles = makeStyles((theme) => ({
         margin: 20
     },
     PartsSelection: {
-        flex: 3
+        flex: 4
     },
     ConstructViewer: {
-        flex: 3
+        flex: 2
     },
     AssemblyMethod: {
         flex: 3
     },
     Annotations: {
-        flex: 3
+        flex: 1
     }
 
 }));
