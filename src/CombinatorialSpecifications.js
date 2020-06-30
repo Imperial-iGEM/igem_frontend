@@ -3,8 +3,8 @@ import {Redirect, useLocation} from "react-router-dom";
 import MenuDraw from "./MenuDraw";
 import PartsSelection from "./PartsSelection";
 import ConstructViewer from "./ConstructViewer";
-import AssemblyMethod from "./AssemblyMethod ";
-import Annotations from "./Annotations ";
+import AssemblyMethod from "./AssemblyMethod";
+import Annotations from "./Annotations";
 import {makeStyles} from "@material-ui/core/styles";
 
 
@@ -16,11 +16,19 @@ export default function CombinatorialSpecifications(props) {
 
     //Custom function to intercept tab selection to allow for saving of data etc before changing tabs.
     let handleTabSelection = function (location, index) {
-@@ -23,5 +28,28 @@ export default function CombinatorialSpecifications(props) {
+        console.log(`In CombinatorialSpecifications Component; Text: ${location.text}, Path: ${location.path}, Index: ${index}`)
+        setNavigateTo({path: location.path, push: true, state: {referrer: currentLocation}})
+        setNavigate(true)
+    }
+    if (navigate) {
+        return (<Redirect
+            to={{
+                pathname: navigateTo.path,
+                push: navigateTo.push,
+                state: navigateTo.state
             }}
         />)
     }
-    return (<MenuDraw {...props} handleTabSelection={handleTabSelection}/>)
 
 
     return (
