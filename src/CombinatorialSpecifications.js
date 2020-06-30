@@ -55,5 +55,17 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
         margin: 20
     },
+    PartsSelection: {
+        flex: 3
+    },
+    ConstructViewer: {
+        flex: 3
+    },
+    AssemblyMethod: {
+        flex: 3
+    },
+    Annotations: {
+        flex: 3
+    }
 
 }));
