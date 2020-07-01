@@ -6,6 +6,13 @@ import ConstructViewer from "./ConstructViewer";
 import AssemblyMethod from "./AssemblyMethod";
 import Annotations from "./Annotations";
 import {makeStyles} from "@material-ui/core/styles";
+import {Grid} from "@material-ui/core";
+import ConstructSelection from "./ConstructSelection";
+import DoE from "./DoE";
+import Preview from "./Preview";
+import ProtocolSelect from "./ProtocolSelect";
+import RobotSelect from "./RobotSelect";
+import Generate from "./Generate";
 
 
 export default function CombinatorialSpecifications(props) {
@@ -34,12 +41,27 @@ export default function CombinatorialSpecifications(props) {
     return (
         <div>
             <MenuDraw {...props} handleTabSelection={handleTabSelection}/>
-            <div className={classes.root}>
-                <PartsSelection className={classes.PartsSelection}/>
-                <ConstructViewer className={classes.ConstructViewer}/>
-                <AssemblyMethod className={classes.AssemblyMethod}/>
-		            <Annotations className={classes.Annotations} />
 
+            <div className={classes.root}>
+                <Grid container direction="column" justify="space-evenly" alignItems="center" spacing={10}>
+                    <Grid container item justify="space-evenly" alignItems="flex-start" spacing={3} >
+                        <Grid item xs className={classes.preview}>
+                            <Preview/>
+                        </Grid>
+                        <Grid item xs className={classes.topRow}>
+                            <PartsSelection className={classes.PartsSelection}/>
+                        </Grid>
+
+                    </Grid>
+                    <Grid container direction="row"  alignItems="flex-end"  justify="space-around" item spacing={1} >
+                        <Grid item xs className={classes.topRow}>
+                            <AssemblyMethod className={classes.AssemblyMethod}/>
+                        </Grid>
+                        <Grid item xs className={classes.topRow}>
+                            <Annotations className={classes.Annotations} />
+                        </Grid>
+                    </Grid>
+                </Grid>
             </div>
         </div>
     )
@@ -71,6 +93,9 @@ const useStyles = makeStyles((theme) => ({
     Annotations: {
         flex: 1,
         maxWidth: 10
+    },
+    preview:{
+        height: '50vh',
     }
 
 }));
