@@ -73,7 +73,7 @@ export default function FileUpload(props) {
             </div>
 
             <SeqViz
-                style= {{heigh: '50vh', width:'100vw'}}
+                style= {{height: '50vh', width:'100vw'}}
                 name="J23100"
                 seq="TTGsACGGCTAGCTCAGTCCTAGGTACAGTGCTAGC"
                 annotations={[{ name: "promoter", start: 0, end: 34, direction: 1 }]}
