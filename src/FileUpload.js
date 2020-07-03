@@ -7,6 +7,8 @@ import ListItem from '@material-ui/core/ListItem'
 import {makeStyles} from '@material-ui/core/styles';
 import MenuDraw from "./MenuDraw";
 import {Redirect, useLocation} from "react-router-dom";
+import { SeqViz } from "seqviz";
+
 
 export default function FileUpload(props) {
     const [files, setFiles] = useState([]);
@@ -69,6 +71,13 @@ export default function FileUpload(props) {
                     ))}
                 </List>
             </div>
+
+            <SeqViz
+                style= {{heigh: '50vh', width:'100vw'}}
+                name="J23100"
+                seq="TTGsACGGCTAGCTCAGTCCTAGGTACAGTGCTAGC"
+                annotations={[{ name: "promoter", start: 0, end: 34, direction: 1 }]}
+            />
         </div>
     )
 }
