@@ -17,7 +17,7 @@ export default function FileUpload(props) {
     let currentLocation = useLocation();
 
     function acceptFiles(acceptedFiles) {
-        setFiles(files.concat(acceptedFiles))
+        setFiles(acceptedFiles)
     }
 
     useEffect(() => {
@@ -61,23 +61,24 @@ export default function FileUpload(props) {
                     </Dropzone>
                 </Paper>
                 <List className={classes.list}>
-                    {files.length > 0 && files.map((acceptedFile, index) => (
-                        <ListItem key={index} className={classes.listItem}>
+                    {files.length > 0 && files.map((acceptedFile, index) => {
+                        return [<ListItem key={index} className={classes.listItem}>
                             <Paper elevation={3} className={classes.listItemPaper}>
                                 <a href={URL.createObjectURL(acceptedFile)}
                                    download={acceptedFile.name}>{acceptedFile.name}</a>
                             </Paper>
+                        </ListItem>,
+                        <ListItem>
+                        <SeqViz
+                        style = {{height: '50vh', width:'100vw'}}
+                        name="J23100"
+                        seq="TTGsACGGCTAGCTCAGTCCTAGGTACAGTGCTAGC"
+                        annotations={[{ name: "promoter", start: 0, end: 34, direction: 1 }]}
+                        />
                         </ListItem>
-                    ))}
+                    ]})}
                 </List>
             </div>
-
-            <SeqViz
-                style= {{height: '50vh', width:'100vw'}}
-                name="J23100"
-                seq="TTGsACGGCTAGCTCAGTCCTAGGTACAGTGCTAGC"
-                annotations={[{ name: "promoter", start: 0, end: 34, direction: 1 }]}
-            />
         </div>
     )
 }
