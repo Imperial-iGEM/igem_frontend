@@ -8,14 +8,24 @@ import {makeStyles} from '@material-ui/core/styles';
 import MenuDraw from "./MenuDraw";
 import {Redirect, useLocation} from "react-router-dom";
 import { SeqViz } from "seqviz";
-
+import  fileDebugLogger from "./fileDebugLogger";
 
 export default function FileUpload(props) {
     const [files, setFiles] = useState([]);
     const [navigate, setNavigate] = useState(false);
     const [navigateTo, setNavigateTo] = useState({})
     let currentLocation = useLocation();
+    if(files.length > 0){
 
+            (async () => {
+                try {
+                    await fileDebugLogger(files[0]);
+                } catch (exception){
+                    console.log(exception)
+                }
+            })()
+
+    }
     function acceptFiles(acceptedFiles) {
         setFiles(acceptedFiles)
     }
@@ -71,9 +81,7 @@ export default function FileUpload(props) {
                         <ListItem>
                         <SeqViz
                         style = {{height: '50vh', width:'100vw'}}
-                        name="J23100"
-                        seq="TTGsACGGCTAGCTCAGTCCTAGGTACAGTGCTAGC"
-                        annotations={[{ name: "promoter", start: 0, end: 34, direction: 1 }]}
+                        file ={acceptedFile}
                         />
                         </ListItem>
                     ]})}
