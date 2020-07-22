@@ -9,17 +9,28 @@ import MenuDraw from "./MenuDraw";
 import {Redirect, useLocation} from "react-router-dom";
 import { SeqViz } from "seqviz";
 import  fileDebugLogger from "./fileDebugLogger";
-
+import axios from "axios"
 export default function FileUpload(props) {
     const [files, setFiles] = useState([]);
     const [navigate, setNavigate] = useState(false);
     const [navigateTo, setNavigateTo] = useState({})
+    const [constructCSV, setConstructCSV] = useState("")
     let currentLocation = useLocation();
     if(files.length > 0){
 
             (async () => {
                 try {
                     await fileDebugLogger(files[0]);
+                    let formData = new FormData();
+                    formData.append('file', files[0]);
+                    // Assuming ktor backend is running on localhost:8080
+                    let response = await axios.post("http://localhost:8080/upload", formData);
+                    if(response.status === 200){
+                        setConstructCSV(response.data)
+                        // test for status you want, etc
+                        console.log(response.status)
+                        console.log(response)
+                    }
                 } catch (exception){
                     console.log(exception)
                 }
@@ -86,6 +97,7 @@ export default function FileUpload(props) {
                         </ListItem>
                     ]})}
                 </List>
+                <p>{constructCSV}</p>
             </div>
         </div>
     )
