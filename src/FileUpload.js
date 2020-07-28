@@ -10,35 +10,70 @@ import {Redirect, useLocation} from "react-router-dom";
 import { SeqViz } from "seqviz";
 import  fileDebugLogger from "./fileDebugLogger";
 import axios from "axios"
+import {RiseLoader} from "react-spinners";
 export default function FileUpload(props) {
     const [files, setFiles] = useState([]);
     const [navigate, setNavigate] = useState(false);
     const [navigateTo, setNavigateTo] = useState({})
     const [constructCSV, setConstructCSV] = useState("")
+    const [pythonLink1, setPythonLink1] = useState("")
+    const [pythonLink2, setPythonLink2] = useState("")
+    const [pythonLink3, setPythonLink3] = useState("")
+    const [pythonLink4, setPythonLink4] = useState("")
+    const [done, setDone] = useState(false)
     let currentLocation = useLocation();
-    if(files.length > 0){
-
-            (async () => {
-                try {
-                    await fileDebugLogger(files[0]);
-                    let formData = new FormData();
-                    formData.append('file', files[0]);
-                    // Assuming ktor backend is running on localhost:8080
-                    let response = await axios.post("http://localhost:8080/upload", formData);
-                    if(response.status === 200){
-                        setConstructCSV(response.data)
-                        // test for status you want, etc
-                        console.log(response.status)
-                        console.log(response)
-                    }
-                } catch (exception){
-                    console.log(exception)
-                }
-            })()
-
-    }
+    // if(files.length > 0 && !done){
+    //
+    //         (async () => {
+    //             try {
+    //                 await fileDebugLogger(files[0]);
+    //                 let formData = new FormData();
+    //                 formData.append('file', files[0]);
+    //                 // Assuming ktor backend is running on localhost:8080
+    //                 setDone(true)
+    //                 let response = await axios.post("http://localhost:8080/upload", formData);
+    //
+    //                 if(response.status === 200){
+    //                     // test for status you want, etc
+    //                     console.log(response.status)
+    //                     console.log(response)
+    //                     setPythonLink1(response.python_output_1)
+    //                     setPythonLink2(response.python_output_2)
+    //                     setPythonLink3(response.python_output_3)
+    //                     setPythonLink4(response.python_output_4)
+    //
+    //                 }
+    //             } catch (exception){
+    //                 console.log(exception)
+    //             }
+    //         })()
+    //
+    // }
     function acceptFiles(acceptedFiles) {
-        setFiles(acceptedFiles)
+        setFiles(acceptedFiles);
+        (async () => {
+            try {
+                await fileDebugLogger(acceptedFiles[0]);
+                let formData = new FormData();
+                formData.append('file', acceptedFiles[0]);
+                // Assuming ktor backend is running on localhost:8080
+                setDone(true)
+                let response = await axios.post("http://localhost:8080/upload", formData);
+
+                if(response.status === 200){
+                    // test for status you want, etc
+                    console.log(response.status)
+                    console.log(response)
+                    setPythonLink1(`${response.data.python_output_1}`)
+                    setPythonLink2(`${response.data.python_output_2}`)
+                    setPythonLink3(`${response.data.python_output_3}`)
+                    setPythonLink4(`${response.data.python_output_4}`)
+
+                }
+            } catch (exception){
+                console.log(exception)
+            }
+        })()
     }
 
     useEffect(() => {
@@ -89,15 +124,42 @@ export default function FileUpload(props) {
                                    download={acceptedFile.name}>{acceptedFile.name}</a>
                             </Paper>
                         </ListItem>,
-                        <ListItem>
-                        <SeqViz
-                        style = {{height: '50vh', width:'100vw'}}
-                        file ={acceptedFile}
-                        />
-                        </ListItem>
-                    ]})}
+                            <ListItem key={10}>
+                                <SeqViz
+                                    style = {{height: '50vh', width:'100vw'}}
+                                    file ={acceptedFile}
+                                /></ListItem>]})}
+                            {pythonLink1 !== "" && <ListItem key={11} className={classes.listItem}>
+                                <Paper elevation={3} className={classes.listItemPaper}>
+                                    <a href={pythonLink1}
+                                       download="1_clip.ot2.py">1_clip.ot2.py</a>
+                                </Paper>
+                            </ListItem>}
+                            {pythonLink2 !== "" && <ListItem key={12} className={classes.listItem}>
+                                <Paper elevation={3} className={classes.listItemPaper}>
+                                    <a href={pythonLink2}
+                                       download="2_purification.ot2.py">2_purification.ot2.py</a>
+                                </Paper>
+                            </ListItem>}
+                            {pythonLink3 !== "" && <ListItem key={13} className={classes.listItem}>
+                                <Paper elevation={3} className={classes.listItemPaper}>
+                                    <a href={pythonLink3}
+                                       download="3_assembly.ot2.py">3_assembly.ot2.py</a>
+                                </Paper>
+                            </ListItem>}
+                            {pythonLink4 !== "" && <ListItem key={14} className={classes.listItem}>
+                                <Paper elevation={3} className={classes.listItemPaper}>
+                                    <a href={pythonLink4}
+                                       download="4_transformation.ot2.py">4_transformation.ot2.py</a>
+                                </Paper>
+                            </ListItem>},
                 </List>
-                <p>{constructCSV}</p>
+                <RiseLoader
+                    css={{alignSelf:'center'}}
+                    size={150}
+                    color={"#123abc"}
+                    loading={pythonLink1 === "" && pythonLink2 === "" && pythonLink3 === "" && pythonLink4 === "" && files.length > 0}
+                />
             </div>
         </div>
     )
