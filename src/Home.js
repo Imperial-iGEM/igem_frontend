@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import {Redirect, useLocation} from "react-router-dom";
+import {Redirect, useLocation, withRouter} from "react-router-dom";
 import MenuDraw from "./MenuDraw";
 import useScript from "./useScript";
 
-export default function Home(props) {
+
+function Home(props) {
     const [navigate, setNavigate] = useState(false);
     const [navigateTo, setNavigateTo] = useState({})
     let currentLocation = useLocation();
@@ -26,8 +27,10 @@ export default function Home(props) {
         "    }"
 
     const webSwingScriptTwo =
-        "(function (window, document) {\n" +
+        "function webFunction(window, document) {\n" +
+        "        console.log('function ran'); \n" +
         "        var loader = function () {\n" +
+        "        console.log('function ran 2'); \n" +
         "            var baseUrl = 'https://www.imperialigem2020.live/sboldesigner';\n" +
         "            baseUrl = baseUrl.indexOf(\"/\", baseUrl.length - 1) !== -1 ? baseUrl : (baseUrl + \"/\");\n" +
         "            var xmlhttp = new XMLHttpRequest();\n" +
@@ -43,11 +46,20 @@ export default function Home(props) {
         "            xmlhttp.open(\"GET\", baseUrl + \"rest/version\", true);\n" +
         "            xmlhttp.send();\n" +
         "        };\n" +
-        "        window.addEventListener ? window.addEventListener(\"load\", loader, false) : window.attachEvent(\"onload\", loader);\n" +
-        "    })(window, document);"
+        "        window.addEventListener ? window.addEventListener(\"test\", loader, false) : window.attachEvent(\"test\", loader);\n" +
+        "    }"
     const webSwingScriptTwoAttributes = {"data-webswing-global-var": "webswing"};
+
+
+
     useScript(webSwingScriptOne, {}, false, false);
     useScript(webSwingScriptTwo, webSwingScriptTwoAttributes, false, false);
+    useEffect(() =>{
+        const onLoad = window.dispatchEvent;
+        const testFunc = window.webFunction;
+        testFunc(window, document);
+        onLoad(new Event('test') );
+    },[])
 
     //Custom function to intercept tab selection to allow for saving of data etc before changing tabs.
     let handleTabSelection = function (location, index) {
@@ -70,3 +82,5 @@ export default function Home(props) {
             </div>]
     )
 }
+
+export default withRouter(Home);

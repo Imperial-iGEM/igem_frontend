@@ -30,7 +30,19 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
+    <script>
+      var testData = "";
+      var testReturn = "";
+      function test(){
+        return btoa(testData);
+      }
 
+      function outOfSBOLDesigner(newSBOl){
+        testReturn = atob(newSBOl);
+        console.log(newSBOl);
+        console.log(testReturn);
+      }
+    </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.

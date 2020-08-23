@@ -4,7 +4,8 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
+    withRouter
 } from "react-router-dom";
 import FileUpload from './FileUpload'
 import MenuDraw from './MenuDraw'

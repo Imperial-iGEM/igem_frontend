@@ -16,7 +16,7 @@ const useScript = (scriptContent, attributes = {}, async = false, defer = false)
         }
 
         return () => {
-            document.body.removeChild(script);
+            // document.body.removeChild(script);
         }
     }, [scriptContent]);
 };

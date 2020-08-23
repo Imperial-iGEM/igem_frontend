@@ -20,6 +20,7 @@ export default function FileUpload(props) {
     const [pythonLink2, setPythonLink2] = useState("")
     const [pythonLink3, setPythonLink3] = useState("")
     const [pythonLink4, setPythonLink4] = useState("")
+    const [fileString, setFileString] = useState("");
     const [done, setDone] = useState(false)
     let currentLocation = useLocation();
     // if(files.length > 0 && !done){
@@ -51,29 +52,45 @@ export default function FileUpload(props) {
     // }
     function acceptFiles(acceptedFiles) {
         setFiles(acceptedFiles);
-        (async () => {
-            try {
-                await fileDebugLogger(acceptedFiles[0]);
-                let formData = new FormData();
-                formData.append('file', acceptedFiles[0]);
-                // Assuming ktor backend is running on localhost:8080
-                setDone(true)
-                let response = await axios.post("http://localhost:8080/upload", formData);
+        acceptedFiles.forEach((file) => {
+            const reader = new FileReader()
 
-                if(response.status === 200){
-                    // test for status you want, etc
-                    console.log(response.status)
-                    console.log(response)
-                    setPythonLink1(`${response.data.python_output_1}`)
-                    setPythonLink2(`${response.data.python_output_2}`)
-                    setPythonLink3(`${response.data.python_output_3}`)
-                    setPythonLink4(`${response.data.python_output_4}`)
-
-                }
-            } catch (exception){
-                console.log(exception)
+            reader.onabort = () => console.log('file reading was aborted')
+            reader.onerror = () => console.log('file reading has failed')
+            reader.onload = () => {
+                // Do whatever you want with the file contents
+                const string = reader.result
+                setFileString(string);
+                window.testData = string
+                console.log(string)
             }
-        })()
+            reader.readAsText(file)
+        });
+
+        // (async () => {
+        //     try {
+        //         await fileDebugLogger(acceptedFiles[0]);
+        //         let formData = new FormData();
+        //         console.log(acceptedFiles[0]);
+        //         formData.append('file', acceptedFiles[0]);
+        //         // Assuming ktor backend is running on localhost:8080
+        //         setDone(true)
+        //         let response = await axios.post("http://localhost:8080/upload", formData);
+        //
+        //         if(response.status === 200){
+        //             // test for status you want, etc
+        //             console.log(response.status)
+        //             console.log(response)
+        //             setPythonLink1(`${response.data.python_output_1}`)
+        //             setPythonLink2(`${response.data.python_output_2}`)
+        //             setPythonLink3(`${response.data.python_output_3}`)
+        //             setPythonLink4(`${response.data.python_output_4}`)
+        //
+        //         }
+        //     } catch (exception){
+        //         console.log(exception)
+        //     }
+        // })()
     }
 
     useEffect(() => {
@@ -82,7 +99,6 @@ export default function FileUpload(props) {
 
 
     const classes = useStyles();
-
     //Custom function to intercept tab selection to allow for saving of data etc before changing tabs.
     let handleTabSelection = function (location, index) {
         console.log(`In FileUpload Component; Text: ${location.text}, Path: ${location.path}, Index: ${index}`)
