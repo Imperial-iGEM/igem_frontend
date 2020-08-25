@@ -1,12 +1,16 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from "react";
 import {Redirect, useLocation} from "react-router-dom";
-import MenuDraw from "./MenuDraw";
-import PartsList from "./PartsList";
-import ConstructViewer from "./ConstructViewer";
-import PartsInfo from "./PartsInfo";
+import MenuDraw from "../MenuDraw";
+import PartsList from "../PartsList";
+import ConstructViewer from "../ConstructViewer";
+import SBOLAPI from "./SBOLAPI";
+import PartsInfo from "../PartsInfo";
 import {makeStyles} from "@material-ui/core/styles";
+import SBOLAPIClass from "./SBOLAPIClass";
 
-export default function GeneDesign(props) {
+import { BrowserRouter as Router, Route } from 'react-router-dom'; //??
+
+export default function SBOLValidator(props) {
     const [navigate, setNavigate] = useState(false);
     const [navigateTo, setNavigateTo] = useState({})
     let currentLocation = useLocation();
@@ -33,11 +37,12 @@ export default function GeneDesign(props) {
         <div>
             <MenuDraw {...props} handleTabSelection={handleTabSelection}/>
             <div className={classes.root}>
-                <PartsList/>
-                <ConstructViewer/>
-                <PartsInfo/>
+                <SBOLAPIClass/>
+
             </div>
         </div>
+
+
     )
 }
 

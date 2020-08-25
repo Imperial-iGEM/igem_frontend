@@ -11,6 +11,7 @@ import { SeqViz } from "seqviz";
 import  fileDebugLogger from "./fileDebugLogger";
 import axios from "axios"
 import {RiseLoader} from "react-spinners";
+
 export default function FileUpload(props) {
     const [files, setFiles] = useState([]);
     const [navigate, setNavigate] = useState(false);

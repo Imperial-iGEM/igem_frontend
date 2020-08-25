@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import NavBar from './NavBar'
+import axios from 'axios';
+import SBOLAPIClass from "./SBOLValidation/SBOLAPIClass";
 import {
     BrowserRouter as Router,
     Switch,
@@ -13,6 +15,8 @@ import GeneDesign from "./GeneDesign";
 import Home from './Home';
 import CombinatorialSpecifications from "./CombinatorialSpecifications";
 import GenerateProtocol from "./GenerateProtocol";
+// new Page
+import SBOLValidator from './SBOLValidation/SBOLValidator';
 
 function App() {
     const [sideBarCategories, setSideBarCategories] = useState([{text: 'Home', path: '/'}, {
@@ -21,7 +25,11 @@ function App() {
     }, {text: 'Combinatorial Specifications', path: '/combinatorial_specifications'}, {
         text: 'Generate Protocol',
         path: '/generate_protocol'
-    }, {text: 'File Upload', path: '/file_upload'}])
+    }, {text: 'File Upload', path: '/file_upload'}, {
+        text: 'SBOL Validator', path: '/SBOLValidator'
+    }
+
+    ])
     return (
         <Router>
             <div>
@@ -41,10 +49,15 @@ function App() {
                         <GenerateProtocol name="Imperial iGEM 2020 – Generate Protocol"
                                           sideBarCategories={sideBarCategories}/>
                     </Route>
+                    <Route path="/SBOLValidator">
+                        <SBOLValidator name="SBOLValidator"
+                                          sideBarCategories={sideBarCategories}/>
+                    </Route>
                     <Route path="/file_upload">
                         <FileUpload name="Imperial iGEM 2020 – File Upload" sideBarCategories={sideBarCategories}/>
                     </Route>
                 </Switch>
+
             </div>
         </Router>
 
