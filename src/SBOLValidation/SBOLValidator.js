@@ -1,14 +1,9 @@
 import React, {useState, useEffect} from "react";
 import {Redirect, useLocation} from "react-router-dom";
 import MenuDraw from "../MenuDraw";
-import PartsList from "../PartsList";
-import ConstructViewer from "../ConstructViewer";
-import SBOLAPI from "./SBOLAPI";
-import PartsInfo from "../PartsInfo";
 import {makeStyles} from "@material-ui/core/styles";
-import SBOLAPIClass from "./SBOLAPIClass";
+import SBOLAPIClass from "../SBOLAPIClass";
 
-import { BrowserRouter as Router, Route } from 'react-router-dom'; //??
 
 export default function SBOLValidator(props) {
     const [navigate, setNavigate] = useState(false);
