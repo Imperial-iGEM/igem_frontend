@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Redirect, useLocation} from "react-router-dom";
 import MenuDraw from "../MenuDraw";
 import {makeStyles} from "@material-ui/core/styles";
-import SBOLAPIClass from "../SBOLAPIClass";
+import SBOLAPIClass from "./SBOLAPIClass";
 
 
 export default function SBOLValidator(props) {
