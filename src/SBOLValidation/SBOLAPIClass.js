@@ -9,6 +9,7 @@ import { SeqViz } from "seqviz";
 import axios from "axios"
 import {Typography} from "@material-ui/core";
 import SBOLValidationComponent from "../PageComponents/SBOLValidationComponent";
+import ComponentTutorialFileUpload from "../PageComponents/ComponentTutorialFileUpload";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 
