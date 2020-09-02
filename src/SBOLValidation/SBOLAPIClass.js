@@ -7,7 +7,8 @@ import {makeStyles} from '@material-ui/core/styles';
 import {Redirect, useLocation} from "react-router-dom";
 import { SeqViz } from "seqviz";
 import axios from "axios"
-import {RiseLoader} from "react-spinners";
+import {Typography} from "@material-ui/core";
+import SBOLValidationComponent from "../PageComponents/SBOLValidationComponent";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 
@@ -75,11 +76,37 @@ export default function FileUpload(props) {
 
                 });
 
-                console.log("Axios has run!!");
 
                 console.log("response.status: ",response.status);
+                console.log("response: ",response);
+                var errorString= "Errors:  \n";
+                var i;
+                console.log("length", response.data.errors.length);
+                if(response.data.errors[0] !== "") {
+                    for (i = 0; i < response.data.errors.length; i++) {
+                        errorString = '\n' + errorString + response.data.errors[i].toString() + '\n' + "             " + '\n';
 
-                console.log("response: ", response);
+                    }
+                    document.getElementById("errorBox").innerText = errorString;
+
+                }
+                else{
+                    document.getElementById("errorBox").innerText = "No Errors";
+
+                }
+                if(response.data.errors[0] === "") {
+                        var outPutFile = response.data.output_file;
+                    document.getElementById("outPutFile").innerText = "Link to download validated file: \n" +  outPutFile;
+
+                }
+                else{
+                    document.getElementById("outPutFile").innerText = "Fix Errors and try again";
+
+                }
+                console.log("errorString", errorString);
+
+                console.log("errorString: ", typeof errorString);
+
                 console.log("response.headers: ", response.request);
                 console.log("file: ", (files));
                 console.log("files[0]: ", (files[0]));
@@ -150,11 +177,8 @@ export default function FileUpload(props) {
 
                         ]})}
                 </List>
-                <RiseLoader
-                    css={{alignSelf:'center'}}
-                    size={150}
-                    color={"#123abc"}
-                />
+                <SBOLValidationComponent></SBOLValidationComponent>
+
             </div>
         </div>
     )

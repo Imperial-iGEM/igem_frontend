@@ -11,6 +11,7 @@ import { SeqViz } from "seqviz";
 import  fileDebugLogger from "./fileDebugLogger";
 import axios from "axios"
 import {RiseLoader} from "react-spinners";
+import {Typography} from "@material-ui/core";
 
 export default function FileUpload(props) {
     const [files, setFiles] = useState([]);
@@ -233,3 +234,8 @@ const useStyles = makeStyles((theme) => ({
         margin: 10
     }
 }));
+
+
+
+
+

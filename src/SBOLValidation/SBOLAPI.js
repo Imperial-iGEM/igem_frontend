@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {Paper, Typography} from "@material-ui/core";
 import SBOLAPIClass from './SBOLAPIClass'
 import MenuDraw from "../MenuDraw";
-import ConstructViewer from "../ConstructViewer";
+import ConstructViewer from "../PageComponents/ConstructViewer";
 export default function SBOLAPI(props){
 
 

@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import {Redirect, useLocation} from "react-router-dom";
 import MenuDraw from "./MenuDraw";
-import ConstructSelection from "./ConstructSelection";
+import ConstructSelection from "./PageComponents/ConstructSelection";
 import DoE from "./DoE";
-import AssemblyMethod from "./AssemblyMethod";
+import AssemblyMethod from "./PageComponents/AssemblyMethod";
 import ProtocolSelect from "./ProtocolSelect";
-import Preview from "./Preview";
+import Preview from "./PageComponents/Preview";
 import RobotSelect from "./RobotSelect";
 import Generate from "./Generate";
 import {makeStyles} from "@material-ui/core/styles";

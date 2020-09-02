@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import {Redirect, useLocation} from "react-router-dom";
 import MenuDraw from "./MenuDraw";
-import PartsList from "./PartsList";
-import ConstructViewer from "./ConstructViewer";
-import PartsInfo from "./PartsInfo";
+import PartsList from "./PageComponents/PartsList";
+import ConstructViewer from "./PageComponents/ConstructViewer";
+import PartsInfo from "./PageComponents/PartsInfo";
 import {makeStyles} from "@material-ui/core/styles";
 
 export default function GeneDesign(props) {
