@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import NavBar from './NavBar'
 import axios from 'axios';
-import SBOLAPIClass from "./SBOLValidation/SBOLAPIClass";
 import {
     BrowserRouter as Router,
     Switch,
@@ -10,14 +9,13 @@ import {
     withRouter
 } from "react-router-dom";
 import FileUpload from './FileUpload'
-import MenuDraw from './MenuDraw'
 import GeneDesign from "./GeneDesign";
 import Home from './Home';
 import CombinatorialSpecifications from "./CombinatorialSpecifications";
 import GenerateProtocol from "./GenerateProtocol";
 // new Page
 import SBOLValidator from './SBOLValidation/SBOLValidator';
-
+import SimpleTabs from "./PageComponents/SimpleTabs";
 function App() {
     const [sideBarCategories, setSideBarCategories] = useState([{text: 'Home', path: '/'}, {
         text: 'Gene Design',
@@ -25,9 +23,8 @@ function App() {
     }, {text: 'Combinatorial Specifications', path: '/combinatorial_specifications'}, {
         text: 'Generate Protocol',
         path: '/generate_protocol'
-    }, {text: 'File Upload', path: '/file_upload'}, {
-        text: 'SBOL Validator', path: '/SBOLValidator'
-    }
+    },
+        {        text: 'SimpleTabs', path: '/SimpleTabs'}
 
     ])
     return (
@@ -49,12 +46,10 @@ function App() {
                         <GenerateProtocol name="Imperial iGEM 2020 – Generate Protocol"
                                           sideBarCategories={sideBarCategories}/>
                     </Route>
-                    <Route path="/SBOLValidator">
-                        <SBOLValidator name="SBOLValidator"
-                                          sideBarCategories={sideBarCategories}/>
-                    </Route>
-                    <Route path="/file_upload">
-                        <FileUpload name="Imperial iGEM 2020 – File Upload" sideBarCategories={sideBarCategories}/>
+
+
+                    <Route path="/SimpleTabs">
+                        <SimpleTabs name="TABBO" sideBarCategories={sideBarCategories}/>
                     </Route>
                 </Switch>
 

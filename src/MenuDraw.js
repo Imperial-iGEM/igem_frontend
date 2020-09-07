@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from "react";
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,7 +16,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 const drawerWidth = 300;
 
 export default function MenuDrawer(props) {
-    const sideBarCategories = props.sideBarCategories
+    const sideBarCategories = props.sideBarCategories;
     const classes = useStyles();
     const theme = useTheme();
     const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -31,7 +31,7 @@ export default function MenuDrawer(props) {
     const drawer = (
         <div>
             <List>
-                {sideBarCategories.map((location, index) => (
+                  {sideBarCategories.map((location, index) => (
                     <ListItem button key={index} onClick={()=>handleTabSelection(location, index)}>
                         <ListItemText primary={location.text} />
                     </ListItem>

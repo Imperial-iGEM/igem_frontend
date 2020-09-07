@@ -3,7 +3,7 @@ import {Card, CardContent, Paper, Typography} from "@material-ui/core";
 import { spacing } from '@material-ui/system';
 
 import Button from "@material-ui/core/Button";
-export default function SBOLValidationComponent(props) {
+export default function ComponentTutorialFileUpload(props) {
 
 
     return (

@@ -5,23 +5,21 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 
 import {makeStyles} from '@material-ui/core/styles';
-import MenuDraw from "./MenuDraw";
 import {Redirect, useLocation} from "react-router-dom";
 import { SeqViz } from "seqviz";
-import  fileDebugLogger from "./fileDebugLogger";
-import axios from "axios"
 import {RiseLoader} from "react-spinners";
-import {Typography} from "@material-ui/core";
 
 export default function FileUpload(props) {
+
     const [files, setFiles] = useState([]);
+
     const [navigate, setNavigate] = useState(false);
-    const [navigateTo, setNavigateTo] = useState({})
-    const [constructCSV, setConstructCSV] = useState("")
-    const [pythonLink1, setPythonLink1] = useState("")
-    const [pythonLink2, setPythonLink2] = useState("")
-    const [pythonLink3, setPythonLink3] = useState("")
-    const [pythonLink4, setPythonLink4] = useState("")
+    const [navigateTo, setNavigateTo] = useState({});
+    const [constructCSV, setConstructCSV] = useState("");
+    const [pythonLink1, setPythonLink1] = useState("");
+    const [pythonLink2, setPythonLink2] = useState("");
+    const [pythonLink3, setPythonLink3] = useState("");
+    const [pythonLink4, setPythonLink4] = useState("");
     const [fileString, setFileString] = useState("");
     const [done, setDone] = useState(false)
     let currentLocation = useLocation();
@@ -120,7 +118,6 @@ export default function FileUpload(props) {
     return (
         <div>
             {/* Include MenuDraw at top, ensuring props are passed through function for handleTabSelection*/}
-            <MenuDraw {...props} handleTabSelection={handleTabSelection}/>
             <div className={classes.root}>
                 <Paper elevation={3} className={classes.dropZone}>
                     <Dropzone onDrop={acceptedFiles => acceptFiles(acceptedFiles)}>
@@ -226,7 +223,7 @@ const useStyles = makeStyles((theme) => ({
         padding: 20,
         borderWidth: 2,
         borderRadius: 2,
-        borderColor: '#eeeeee',
+        borderColor: '#FF6F90',
         borderStyle: 'dashed',
         backgroundColor: "#fafafa",
         color: '#bdbdbd',
