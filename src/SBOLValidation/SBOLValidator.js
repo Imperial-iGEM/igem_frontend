@@ -7,9 +7,10 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { SeqViz } from "seqviz";
 import axios from "axios";
-
+import HelpIcon from '@material-ui/icons/Help';
 import SBOLValidationComponent from "../SBOLValidationComponent";
-
+import TutorialButton from "../PageComponents/TutorialButton";
+import TutorialPageFileUpload from "../TutorialPageFileUpload";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 export default function SBOLValidator(props) {
@@ -166,13 +167,14 @@ export default function SBOLValidator(props) {
                     <Paper elevation={3} >
                         <SBOLValidationComponent></SBOLValidationComponent>
                     </Paper>
-                </div>
+
+                    </div>
             </div>
         </div>
     )
 
 }
-
+//                    <img src={(HelpIcon)} width="10px" title="Allow references to TopLevel objects not contained within the document."/>
 
 
 const useStyles = makeStyles((theme) => ({

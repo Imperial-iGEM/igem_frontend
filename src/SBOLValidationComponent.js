@@ -4,6 +4,7 @@ import { spacing } from '@material-ui/system';
 import Button from "@material-ui/core/Button";
 
 import Grid from "@material-ui/core/Grid";
+
 export default function SBOLValidationComponent(props) {
 
 
@@ -14,25 +15,14 @@ export default function SBOLValidationComponent(props) {
                     Errors
                 </Typography>
             </Paper>
+
             <Paper style={{padding:20, marginTop:10, marginBottom:10}}>
 
                 <Typography variant="h6"  style = {{padding:20}}  id={"outPutFile"}>
                     OutputFile
                 </Typography>
-
-
-
             </Paper>
-            <Grid container
-                  direction="column-reverse"
-                  justify="center"
-                  alignItems="center">
-                <Grid item xl>
-                    <Button variant="contained" color="primary" centerRipple={3}>
-                        Info
-                    </Button>
-                </Grid>
-            </Grid>
+
         </div>
     )
 }
