@@ -1,13 +1,10 @@
 import React, {useState} from 'react';
 import { makeStyles,Tabs, Tab, AppBar } from '@material-ui/core';
-import Paper from '@material-ui/core/Paper';
 
 import SBOLValidator from "../SBOLValidation/SBOLValidator";
 import FileUpload from "../FileUpload";
 import MenuDraw from "../MenuDraw";
 import TutorialButton from "./TutorialButton"
-//import Helper from "../../public/Helper.svg";
-import SBOLValidationComponent from "../SBOLValidationComponent";
 import {Redirect, useLocation} from "react-router-dom";
 const useStyles = makeStyles({
     root: {
@@ -58,15 +55,16 @@ export default function SimpleTabs(props) {
                 indicatorColor="#FF6F90"
                 textColor="primary"
                 centered
-                variant="fullWidth">
+                variant="standard">
 
-                <Tab label="Upload File"  />
-                <img src={process.env.PUBLIC_URL + 'help_outline.svg'} title="Upload without validating"/>
+                <Tab label="Upload File"  >
+</Tab>
+    <Tab label="Upload File and Validate">
 
-                <Tab label="Upload File and Validate"/>
-                <img src={process.env.PUBLIC_URL + 'help_outline.svg'} title ="Upload after validating"/>
+                </Tab>
 
             </Tabs>
+                <img src={process.env.PUBLIC_URL + 'help_outline.svg'} title="Upload after validating"/>
 
             </AppBar>
             {selectedTab === 1 && <SBOLValidator/>}
