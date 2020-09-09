@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-//put helper in public and import in style import Helper from 'src/PageComponents/Helper.svg';
 import Helper from '../PageComponents/Helper.svg';
 import {Card, CardContent, Paper, Typography} from "@material-ui/core";
 import TutorialPageFileUpload from "../TutorialPageFileUpload";

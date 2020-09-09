@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Dropzone from 'react-dropzone'
-import Paper from '@material-ui/core/Paper'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
+import {Paper, List, ListItem, makeStyles} from '@material-ui/core'
 
-import {makeStyles} from '@material-ui/core/styles';
 import {Redirect, useLocation} from "react-router-dom";
 import { SeqViz } from "seqviz";
 import {RiseLoader} from "react-spinners";

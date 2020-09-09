@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 
-import Helper from './PageComponents/Helper.svg';
 export default function TutorialPageFileUpload(props){
 
     const imageClick = () => {
