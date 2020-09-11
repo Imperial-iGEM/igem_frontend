@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 import { makeStyles,Tabs, Tab, AppBar } from '@material-ui/core';
-import Paper from '@material-ui/core/Paper';
 
 import SBOLValidator from "../SBOLValidation/SBOLValidator";
 import FileUpload from "../FileUpload";
 import MenuDraw from "../MenuDraw";
-
-import SBOLValidationComponent from "../SBOLValidationComponent"
+import TutorialButton from "./TutorialButton"
 import {Redirect, useLocation} from "react-router-dom";
 const useStyles = makeStyles({
     root: {
@@ -18,7 +16,7 @@ export default function SimpleTabs(props) {
     const classes = useStyles();
     const [selectedTab, setSelectedTab] = React.useState(0);
     const [navigate, setNavigate] = useState(false);
-    const [navigateTo, setNavigateTo] = useState({})
+    const [navigateTo, setNavigateTo] = useState({});
     let currentLocation = useLocation();
 
 //the value is which tab is selected
@@ -27,11 +25,14 @@ export default function SimpleTabs(props) {
     const handleChange = (event, newValue) => {
         setSelectedTab(newValue);
     }; // Triggered whenever we take a new value
+
+
     let handleTabSelection = function (location, index) {
         console.log(`In GeneDesign Component; Text: ${location.text}, Path: ${location.path}, Index: ${index}`)
         setNavigateTo({path: location.path, push: true, state: {referrer: currentLocation}})
         setNavigate(true)
     }
+
     if (navigate) {
         return (<Redirect
             to={{
@@ -54,16 +55,23 @@ export default function SimpleTabs(props) {
                 indicatorColor="#FF6F90"
                 textColor="primary"
                 centered
-                variant="fullWidth">
+                variant="standard">
 
-                <Tab label="Upload File"  />
-                <Tab label="Upload File and Validate"/>
+                <Tab label="Upload File"  >
+</Tab>
+    <Tab label="Upload File and Validate">
+
+                </Tab>
+
             </Tabs>
+                <img src={process.env.PUBLIC_URL + 'help_outline.svg'} title="Upload after validating"/>
 
             </AppBar>
             {selectedTab === 1 && <SBOLValidator/>}
             {selectedTab === 0 && <FileUpload/>}
-
-        </>
+<div>
+            <TutorialButton></TutorialButton>
+    </div>
+            </>
     );
 }

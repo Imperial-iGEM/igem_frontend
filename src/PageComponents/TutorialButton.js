@@ -1,13 +1,94 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Helper from '../PageComponents/Helper.svg';
+import {Card, CardContent, Paper, Typography} from "@material-ui/core";
+import TutorialPageFileUpload from "../TutorialPageFileUpload";
+import {Redirect, useLocation} from "react-router-dom";
+import Modal from "@material-ui/core/Modal";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    withRouter
+} from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import Typography from '@material-ui/core/Typography';
 
+import GenerateProtocol from "../GenerateProtocol";
+const useStyles = makeStyles((theme) => ({
+    paper: {
+        position: 'absolute',
+        width: 400,
+        backgroundColor: theme.palette.background.paper,
+        border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+    },
+}));
+function getModalStyle() {
+    const top = 50 ;
+    const left = 50 ;
+
+    return {
+        top: `${top}%`,
+        left: `${left}%`,
+        transform: `translate(-${top}%, -${left}%)`,
+    };
+}
+
+export default function TutorialButton(props) {
+    const [selectedTab, setSelectedTab] = React.useState(0);
+    const [navigate, setNavigate] = useState(false);
+    const [navigateTo, setNavigateTo] = useState({});
+    let currentLocation = useLocation();
+    const [open, setOpen] = React.useState(false);
+    const classes = useStyles();
+    const [modalStyle] = React.useState(getModalStyle);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const body = (
+        <div style={modalStyle} className={classes.paper}>
+            <h2 id="simple-modal-title">Tutorial Page</h2>
+            <p id="simple-modal-description">
+<TutorialPageFileUpload/>
+            </p>
+        </div>
+    );
+
+
+    return(
+            <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
+                <img src={process.env.PUBLIC_URL + 'Helper2.svg'} height={100} width={100} onClick ={handleOpen}/>
+
+
+                <Modal
+                    open={open}
+                    onClose={handleClose}
+
+                    aria-labelledby="simple-modal-title"
+                    aria-describedby="simple-modal-description">
+                    {body}</Modal>
+
+            </div>
+        )
+
+
+    }
+
+
+/*
 const images = [
     {
-        url: 'public/Helper.svg',
+       // url: 'jetbrains://web-storm/navigate/reference?project=igem_frontend&path=public/Helper2.png',
         title: 'Help',
-        width: '40%',
+        width: '50%',
+        height:'30%',
     },
 ];
 
@@ -15,15 +96,15 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
         flexWrap: 'wrap',
-        minWidth: 300,
+        minWidth: 550,
         width: '100%',
     },
     image: {
         position: 'relative',
-        height: 200,
+        height: 400, //ORIGINAL 200
         [theme.breakpoints.down('xs')]: {
             width: '100% !important', // Overrides inline-style
-            height: 100,
+            height: '10%',//ORIGINAL 100
         },
         '&:hover, &$focusVisible': {
             zIndex: 1,
@@ -95,16 +176,16 @@ export default function ButtonBases() {
                     key={image.title}
                     className={classes.image}
                     focusVisibleClassName={classes.focusVisible}
+
                     style={{
-                        width: image.width,
-                    }}
-                >
+                        width: image.width,}}>
           <span
               className={classes.imageSrc}
               style={{
-                  backgroundImage: 'public/Helper.svg', //`url(${image.url})`,
-              }}
-          />
+                  backgroundImage: `url(${require("C:\\Users\\User\\Documents\\GitHub\\igem_frontend\\src\\PageComponents\\Helper.svg")})`
+                  //backgroundImage: `url(${image.url})`, //fundamental line
+                 // <div style={{ backgroundImage: `url(require("images/img.svg"))` }}>
+              }}/>
                     <span className={classes.imageBackdrop} />
                     <span className={classes.imageButton}>
             <Typography
@@ -121,4 +202,5 @@ export default function ButtonBases() {
             ))}
         </div>
     );
-}
+
+ */

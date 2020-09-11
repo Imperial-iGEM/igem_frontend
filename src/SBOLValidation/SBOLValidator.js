@@ -7,25 +7,19 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { SeqViz } from "seqviz";
 import axios from "axios";
-
-import SBOLValidationComponent from "../SBOLValidationComponent";
+import Typography from "@material-ui/core/Typography";
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 export default function SBOLValidator(props) {
+
     const classes = useStyles();
     const [files, setFiles] = useState([]);
     const [done, setDone] = useState(false)
     const [fileString,  setFileString]  = useState("")
 
-    const [navigate, setNavigate] = useState(false);
-    const [navigateTo, setNavigateTo] = useState({});
+    //Custom function to intercept tab selection to allow for saving of data etc before changing tabs.
 
-    const [constructCSV, setConstructCSV] = useState("");
-    const [pythonLink1, setPythonLink1] = useState("");
-    const [pythonLink2, setPythonLink2] = useState("");
-    const [pythonLink3, setPythonLink3] = useState("");
-    const [pythonLink4, setPythonLink4] = useState("");
 
     // code to validate a file
     function acceptFiles(acceptedFiles) {
@@ -33,8 +27,6 @@ export default function SBOLValidator(props) {
 
         /*************************************************************************************************************************/
         const reader = new FileReader()
-        reader.onabort = () => console.log('file reading was aborted')
-        reader.onerror = () => console.log('file reading has failed')
         reader.onload = () => {
             let abba = reader.result;
             setFileString(abba);
@@ -164,7 +156,18 @@ export default function SBOLValidator(props) {
                             ]})}
                     </List>
                     <Paper elevation={3} >
-                        <SBOLValidationComponent></SBOLValidationComponent>
+                        <Paper style={{padding:20, marginTop:10, marginBottom:10}} >
+                            <Typography variant="h6"  style = {{padding:20}} id={"errorBox"} >
+                                Errors
+                            </Typography>
+                        </Paper>
+
+                        <Paper style={{padding:20, marginTop:10, marginBottom:10}}>
+
+                            <Typography variant="h6"  style = {{padding:20}}  id={"outPutFile"}>
+                                OutputFile
+                            </Typography>
+                        </Paper>
                     </Paper>
                 </div>
             </div>
