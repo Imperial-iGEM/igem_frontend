@@ -10,7 +10,7 @@ import Select from '@material-ui/core/Select';
 const useStyles = makeStyles((theme) => ({
     formControl: {
       margin: theme.spacing(1),
-      minWidth: 120,
+      minWidth: 200,
     },
     selectEmpty: {
       marginTop: theme.spacing(2),
@@ -32,7 +32,10 @@ export default function LabHardware(props){
     };
 
     return(
-        <div>
+      <Paper elevation={3}>
+        <Typography variant="h2" component="h3">
+          LabHardware
+          <div>
             <FormControl className={classes.formControl}>
             <InputLabel id="demo-simple-select-label">Liquid Handler</InputLabel>
             <Select
@@ -59,6 +62,8 @@ export default function LabHardware(props){
             <MenuItem value={30}>P80</MenuItem>
             </Select>
             </FormControl>
-        </div>
+          </div>
+        </Typography>
+      </Paper>
     )
 }

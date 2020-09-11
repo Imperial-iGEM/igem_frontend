@@ -5,6 +5,7 @@ import PartsList from "./PageComponents/PartsList";
 import ConstructViewer from "./PageComponents/ConstructViewer";
 import PartsInfo from "./PageComponents/PartsInfo";
 import LabHardware from "./PageComponents/LabHardware";
+import Outputfiles from "./PageComponents/OutputFiles";
 import {makeStyles} from "@material-ui/core/styles";
 
 export default function GeneDesign(props) {
@@ -38,6 +39,9 @@ export default function GeneDesign(props) {
                 <ConstructViewer/>
                 <PartsInfo/>
                 <LabHardware/>
+            </div>
+            <div>
+                <Outputfiles/>
             </div>
         </div>
     )
