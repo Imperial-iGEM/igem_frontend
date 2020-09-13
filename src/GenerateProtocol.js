@@ -10,7 +10,6 @@ import RobotSelect from "./RobotSelect";
 import Generate from "./Generate";
 import {makeStyles} from "@material-ui/core/styles";
 import {Grid} from "@material-ui/core";
-
 export default function CombinatorialSpecifications(props) {
     const [navigate, setNavigate] = useState(false);
     const [navigateTo, setNavigateTo] = useState({})
@@ -58,6 +57,7 @@ export default function CombinatorialSpecifications(props) {
                             <Generate/>
                     </Grid>
                 </Grid>
+
             </div>
         </div>
     )

@@ -79,7 +79,9 @@ function Home(props) {
     return (
         [<MenuDraw {...props} handleTabSelection={handleTabSelection}/>,
             <div className="webswing-element" data-webswing-instance="webswingInstance0" style={{height: '100vh'}}>
-            </div>]
+            </div>
+        ]
+
     )
 }
 

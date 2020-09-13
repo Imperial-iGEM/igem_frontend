@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {AppBar} from "@material-ui/core";
 
 export default function TutorialPageFileUpload(props){
 
@@ -8,8 +9,9 @@ export default function TutorialPageFileUpload(props){
 //<img src={(Helper)} onClick={() => imageClick()} height={100} width={100}           />
     return(
 <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
-<h1>Welcome To TutorialPage</h1>
-    </div>
+    <img src={process.env.PUBLIC_URL + 'FileUploadTutorial.png'} title="Upload after validating"/>
+
+</div>
 
     )
 }

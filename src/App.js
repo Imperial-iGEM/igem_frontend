@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import NavBar from './NavBar'
-import axios from 'axios';
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -10,12 +9,12 @@ import {
 } from "react-router-dom";
 import FileUpload from './FileUpload'
 import GeneDesign from "./GeneDesign";
+import HomeComponent from "./PageComponents/HomeComponents/HomeComponent";
 import Home from './Home';
 import CombinatorialSpecifications from "./CombinatorialSpecifications";
 import GenerateProtocol from "./GenerateProtocol";
-// new Page
-import SBOLValidator from './SBOLValidation/SBOLValidator';
 import SimpleTabs from "./PageComponents/SimpleTabs";
+import About from "./PageComponents/InfoComponents/About"
 function App() {
     const [sideBarCategories, setSideBarCategories] = useState([{text: 'Home', path: '/'}, {
         text: 'Gene Design',
@@ -24,7 +23,9 @@ function App() {
         text: 'Generate Protocol',
         path: '/generate_protocol'
     },
-        {        text: 'SimpleTabs', path: '/SimpleTabs'}
+        {        text: 'SimpleTabs', path: '/SimpleTabs'},
+
+        {        text: 'HomeComponent', path: '/HomeComponent'}
 
     ])
     return (
@@ -51,6 +52,11 @@ function App() {
                     <Route path="/SimpleTabs">
                         <SimpleTabs name="TABBO" sideBarCategories={sideBarCategories}/>
                     </Route>
+
+                    <Route path="/HomeComponent">
+                        <HomeComponent name="HomeComponent" sideBarCategories={sideBarCategories}/>
+                    </Route>
+
                 </Switch>
 
             </div>
