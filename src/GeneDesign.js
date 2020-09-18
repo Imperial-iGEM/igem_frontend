@@ -8,6 +8,8 @@ import LabHardware from "./PageComponents/LabHardware";
 import Outputfiles from "./PageComponents/OutputFiles";
 import RunSpecification from "./PageComponents/RunSpecificaton";
 import {makeStyles} from "@material-ui/core/styles";
+import SelectProtocol from "./PageComponents/SelectProtocol.js";
+import StyledButton from "./PageComponents/StyledButton.js";
 
 export default function GeneDesign(props) {
     const [navigate, setNavigate] = useState(false);
@@ -40,6 +42,8 @@ export default function GeneDesign(props) {
                 <ConstructViewer/>
                 <PartsInfo/>
                 <LabHardware/>
+                <SelectProtocol />
+                <StyledButton text="GENERATE SCRIPTS"/>
             </div>
             <div>
                 <Outputfiles/>
@@ -47,6 +51,7 @@ export default function GeneDesign(props) {
             <div>
                 <RunSpecification/>
             </div>
+
         </div>
     )
 }
