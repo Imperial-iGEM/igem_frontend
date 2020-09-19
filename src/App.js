@@ -25,7 +25,9 @@ function App() {
     },
         {        text: 'SimpleTabs', path: '/SimpleTabs'},
 
-        {        text: 'HomeComponent', path: '/HomeComponent'}
+        {        text: 'HomeComponent', path: '/HomeComponent'},
+
+        {        text: 'About', path: '/About'}
 
     ])
     return (
@@ -57,6 +59,9 @@ function App() {
                         <HomeComponent name="HomeComponent" sideBarCategories={sideBarCategories}/>
                     </Route>
 
+                    <Route path="/About">
+                        <About name="About" sideBarCategories={sideBarCategories}/>
+                    </Route>
                 </Switch>
 
             </div>
