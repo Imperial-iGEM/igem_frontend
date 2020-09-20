@@ -17,7 +17,7 @@ export default function StyledButton(props){
             color: '#FFFFFF',
             height: 70,
             width: 380,
-            radius: 10,
+            bordeRadius: 30,
         }
     })(Button);
 

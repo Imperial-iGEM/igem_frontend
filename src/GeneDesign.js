@@ -43,7 +43,9 @@ export default function GeneDesign(props) {
                 <PartsInfo/>
                 <LabHardware/>
                 <SelectProtocol />
-                <StyledButton text="GENERATE SCRIPTS"/>
+            </div>
+            <div>
+            <StyledButton text="GENERATE SCRIPTS"/>
             </div>
             <div>
                 <Outputfiles/>
