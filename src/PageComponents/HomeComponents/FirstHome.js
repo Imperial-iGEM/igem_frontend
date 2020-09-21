@@ -79,7 +79,7 @@ export default function FirstHome(props) {
 
 
     <Box>
-                    <img src={process.env.PUBLIC_URL + 'Helper2.svg'} height="60%" width="60%"  />
+                    <img src={process.env.PUBLIC_URL + 'Helper2.svg'} height="60%" width="60%"  alt="robot"/>
                 </Box>
 </Grid>
 </Grid>
@@ -96,11 +96,11 @@ className={classes.boxman}>
                 <Typography variant={"h6"} color="grey.700">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut al
                 </Typography>
-                  <a>Read More</a>
+                  <h5>Read More</h5>
 
                   </Grid>
               <Grid item sm={6} >
-                  <img src={process.env.PUBLIC_URL + 'logo512.png'} height="70%" width="70%"  />              </Grid>
+                  <img src={process.env.PUBLIC_URL + 'logo512.png'} height="70%" width="70%"  alt="robot"/>              </Grid>
                 </Grid>
 </Box>
             <Box
@@ -121,7 +121,7 @@ className={classes.boxman}>
                         </Typography>
                         <Typography variant={"h6"} color="grey.700">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor                        </Typography>
-                        <a>About</a>
+                        <h5>About</h5>
 
                     </Grid>
 </Grid>

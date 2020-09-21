@@ -18,7 +18,7 @@ const useScript = (scriptContent, attributes = {}, async = false, defer = false)
         return () => {
             // document.body.removeChild(script);
         }
-    }, [scriptContent]);
+    }, [scriptContent, async, attributes, defer]);
 };
 
 export default useScript;

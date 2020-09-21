@@ -64,7 +64,7 @@ export default function TutorialButton(props) {
 
     return(
             <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
-                <img src={process.env.PUBLIC_URL + 'Helper2.svg'} height={100} width={100} onClick ={handleOpen}/>
+                <img src={process.env.PUBLIC_URL + 'Helper2.svg'} height={100} width={100} onClick ={handleOpen} alt="robot"/>
 
 
                 <Modal

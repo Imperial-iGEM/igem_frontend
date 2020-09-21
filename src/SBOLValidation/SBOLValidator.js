@@ -116,7 +116,7 @@ export default function SBOLValidator(props) {
             }
 
         })()
-    }, [fileString]);
+    }, [fileString, files]);
 
     //must go after previous part!
 
