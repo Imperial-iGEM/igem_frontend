@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Card, CardContent, Paper, Typography} from "@material-ui/core";
+import {Card, CardContent, Typography} from "@material-ui/core";
 
 
 export default function AssemblyMethod(props) {

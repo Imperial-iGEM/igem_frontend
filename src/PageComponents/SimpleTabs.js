@@ -13,7 +13,7 @@ const useStyles = makeStyles({
 });
 
 export default function SimpleTabs(props) {
-    const classes = useStyles();
+    //const classes = useStyles();
     const [selectedTab, setSelectedTab] = React.useState(0);
     const [navigate, setNavigate] = useState(false);
     const [navigateTo, setNavigateTo] = useState({});
@@ -64,7 +64,7 @@ export default function SimpleTabs(props) {
                 </Tab>
 
             </Tabs>
-                <img src={process.env.PUBLIC_URL + 'help_outline.svg'} title="Upload after validating"/>
+                <img src={process.env.PUBLIC_URL + 'help_outline.svg'} title="Upload after validating" alt="help robot"/>
 
             </AppBar>
             {selectedTab === 1 && <SBOLValidator/>}

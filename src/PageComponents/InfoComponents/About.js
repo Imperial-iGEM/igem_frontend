@@ -1,10 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Grid, Card, CardContent, Paper, Typography, AppBar, makeStyles } from "@material-ui/core";
-import { positions, sizing } from '@material-ui/system';
-import Box from '@material-ui/core/Box';
-import TextField from '@material-ui/core/TextField';
-import Toolbar from '@material-ui/core/Toolbar';
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import {Grid, Typography } from "@material-ui/core";
 import {Redirect, useLocation} from "react-router-dom";
 import MenuDraw from "../../MenuDraw"
 
@@ -33,12 +28,12 @@ export default function About(props)  {
           <Grid container sm={12}  display="flex" wrap={"wrap"} spacing={1} >
               <Grid item sm={4}></Grid>
               <Grid item sm={4} alignContent={"center"}>
-                  <img src={process.env.PUBLIC_URL + 'logo512.png'} height="60%" width="60%"  />
+                  <img src={process.env.PUBLIC_URL + 'logo512.png'} height="60%" width="60%" alt="help robot"  />
               </Grid>
               <Grid item sm={4}></Grid>
 
               <Grid item sm={6} alignContent={"center"}>
-                  <img src={process.env.PUBLIC_URL + 'logo512.png'} height="60%" width="60%"  />
+                  <img src={process.env.PUBLIC_URL + 'logo512.png'} height="60%" width="60%"  alt="help robot"/>
 
               </Grid>
               <Grid item sm={6} alignContent={"center"}>
@@ -70,12 +65,12 @@ export default function About(props)  {
                   </Typography>
               </Grid>
               <Grid item sm={6} alignContent={"center"}>
-                  <img src={process.env.PUBLIC_URL + 'logo512.png'} height="60%" width="60%"  />
+                  <img src={process.env.PUBLIC_URL + 'logo512.png'} height="60%" width="60%" alt="help robot" />
 
               </Grid>
 
               <Grid item sm={12} alignContent={"center"}>
-                  <img src={process.env.PUBLIC_URL + 'logo512.png'} height="40%" width="100%"  />
+                  <img src={process.env.PUBLIC_URL + 'logo512.png'} height="40%" width="100%" alt="help robot" />
 
               </Grid>
           </Grid>

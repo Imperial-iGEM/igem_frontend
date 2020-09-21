@@ -10,16 +10,16 @@ export default function FileUpload(props) {
 
     const [files, setFiles] = useState([]);
 
-    const [navigate, setNavigate] = useState(false);
-    const [navigateTo, setNavigateTo] = useState({});
-    const [constructCSV, setConstructCSV] = useState("");
-    const [pythonLink1, setPythonLink1] = useState("");
-    const [pythonLink2, setPythonLink2] = useState("");
-    const [pythonLink3, setPythonLink3] = useState("");
-    const [pythonLink4, setPythonLink4] = useState("");
-    const [fileString, setFileString] = useState("");
-    const [done, setDone] = useState(false)
-    let currentLocation = useLocation();
+    const [navigate] = useState(false);
+    const [navigateTo] = useState({});
+    //const [constructCSV, setConstructCSV] = useState("");
+    const [pythonLink1] = useState("");
+    const [pythonLink2] = useState("");
+    const [pythonLink3] = useState("");
+    const [pythonLink4] = useState("");
+    const [setFileString] = useState("");
+    //const [done, setDone] = useState(false)
+    //let currentLocation = useLocation();
     // if(files.length > 0 && !done){
     //
     //         (async () => {
@@ -97,11 +97,11 @@ export default function FileUpload(props) {
 
     const classes = useStyles();
     //Custom function to intercept tab selection to allow for saving of data etc before changing tabs.
-    let handleTabSelection = function (location, index) {
-        console.log(`In FileUpload Component; Text: ${location.text}, Path: ${location.path}, Index: ${index}`)
-        setNavigateTo({path: location.path, push: true, state: {referrer: currentLocation}})
-        setNavigate(true)
-    }
+    //let handleTabSelection = function (location, index) {
+    //    console.log(`In FileUpload Component; Text: ${location.text}, Path: ${location.path}, Index: ${index}`)
+    //    setNavigateTo({path: location.path, push: true, state: {referrer: currentLocation}})
+    //    setNavigate(true)
+    //}
     // If we need to navigate render a Redirect object with push to save history
     if (navigate) {
         return (<Redirect

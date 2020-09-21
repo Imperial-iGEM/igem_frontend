@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-import {Paper, Typography} from "@material-ui/core";
+import { Typography} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {

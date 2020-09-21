@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {Button, Card, CardActionArea, List, ListItem, CardMedia, Paper, Typography, CardContent} from "@material-ui/core";
+import {Button, Card,  List, ListItem, CardContent} from "@material-ui/core";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 
 
