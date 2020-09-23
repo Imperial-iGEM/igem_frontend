@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import { makeStyles,Tabs, Tab, AppBar } from '@material-ui/core';
-
 import SBOLValidator from "../SBOLValidation/SBOLValidator";
-import FileUpload from "../FileUpload";
+import FileUpload from "../SBOLValidation/FileUpload";
 import MenuDraw from "../MenuDraw";
-import TutorialButton from "./TutorialButton"
+import TutorialButton from "../PageComponents/TutorialButton"
 import {Redirect, useLocation} from "react-router-dom";
+
 const useStyles = makeStyles({
     root: {
         flexGrow: 1,
@@ -49,7 +49,8 @@ export default function SimpleTabs(props) {
             <MenuDraw {...props} handleTabSelection={handleTabSelection}/>
 
             <AppBar position ="static" style={{ background: '#C4C4C4' }}>
-            <Tabs
+
+                <Tabs
                 value={selectedTab}
                 onChange={handleChange}
                 indicatorColor="#FF6F90"
@@ -57,21 +58,21 @@ export default function SimpleTabs(props) {
                 centered
                 variant="standard">
 
-                <Tab label="Upload File"  >
-</Tab>
-    <Tab label="Upload File and Validate">
-
+                <Tab label="Upload File"  title={"Upload to SBOLDesigner without validating"}>
                 </Tab>
 
+                <Tab label="Upload File and Validate" title={"Upload to SBOLDesigner after validating"}>
+                </Tab>
+                <img src={process.env.PUBLIC_URL + 'help_outline.svg'} title="Upload without validating" alt="help robot"/>
+
             </Tabs>
-                <img src={process.env.PUBLIC_URL + 'help_outline.svg'} title="Upload after validating" alt="help robot"/>
 
             </AppBar>
             {selectedTab === 1 && <SBOLValidator/>}
             {selectedTab === 0 && <FileUpload/>}
-<div>
+        <div>
             <TutorialButton></TutorialButton>
-    </div>
+        </div>
             </>
     );
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import {Grid,Typography,  makeStyles } from "@material-ui/core";
-import { positions, sizing } from '@material-ui/system';
 import Box from '@material-ui/core/Box';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
@@ -50,13 +49,15 @@ export default function FirstHome(props) {
 <Grid container  display="flex"  sm ={12} spacing={1}  className={classes.Container}>
 
 <Grid item container sm={6} className={classes.boxman} display="flex"   justify="center">
-   <Grid item sm={12}>
+   <Grid item sm={12} direction={'column-reverse'}>
+       <Typography variant={"h2"} color="grey.700">
+       </Typography>
 
        <Typography variant={"h2"} color="grey.700">
            Soap
        </Typography>
        <Typography variant={"h2"} color={"grey.700"}>
-           Labs
+           Lab
        </Typography>
 
    </Grid>

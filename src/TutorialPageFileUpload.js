@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {AppBar} from "@material-ui/core";
 
 export default function TutorialPageFileUpload(props){
 

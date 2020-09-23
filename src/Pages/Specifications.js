@@ -1,17 +1,14 @@
 import React, {useState, useEffect} from 'react'
 import {Redirect, useLocation} from "react-router-dom";
-import MenuDraw from "./MenuDraw";
-import PartsList from "./PageComponents/PartsList";
-import ConstructViewer from "./PageComponents/ConstructViewer";
-import PartsInfo from "./PageComponents/PartsInfo";
-import LabHardware from "./PageComponents/LabHardware";
-import Outputfiles from "./PageComponents/OutputFiles";
-import RunSpecification from "./PageComponents/RunSpecificaton";
+import MenuDraw from "../MenuDraw";
+import LabHardware from "../PageComponents/DesignerComponents/LabHardware";
+import Outputfiles from "../PageComponents/DesignerComponents/OutputFiles";
+import RunSpecification from "../PageComponents/DesignerComponents/RunSpecificaton";
 import {makeStyles} from "@material-ui/core/styles";
-import SelectProtocol from "./PageComponents/SelectProtocol.js";
-import StyledButton from "./PageComponents/StyledButton.js";
+import SelectProtocol from "../PageComponents/DesignerComponents/SelectProtocol.js";
+import StyledButton from "../PageComponents/StyledButton.js";
 
-export default function GeneDesign(props) {
+export default function Specifications(props) {
     const [navigate, setNavigate] = useState(false);
     const [navigateTo, setNavigateTo] = useState({})
     let currentLocation = useLocation();
@@ -38,9 +35,6 @@ export default function GeneDesign(props) {
         <div>
             <MenuDraw {...props} handleTabSelection={handleTabSelection}/>
             <div className={classes.root}>
-                <PartsList/>
-                <ConstructViewer/>
-                <PartsInfo/>
                 <LabHardware/>
                 <SelectProtocol />
             </div>

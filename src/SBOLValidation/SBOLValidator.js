@@ -1,17 +1,36 @@
 import React, {useState, useEffect} from "react";
-import {Redirect, useLocation} from "react-router-dom";
 import {makeStyles} from "@material-ui/core/styles";
 import Dropzone from 'react-dropzone';
 import Paper from '@material-ui/core/Paper';
+import Grid from "@material-ui/core/Grid";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { SeqViz } from "seqviz";
 import axios from "axios";
 import Typography from "@material-ui/core/Typography";
-
+import SBOLValidatorInput from "./SBOLValidatorInput";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormLabel from "@material-ui/core/FormLabel";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 export default function SBOLValidator(props) {
+    const [state, setState] = React.useState({
+        non_compliant_URI: true,
+        incomplete_documents: false,
+        check_best_practices: true,
+        fail_first_error: true,
+        display_full_stack_trace: false,
+    });
+
+    const handleChange = (event) => {
+        setState({ ...state, [event.target.name]: event.target.checked });
+    };
 
     const classes = useStyles();
     const [files, setFiles] = useState([]);
@@ -30,15 +49,13 @@ export default function SBOLValidator(props) {
         reader.onload = () => {
             let abba = reader.result;
             setFileString(abba);
-            console.log("abba = ", abba);
-
-            console.log("FileString", fileString);
         }
         reader.readAsText(acceptedFiles[0]);
         setDone(true);
+
         /************************************************************************************************************************/
     }
-
+console.log(state.non_compliant_URI)
     useEffect(() => {
         if(fileString === ""){
             return
@@ -46,9 +63,9 @@ export default function SBOLValidator(props) {
         (async () => {
             try {
 
-                console.log("we're in async!!");
+                /*console.log("we're in async!!");
                 console.log("typeof( FileString)",typeof fileString );
-                console.log(" FileString", fileString);
+                console.log(" FileString", fileString);*/
 
                 let response = await axios({
                     method: 'POST',
@@ -59,11 +76,11 @@ export default function SBOLValidator(props) {
                         'options': {
                             'language': 'SBOL2',
                             'test_equality': false,
-                            'check_uri_compliance': true,
-                            'check_completeness': true,
-                            'check_best_practices': false,
-                            'fail_on_first_error': true,
-                            'provide_detailed_stack_trace': false,
+                            'check_uri_compliance': state.non_compliant_URI,
+                            'check_completeness': state.incomplete_documents,
+                            'check_best_practices': state.check_best_practices,
+                            'fail_on_first_error': state.fail_first_error,
+                            'provide_detailed_stack_trace': state.display_full_stack_trace,
                             //   'subset_uri': '',
                             //       'uri_prefix': '',
                             // 'version': '',
@@ -100,16 +117,14 @@ export default function SBOLValidator(props) {
                     document.getElementById("outPutFile").innerText = "Fix Errors and try again";
 
                 }
-                console.log("errorString", errorString);
+                console.log("response: ", response.config.data);
 
-                console.log("errorString: ", typeof errorString);
-
-                console.log("response.headers: ", response.request);
-                console.log("file: ", (files));
-                console.log("files[0]: ", (files[0]));
-
-                console.log("file type: ", (typeof files[0]));
-                console.log("filejson: ", JSON.parse(JSON.stringify(files[0])));
+                /* console.log("errorString", errorString);
+                 console.log("errorString: ", typeof errorString);
+                 console.log("file: ", (files));
+                 console.log("files[0]: ", (files[0]));
+                 console.log("file type: ", (typeof files[0]));
+                 console.log("filejson: ", JSON.parse(JSON.stringify(files[0])));*/
             } catch (exception){
                 console.log(exception);
                 console.log("exception");
@@ -124,6 +139,74 @@ export default function SBOLValidator(props) {
         <div>
             <div className={classes.root}>
                 <div className={classes.root} >
+                    <Grid container  display="flex"  sm ={12} spacing={1}  className={classes.container}>
+                        <Grid item sm={6}>
+                            <div>
+                                <Paper >
+                                    <Typography variant="h4" component="h3">
+                                        Output File Options
+
+                                        <div>
+
+                                            <FormControl className={classes.formControl}>
+                                                <InputLabel id="demo-simple-select-label">language</InputLabel>
+                                                <Select
+                                                    labelId="demo-simple-select-label"
+                                                    id="demo-simple-select"
+                                                >
+                                                    <MenuItem value={10}>SBOL1</MenuItem>
+                                                    <MenuItem value={20}>SBOL2</MenuItem>
+                                                    <MenuItem value={30}>GenBank</MenuItem>
+                                                    <MenuItem value={40}>FASTA</MenuItem>
+                                                    <MenuItem value={50}>GFF3</MenuItem>
+
+                                                </Select>
+                                            </FormControl>
+                                        </div>
+                                    </Typography>
+                                </Paper>
+                            </div>
+
+                        </Grid>
+
+                        <Grid item sm={6}>
+                            <div>
+                                    <Typography variant="h4" component="h3">
+                                        Validation Options
+
+                                        <div>
+                                            <FormControl component="fieldset">
+                                                <FormLabel component="legend">Select options</FormLabel>
+                                                <FormGroup>
+                                                    <FormControlLabel
+                                                        control={<Switch checked={state.non_compliant_URI} onChange={handleChange} name="non_compliant_URI" />}
+                                                        label="Check URI Compliance"
+                                                    />
+                                                    <FormControlLabel
+                                                        control={<Switch checked={state.incomplete_documents} onChange={handleChange} name="incomplete_documents" />}
+                                                        label="Allow incomplete documents"
+                                                    />
+                                                    <FormControlLabel
+                                                        control={<Switch checked={state.check_best_practices} onChange={handleChange} name="check_best_practices" />}
+                                                        label="Check best practices"
+                                                    />
+                                                    <FormControlLabel
+                                                        control={<Switch checked={state.fail_first_error} onChange={handleChange} name="fail_first_error" />}
+                                                        label="Fail on first error"
+                                                    />
+                                                    <FormControlLabel
+                                                        control={<Switch checked={state.display_full_stack_trace} onChange={handleChange} name="display_full_stack_trace" />}
+                                                        label="Display full stack trace"
+                                                    />
+                                                </FormGroup>
+                                            </FormControl>
+                                            {console.log("Non Compliant URI",state.non_compliant_URI)}
+                                        </div>
+                                    </Typography>
+                            </div>
+
+                        </Grid>
+                    </Grid>
                     <Paper elevation={3} className={classes.dropZone}>
                         <Dropzone onDrop={acceptedFiles => acceptFiles(acceptedFiles)} >
                             {({getRootProps, getInputProps}) => (
@@ -185,6 +268,10 @@ const useStyles = makeStyles((theme) => ({
         minHeight: 100,
         justifyContent: 'center',
         margin: 20
+    },
+    container:{
+        display: 'flex'
+
     },
     dropZone: {
         display: 'flex',

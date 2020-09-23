@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import {Redirect, useLocation, withRouter} from "react-router-dom";
-import MenuDraw from "./MenuDraw";
-import useScript from "./useScript";
+import MenuDraw from "../MenuDraw";
+import useScript from "../useScript";
 
 
-function Home(props) {
+function SBOLDesigner(props) {
     const [navigate, setNavigate] = useState(false);
     const [navigateTo, setNavigateTo] = useState({})
     let currentLocation = useLocation();
@@ -85,4 +85,4 @@ function Home(props) {
     )
 }
 
-export default withRouter(Home);
+export default withRouter(SBOLDesigner);

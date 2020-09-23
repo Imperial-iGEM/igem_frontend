@@ -1,16 +1,9 @@
 import React from 'react'
 import { makeStyles } from "@material-ui/core";
-//import { positions, sizing } from '@material-ui/system';
 import Box from '@material-ui/core/Box';
-import TextField from '@material-ui/core/TextField';
 import Toolbar from '@material-ui/core/Toolbar';
-import { style } from '@material-ui/system';
-import FirstHome from "./FirstHome";
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import Modal from "@material-ui/core/Modal";
-import TutorialPageFileUpload from "../../TutorialPageFileUpload";
 import {
-    BrowserRouter as Router,
     Link,
     NavLink,
     Route,
@@ -103,7 +96,7 @@ export default function HomeComponentNavigator(props) {
                         fontWeight: "bold",
                         color: "#555555",
                         textDecoration: 'none'
-                    }}>Support                    </NavLink>
+                    }}> Home                    </NavLink>
 
                 </Box>
                 <Box
