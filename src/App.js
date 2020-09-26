@@ -7,12 +7,12 @@ import {
 } from "react-router-dom";
 
 //import Specifications from "./Pages/Specifications";
-import HomeComponent from "./PageComponents/HomeComponents/HomeComponent";
+import HomeComponent from "./Components/HomeComponents/HomeComponent";
 //import Home from './Pages/SBOLDesigner';
 //import SimpleTabs from "./Pages/SimpleTabs";
-import About from "./PageComponents/AboutComponents/About";
+import About from "./Components/AboutComponents/About";
 
-import NavBar from './PageComponents/NavBarComponent/NavBar';
+import NavBar from './Components/NavBarComponent/NavBar';
 import ExampleDesigner from './ExamplePages/Designer';
 
 
