@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import {Redirect, useLocation} from "react-router-dom";
-import MenuDraw from "../MenuDraw";
 import LabHardware from "../PageComponents/DesignerComponents/LabHardware";
 import Outputfiles from "../PageComponents/DesignerComponents/OutputFiles";
 import RunSpecification from "../PageComponents/DesignerComponents/RunSpecificaton";
@@ -33,7 +32,6 @@ export default function Specifications(props) {
 
     return (
         <div>
-            <MenuDraw {...props} handleTabSelection={handleTabSelection}/>
             <div className={classes.root}>
                 <LabHardware/>
                 <SelectProtocol />

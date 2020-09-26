@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import {Redirect, useLocation, withRouter} from "react-router-dom";
-import MenuDraw from "../MenuDraw";
 import useScript from "../useScript";
 
 
@@ -77,10 +76,8 @@ function SBOLDesigner(props) {
         />)
     }
     return (
-        [<MenuDraw {...props} handleTabSelection={handleTabSelection}/>,
             <div className="webswing-element" data-webswing-instance="webswingInstance0" style={{height: '100vh'}}>
             </div>
-        ]
 
     )
 }

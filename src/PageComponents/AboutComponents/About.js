@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Grid, Typography } from "@material-ui/core";
 import {Redirect, useLocation} from "react-router-dom";
-import MenuDraw from "../../MenuDraw"
 
 export default function About(props)  {
     const [navigate, setNavigate] = useState(false);
@@ -24,7 +23,6 @@ export default function About(props)  {
     }
     return (
       <div>
-          <MenuDraw {...props} handleTabSelection={handleTabSelection}/>
           <Grid container sm={12}  display="flex" wrap={"wrap"} spacing={1} >
               <Grid item sm={4}></Grid>
               <Grid item sm={4} alignContent={"center"}>

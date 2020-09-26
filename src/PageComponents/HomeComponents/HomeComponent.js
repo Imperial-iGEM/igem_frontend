@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import MenuDraw from "../../MenuDraw";
 import {Redirect, useLocation} from "react-router-dom";
  import HomeComponentNavigator from "./HomeComponentNavigator";
 import FirstHome from "./FirstHome";
@@ -30,7 +29,6 @@ export default function HomeComponent(props) {
 
     return (
 <div display={"flex"} position={"relative"}>
-        <MenuDraw {...props} handleTabSelection={handleTabSelection}/>
         <HomeComponentNavigator/>
 <div>
     <FirstHome/>

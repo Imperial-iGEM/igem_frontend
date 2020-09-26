@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import { makeStyles,Tabs, Tab, AppBar } from '@material-ui/core';
 import SBOLValidator from "../SBOLValidation/SBOLValidator";
 import FileUpload from "../SBOLValidation/FileUpload";
-import MenuDraw from "../MenuDraw";
 import TutorialButton from "../PageComponents/TutorialButton"
 import {Redirect, useLocation} from "react-router-dom";
 
@@ -46,8 +45,6 @@ export default function SimpleTabs(props) {
     return (
 
         <>
-            <MenuDraw {...props} handleTabSelection={handleTabSelection}/>
-
             <AppBar position ="static" style={{ background: '#C4C4C4' }}>
 
                 <Tabs
