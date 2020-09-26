@@ -14,6 +14,7 @@ import About from "./Components/AboutComponents/About";
 
 import NavBar from './Components/NavBarComponent/NavBar';
 import ExampleDesigner from './ExamplePages/Designer';
+import ParentDesigner from './Pages/ParentDesigner';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={HomeComponent}/>
           <Route path="/about" component={About}/>
-          <Route path="/designer" component={ExampleDesigner} />
+          <Route path="/designer" component={ParentDesigner} />
         </Switch>
       </div>
     </Router>
