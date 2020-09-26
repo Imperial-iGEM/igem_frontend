@@ -16,7 +16,7 @@ function SBOLDesigner(props) {
         "            binarySocket: getParam('binarySocket'),\n" +
         "            debugPort: getParam('debugPort'),\n" +
         "            recordingPlayback: getParam('recordingPlayback'),\n" +
-        "            connectionUrl:'https://www.imperialigem2020.live/sboldesigner' \n" +
+        "            connectionUrl:'https://sboldesigner.soaplab.io/sbol-designer' \n" +
         "        }\n" +
         "    }\n" +
         "\n" +
@@ -31,7 +31,7 @@ function SBOLDesigner(props) {
         "        console.log('function ran'); \n" +
         "        var loader = function () {\n" +
         "        console.log('function ran 2'); \n" +
-        "            var baseUrl = 'https://www.imperialigem2020.live/sboldesigner';\n" +
+        "            var baseUrl = 'https://sboldesigner.soaplab.io/sbol-designer';\n" +
         "            baseUrl = baseUrl.indexOf(\"/\", baseUrl.length - 1) !== -1 ? baseUrl : (baseUrl + \"/\");\n" +
         "            var xmlhttp = new XMLHttpRequest();\n" +
         "            xmlhttp.onreadystatechange = function () {\n" +
