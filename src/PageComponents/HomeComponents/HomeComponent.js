@@ -3,6 +3,9 @@ import {Redirect, useLocation} from "react-router-dom";
  import HomeComponentNavigator from "./HomeComponentNavigator";
 import FirstHome from "./FirstHome";
 
+//I removed HomeComponentNavigator as we now have the permentant one
+// removed from line 33
+
 export default function HomeComponent(props) {
     const [navigate, setNavigate] = useState(false);
     const [navigateTo, setNavigateTo] = useState({});
@@ -29,7 +32,6 @@ export default function HomeComponent(props) {
 
     return (
 <div display={"flex"} position={"relative"}>
-        <HomeComponentNavigator/>
 <div>
     <FirstHome/>
     </div>

@@ -7,11 +7,8 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { Link } from 'react-router-dom'
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -23,11 +20,17 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    textAlign: 'left',
   },
 }));
 
 export default function NavBar() {
   const classes = useStyles();
+
+  const navStyle = {
+        color: 'white',
+        textDecoration: 'none',
+  };
 
   return (
     <div className={classes.root}>
@@ -39,9 +42,15 @@ export default function NavBar() {
           <Typography variant="h6" className={classes.title}>
             Soap Labs
           </Typography>
-          <Button color="inherit">Designer</Button>
-          <Button color="inherit">About</Button>
-          <Button color="inherit">Home</Button>
+          <Link style={navStyle} to='/designer'>
+            <Button color="inherit">Designer</Button>
+          </Link>
+          <Link style={navStyle} to='/about'>
+            <Button color="inherit">About</Button>
+          </Link>
+          <Link style={navStyle} to='/'>
+            <Button color="inherit">Home</Button>
+          </Link>
           <Button color="inherit">Contact</Button>
         </Toolbar>
       </AppBar>
