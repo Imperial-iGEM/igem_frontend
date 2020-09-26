@@ -26,12 +26,12 @@ export default function About(props)  {
           <Grid container sm={12}  display="flex" wrap={"wrap"} spacing={1} >
               <Grid item sm={4}></Grid>
               <Grid item sm={4} alignContent={"center"}>
-                  <img src={process.env.PUBLIC_URL + 'logo512.png'} height="60%" width="60%" alt="help robot"  />
+                  <img src={process.env.PUBLIC_URL + 'team.jpg'} height="60%" width="60%" alt="help robot"  />
               </Grid>
               <Grid item sm={4}></Grid>
 
               <Grid item sm={6} alignContent={"center"}>
-                  <img src={process.env.PUBLIC_URL + 'logo512.png'} height="60%" width="60%"  alt="help robot"/>
+                  <img src={process.env.PUBLIC_URL + 'logo512.png'}  alt="team on opentrons use day"/>
 
               </Grid>
               <Grid item sm={6} alignContent={"center"}>
