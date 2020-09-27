@@ -42,6 +42,15 @@ export default function ExampleSpecification() {
   //Opentrons Labware states
   const [liquidHandler, setliquidHandler] = useState('P20');
   const [labware1, setlabware1] = useState('P20');
+
+  //Output Files States
+  const [outState, setOutState] = useState({
+    plate_position: true,
+    reagents_list: true,
+    part_sequences_to_order: true,
+    run_metainformation: true,
+    debugging_logs: true,
+});
   
   //Run Specification Update functions
   const prefixUrihandleChange = (event) => {
@@ -81,6 +90,12 @@ export default function ExampleSpecification() {
   const handleChangeLab = (event) => {
       setlabware1(event.target.value);
   };
+
+  //Output files state changing functions
+  const outputhandleChange = (event) => {
+    setOutState({ ...outState, [event.target.name]: event.target.checked });
+    console.log(outState)
+};
   
   function Generate() {
     console.log('labware attached',labware1)
@@ -105,7 +120,10 @@ export default function ExampleSpecification() {
           />
         </Grid>
         <Grid item xs={4}>
-          <SpecCard_output />
+          <SpecCard_output 
+            outState={outState}
+            outputhandleChange={outputhandleChange}
+          />
         </Grid>
         <Grid item xs={5}>
           <SpecCard_labhardware 

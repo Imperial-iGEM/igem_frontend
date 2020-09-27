@@ -26,17 +26,17 @@ const useStyles = makeStyles({
 export default function SpecCard_output(props) {
     const classes = useStyles();
 
-    const [state, setState] = React.useState({
-        plate_position: true,
-        reagents_list: false,
-        part_sequences_to_order: true,
-        run_metainformation: true,
-        debugging_logs: false,
-    });
+    //const [state, setState] = React.useState({
+    //    plate_position: true,
+    //    reagents_list: false,
+    //    part_sequences_to_order: true,
+    //    run_metainformation: true,
+    //    debugging_logs: false,
+    //});
 
-    const handleChange = (event) => {
-        setState({ ...state, [event.target.name]: event.target.checked });
-    };
+    //const handleChange = (event) => {
+    //    setState({ ...state, [event.target.name]: event.target.checked });
+    //};
 
     return (
         <Card className={classes.root} variant="outlined">
@@ -48,23 +48,23 @@ export default function SpecCard_output(props) {
                             <FormLabel component="legend">Select which output files you would like generated</FormLabel>
                             <FormGroup>
                                 <FormControlLabel
-                                control={<Switch checked={state.plate_position} onChange={handleChange} name="plate_position" />}
+                                control={<Switch checked={props.outState.plate_position} onChange={props.outputhandleChange} name="plate_position" />}
                                 label="Plate Position"
                                 />
                                 <FormControlLabel
-                                control={<Switch checked={state.reagents_list} onChange={handleChange} name="reagents_list" />}
+                                control={<Switch checked={props.outState.reagents_list} onChange={props.outputhandleChange} name="reagents_list" />}
                                 label="Reagents List"
                                 />
                                 <FormControlLabel
-                                control={<Switch checked={state.part_sequences_to_order} onChange={handleChange} name="part_sequences_to_order" />}
+                                control={<Switch checked={props.outState.part_sequences_to_order} onChange={props.outputhandleChange} name="part_sequences_to_order" />}
                                 label="Part Sequences to Order"
                                 />
                                 <FormControlLabel
-                                control={<Switch checked={state.run_metainformation} onChange={handleChange} name="run_metainformation" />}
+                                control={<Switch checked={props.outState.run_metainformation} onChange={props.outputhandleChange} name="run_metainformation" />}
                                 label="Run Metainformation"
                                 />
                                 <FormControlLabel
-                                control={<Switch checked={state.debugging_logs} onChange={handleChange} name="debugging_logs" />}
+                                control={<Switch checked={props.outState.debugging_logs} onChange={props.outputhandleChange} name="debugging_logs" />}
                                 label="Debugging Logs"
                                 />
                             </FormGroup>
