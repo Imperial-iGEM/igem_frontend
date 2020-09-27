@@ -9,44 +9,11 @@ import {RiseLoader} from "react-spinners";
 export default function FileUpload(props) {
 
     const [files, setFiles] = useState([]);
-
-    const [navigate] = useState(false);
-    const [navigateTo] = useState({});
-    //const [constructCSV, setConstructCSV] = useState("");
     const [pythonLink1] = useState("");
     const [pythonLink2] = useState("");
     const [pythonLink3] = useState("");
     const [pythonLink4] = useState("");
-    const [setFileString] = useState("");
-    //const [done, setDone] = useState(false)
-    //let currentLocation = useLocation();
-    // if(files.length > 0 && !done){
-    //
-    //         (async () => {
-    //             try {
-    //                 await fileDebugLogger(files[0]);
-    //                 let formData = new FormData();
-    //                 formData.append('file', files[0]);
-    //                 // Assuming ktor backend is running on localhost:8080
-    //                 setDone(true)
-    //                 let response = await axios.post("http://localhost:8080/upload", formData);
-    //
-    //                 if(response.status === 200){
-    //                     // test for status you want, etc
-    //                     console.log(response.status)
-    //                     console.log(response)
-    //                     setPythonLink1(response.python_output_1)
-    //                     setPythonLink2(response.python_output_2)
-    //                     setPythonLink3(response.python_output_3)
-    //                     setPythonLink4(response.python_output_4)
-    //
-    //                 }
-    //             } catch (exception){
-    //                 console.log(exception)
-    //             }
-    //         })()
-    //
-    // }
+    const [fileString, setFileString] = useState("");
     function acceptFiles(acceptedFiles) {
         setFiles(acceptedFiles);
         acceptedFiles.forEach((file) => {
@@ -63,31 +30,6 @@ export default function FileUpload(props) {
             }
             reader.readAsText(file)
         });
-
-        // (async () => {
-        //     try {
-        //         await fileDebugLogger(acceptedFiles[0]);
-        //         let formData = new FormData();
-        //         console.log(acceptedFiles[0]);
-        //         formData.append('file', acceptedFiles[0]);
-        //         // Assuming ktor backend is running on localhost:8080
-        //         setDone(true)
-        //         let response = await axios.post("http://localhost:8080/upload", formData);
-        //
-        //         if(response.status === 200){
-        //             // test for status you want, etc
-        //             console.log(response.status)
-        //             console.log(response)
-        //             setPythonLink1(`${response.data.python_output_1}`)
-        //             setPythonLink2(`${response.data.python_output_2}`)
-        //             setPythonLink3(`${response.data.python_output_3}`)
-        //             setPythonLink4(`${response.data.python_output_4}`)
-        //
-        //         }
-        //     } catch (exception){
-        //         console.log(exception)
-        //     }
-        // })()
     }
 
     useEffect(() => {
@@ -96,22 +38,7 @@ export default function FileUpload(props) {
 
 
     const classes = useStyles();
-    //Custom function to intercept tab selection to allow for saving of data etc before changing tabs.
-    //let handleTabSelection = function (location, index) {
-    //    console.log(`In FileUpload Component; Text: ${location.text}, Path: ${location.path}, Index: ${index}`)
-    //    setNavigateTo({path: location.path, push: true, state: {referrer: currentLocation}})
-    //    setNavigate(true)
-    //}
-    // If we need to navigate render a Redirect object with push to save history
-    if (navigate) {
-        return (<Redirect
-            to={{
-                pathname: navigateTo.path,
-                push: navigateTo.push,
-                state: navigateTo.state
-            }}
-        />)
-    }
+
     return (
         <div>
             {/* Include MenuDraw at top, ensuring props are passed through function for handleTabSelection*/}

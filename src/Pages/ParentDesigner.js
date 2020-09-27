@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import ExampleSpecification from '../Components/DesignerComponents/Specification'
-import FileUpload from '../Components/DesignerComponents/FileUpload';
+import FileUpload from '../SBOLValidation/FileUpload';
 import SBOLDesigner from '../Components/DesignerComponents/SBOLDesigner';
 
 const useStyles = makeStyles((theme) => ({
@@ -42,7 +42,7 @@ function getStepContent(stepIndex) {
 
 export default function ParentDesigner() {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [activeStep, setActiveStep] = useState(0);
   const steps = getSteps();
 
   const handleNext = () => {
