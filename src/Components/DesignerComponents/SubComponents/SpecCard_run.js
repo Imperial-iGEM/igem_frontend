@@ -28,8 +28,6 @@ const useStyles = makeStyles({
 
 export default function SpecCard_run(props) {
   const classes = useStyles();
-  console.log('props within component')
-  console.log(props)
 
   return (
     <Card className={classes.root} variant="outlined">

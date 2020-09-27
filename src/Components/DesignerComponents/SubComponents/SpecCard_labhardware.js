@@ -25,19 +25,9 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-export default function SpecCard_labhardware() {
+export default function SpecCard_labhardware(props) {
 
     const classes = useStyles();
-    const [liquidHandler, setliquidHandler] = React.useState('');
-    const [labware1, setlabware1] = React.useState('');
-  
-    const handleChangeLiquid = (event) => {
-        setliquidHandler(event.target.value);
-    };
-
-    const handleChangeLab = (event) => {
-        setlabware1(event.target.value);
-    };
 
   return (
     <Card className={classes.root} variant="outlined">
@@ -46,30 +36,30 @@ export default function SpecCard_labhardware() {
           Opentrons Hardware
           <div>
             <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-label">Liquid Handler</InputLabel>
-            <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={liquidHandler}
-            onChange={handleChangeLiquid}
-            >
-            <MenuItem value={10}>P20</MenuItem>
-            <MenuItem value={20}>P40</MenuItem>
-            <MenuItem value={30}>P80</MenuItem>
-            </Select>
+              <InputLabel id="demo-simple-select-label">Liquid Handler</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={props.liquidHandler}
+                onChange={props.handleChangeLiquid}
+                >
+                <MenuItem value={'P20'}>P20</MenuItem>
+                <MenuItem value={'P40'}>P40</MenuItem>
+                <MenuItem value={'P80'}>P80</MenuItem>
+              </Select>
             </FormControl>
             <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-label">Labware</InputLabel>
-            <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={labware1}
-            onChange={handleChangeLab}
-            >
-            <MenuItem value={10}>P20</MenuItem>
-            <MenuItem value={20}>P40</MenuItem>
-            <MenuItem value={30}>P80</MenuItem>
-            </Select>
+              <InputLabel id="demo-simple-select-label">Labware</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={props.labware1}
+                onChange={props.handleChangeLab}
+                >
+                <MenuItem value={'P20'}>P20</MenuItem>
+                <MenuItem value={'P40'}>P40</MenuItem>
+                <MenuItem value={'P80'}>P80</MenuItem>
+              </Select>
             </FormControl>
           </div>
         </Typography>

@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ExampleSpecification() {
   const classes = useStyles();
 
+  //Run specification States
   const [prefixUri, setPrefixUri] = useState('');
   const [linkerUpload, setLinkerUpload] = useState('');
   const [backboneUpload, setBackboneUpload] = useState('');
@@ -38,6 +39,11 @@ export default function ExampleSpecification() {
   const [samplesPerPlate, setSamplesPerPlate] = useState('');
   const [reagentConcentrations, setReagentConcentrations] = useState('');
 
+  //Opentrons Labware states
+  const [liquidHandler, setliquidHandler] = useState('P20');
+  const [labware1, setlabware1] = useState('P20');
+  
+  //Run Specification Update functions
   const prefixUrihandleChange = (event) => {
     setPrefixUri(event.target.value);
     console.log(prefixUri)
@@ -66,7 +72,20 @@ export default function ExampleSpecification() {
     setReagentConcentrations(event.target.value);
     console.log(reagentConcentrations)
   };
+
+  //Opentrons Labware Updatefunctions
+  const handleChangeLiquid = (event) => {
+    setliquidHandler(event.target.value);
+  };
+
+  const handleChangeLab = (event) => {
+      setlabware1(event.target.value);
+  };
   
+  function Generate() {
+    console.log('labware attached',labware1)
+    console.log('liquid handler',liquidHandler)
+  }
 
   return (
     <div className={classes.root}>
@@ -89,7 +108,13 @@ export default function ExampleSpecification() {
           <SpecCard_output />
         </Grid>
         <Grid item xs={5}>
-          <SpecCard_labhardware />
+          <SpecCard_labhardware 
+            labware1={labware1}
+            liquidHandler={liquidHandler}
+            handleChangeLiquid={handleChangeLiquid}
+            handleChangeLab={handleChangeLab}
+
+          />
         </Grid>
         <Grid item xs={3}>
             <Button
@@ -98,6 +123,7 @@ export default function ExampleSpecification() {
             color="secondary"
             className={classes.button}
             startIcon={<SaveIcon />}
+            onClick={Generate}
             >
             Generate Opentrons Scripts
             </Button>
