@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -30,6 +30,44 @@ const useStyles = makeStyles((theme) => ({
 export default function ExampleSpecification() {
   const classes = useStyles();
 
+  const [prefixUri, setPrefixUri] = useState('');
+  const [linkerUpload, setLinkerUpload] = useState('');
+  const [backboneUpload, setBackboneUpload] = useState('');
+  const [linkerSelection, setLinkerSelection] = useState('');
+  const [noPlateRuns, setNoPlateRuns] = useState('');
+  const [samplesPerPlate, setSamplesPerPlate] = useState('');
+  const [reagentConcentrations, setReagentConcentrations] = useState('');
+
+  const prefixUrihandleChange = (event) => {
+    setPrefixUri(event.target.value);
+    console.log(prefixUri)
+  };
+  const linkerUploadhandleChange = (event) => {
+    setLinkerUpload(event.target.value);
+    console.log(linkerUpload)
+  };
+  const backboneUploadhandleChange = (event) => {
+    setBackboneUpload(event.target.value);
+    console.log(backboneUpload)
+  };
+  const linkerSelectionhandleChange = (event) => {
+    setLinkerSelection(event.target.value);
+    console.log(linkerSelection)
+  };
+  const noPlateRunshandleChange = (event) => {
+    setNoPlateRuns(event.target.value);
+    console.log(noPlateRuns)
+  };
+  const samplesPerPlatehandleChange = (event) => {
+    setSamplesPerPlate(event.target.value);
+    console.log(samplesPerPlate)
+  };
+  const reagentConcentrationshandleChange = (event) => {
+    setReagentConcentrations(event.target.value);
+    console.log(reagentConcentrations)
+  };
+  
+
   return (
     <div className={classes.root}>
       <Grid container alignItems="stretch" spacing={3}>
@@ -37,7 +75,15 @@ export default function ExampleSpecification() {
           <SpecCard />
         </Grid>
         <Grid item xs={8}>
-          <SpecCard_run />
+          <SpecCard_run
+            prefixUrihandleChange={prefixUrihandleChange}
+            linkerUploadhandleChange={linkerUploadhandleChange}
+            backboneUploadhandleChange={backboneUploadhandleChange}
+            linkerSelectionhandleChange={linkerSelectionhandleChange}
+            noPlateRunshandleChange={noPlateRunshandleChange}
+            samplesPerPlatehandleChange={samplesPerPlatehandleChange}
+            reagentConcentrationshandleChange={reagentConcentrationshandleChange}
+          />
         </Grid>
         <Grid item xs={4}>
           <SpecCard_output />
