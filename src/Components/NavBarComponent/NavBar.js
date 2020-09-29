@@ -51,7 +51,11 @@ export default function NavBar() {
           <Link style={navStyle} to='/'>
             <Button color="inherit">Home</Button>
           </Link>
+          <Link style={navStyle} to='/contact'>
+
           <Button color="inherit">Contact</Button>
+          </Link>
+
         </Toolbar>
       </AppBar>
     </div>

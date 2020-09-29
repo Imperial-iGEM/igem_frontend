@@ -6,14 +6,10 @@ import {
     Route,
 } from "react-router-dom";
 
-//import Specifications from "./Pages/Specifications";
 import HomeComponent from "./Components/HomeComponents/HomeComponent";
-//import Home from './Pages/SBOLDesigner';
-//import SimpleTabs from "./Pages/SimpleTabs";
 import About from "./Components/AboutComponents/About";
-
+import Contact from "./PageComponents/AboutComponents/Contact";
 import NavBar from './Components/NavBarComponent/NavBar';
-import ExampleDesigner from './ExamplePages/Designer';
 import ParentDesigner from './Pages/ParentDesigner';
 
 
@@ -26,6 +22,8 @@ function App() {
           <Route path="/" exact component={HomeComponent}/>
           <Route path="/about" component={About}/>
           <Route path="/designer" component={ParentDesigner} />
+            <Route path="/contact" component={Contact} />
+
         </Switch>
       </div>
     </Router>

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import TutorialPageFileUpload from "../TutorialPageFileUpload";
-import {Redirect, useLocation} from "react-router-dom";
+import TutorialPageFileUpload from "../../TutorialPageFileUpload";
+import {useLocation} from "react-router-dom";
 import Modal from "@material-ui/core/Modal";
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -27,10 +27,7 @@ function getModalStyle() {
 }
 
 export default function TutorialButton(props) {
-    const [selectedTab, setSelectedTab] = React.useState(0);
-    const [navigate, setNavigate] = useState(false);
-    const [navigateTo, setNavigateTo] = useState({});
-    let currentLocation = useLocation();
+
     const [open, setOpen] = React.useState(false);
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);

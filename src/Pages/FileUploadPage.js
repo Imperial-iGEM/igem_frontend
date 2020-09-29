@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { makeStyles,Tabs, Tab, AppBar } from '@material-ui/core';
-import SBOLValidator from "../SBOLValidation/SBOLValidator";
-import FileUpload from "../SBOLValidation/FileUpload";
-import TutorialButton from "../PageComponents/TutorialButton"
+import SBOLValidator from "../PageComponents/SBOLValidation/SBOLValidator";
+import FileUpload from "../PageComponents/SBOLValidation/FileUpload";
+import TutorialButton from "../PageComponents/SBOLValidation/TutorialButton"
 import {Redirect, useLocation} from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function SimpleTabs(props) {
+export default function FileUploadPage(props) {
     //const classes = useStyles();
     const [selectedTab, setSelectedTab] = React.useState(0);
     const [navigate, setNavigate] = useState(false);
@@ -60,7 +60,6 @@ export default function SimpleTabs(props) {
 
                 <Tab label="Upload File and Validate" title={"Upload to SBOLDesigner after validating"}>
                 </Tab>
-                <img src={process.env.PUBLIC_URL + 'help_outline.svg'} title="Upload without validating" alt="help robot"/>
 
             </Tabs>
 

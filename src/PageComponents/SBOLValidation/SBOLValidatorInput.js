@@ -1,11 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {Redirect, useLocation} from "react-router-dom";
-import {makeStyles} from "@material-ui/core/styles";
-import Dropzone from 'react-dropzone';
+import React from "react";
 import Paper from '@material-ui/core/Paper';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import { SeqViz } from "seqviz";
 import axios from "axios";
 import Typography from "@material-ui/core/Typography";
 import FormControl from "@material-ui/core/FormControl";

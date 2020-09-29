@@ -26,6 +26,7 @@ export default function SBOLValidator(props) {
         check_best_practices: true,
         fail_first_error: true,
         display_full_stack_trace: false,
+        output_format:"SBOL2",
     });
 
     const handleChange = (event) => {
@@ -74,7 +75,7 @@ console.log(state.non_compliant_URI)
                     },
                     data: {
                         'options': {
-                            'language': 'SBOL2',
+                            'language': state.output_format,
                             'test_equality': false,
                             'check_uri_compliance': state.non_compliant_URI,
                             'check_completeness': state.incomplete_documents,
@@ -152,8 +153,7 @@ console.log(state.non_compliant_URI)
                                                 <InputLabel id="demo-simple-select-label">language</InputLabel>
                                                 <Select
                                                     labelId="demo-simple-select-label"
-                                                    id="demo-simple-select"
-                                                >
+                                                    id="demo-simple-select">
                                                     <MenuItem value={10}>SBOL1</MenuItem>
                                                     <MenuItem value={20}>SBOL2</MenuItem>
                                                     <MenuItem value={30}>GenBank</MenuItem>
