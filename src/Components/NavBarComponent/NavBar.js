@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    color:'rgba(255, 165, 0, 0.73)',
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     textAlign: 'left',
+    color: 'black'
   },
 }));
 
@@ -34,26 +36,26 @@ export default function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" color='transparent'>
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton edge="start" className={classes.menuButton} aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography color='black' variant="h6" className={classes.title}>
             Soap Labs
           </Typography>
           <Link style={navStyle} to='/designer'>
-            <Button color="inherit">Designer</Button>
+            <Button color="black">Designer</Button>
           </Link>
           <Link style={navStyle} to='/about'>
-            <Button color="inherit">About</Button>
+            <Button color="black">About</Button>
           </Link>
           <Link style={navStyle} to='/'>
-            <Button color="inherit">Home</Button>
+            <Button color="black">Home</Button>
           </Link>
           <Link style={navStyle} to='/contact'>
 
-          <Button color="inherit">Contact</Button>
+          <Button color="black">Contact</Button>
           </Link>
 
         </Toolbar>

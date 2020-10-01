@@ -100,6 +100,8 @@ export default function ExampleSpecification() {
   function Generate() {
     console.log('labware attached',labware1)
     console.log('liquid handler',liquidHandler)
+    console.log('prefixuri',prefixUri)
+
   }
 
   return (
