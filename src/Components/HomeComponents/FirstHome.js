@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
     boxman:{
         textAlign: 'center',
+        height: '500px',
     },
     Container:{
         height:'100%'
