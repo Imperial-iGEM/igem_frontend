@@ -47,11 +47,14 @@ export default function NavBar() {
           <Link style={navStyle} to='/designer'>
             <Button color="black">Designer</Button>
           </Link>
+          <Link style={navStyle} to='/'>
+            <Button color="black">Home</Button>
+          </Link>
           <Link style={navStyle} to='/about'>
             <Button color="black">About</Button>
           </Link>
-          <Link style={navStyle} to='/'>
-            <Button color="black">Home</Button>
+          <Link style={navStyle} to='/about'>
+            <Button color="black">Learn</Button>
           </Link>
           <Link style={navStyle} to='/contact'>
 

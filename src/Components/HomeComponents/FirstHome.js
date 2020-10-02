@@ -26,14 +26,18 @@ const useStyles = makeStyles((theme) => ({
     },
     boxman:{
         textAlign: 'center',
-        height: '500px',
+        height: '674px',
     },
     Container:{
         height:'100%'
     },
     Title:{
         textAlign: 'left',
-
+    },
+    Helper:{
+        position: 'absolute',
+        top: '30px',
+        left: '61%',
     }
 }));
 
@@ -56,9 +60,9 @@ export default function FirstHome(props) {
                 bgcolor={"#FFFFFF"}
                 className={classes.boxman}
                 flexGrow={1}
-                minHeight={"20%"}
+                minHeight={"100%"}
                 >
-                    <Grid container  display="flex"  sm ={12} spacing={1}  className={classes.Container} style={{ padding: 50 , paddingLeft:80, paddingRight:0}} flexGrow={1} height={"20%"}>
+                    <Grid container  display="flex"  sm ={12} spacing={1}  className={classes.Container} style={{ padding: 250 , paddingLeft:80, paddingRight:0}} flexGrow={1} height={"20%"}>
                         <Grid container sm={6} className={classes.Title}    justify="center" p={3}>
                             <Grid item sm={12}></Grid>
                             <Grid item sm={12}></Grid>
@@ -70,7 +74,7 @@ export default function FirstHome(props) {
                                         Welcome to
                                     </Typography>
                                     <Typography variant={"h1"} className={classes.Title}>
-                                        SoapLab
+                                        SOAPLab
                                     </Typography>
                                 </Box>
                             </Grid>
@@ -89,7 +93,9 @@ export default function FirstHome(props) {
                         </Grid>
                         <Grid item sm={6}>
                             <Box>
-                                <img src={process.env.PUBLIC_URL + 'Helper2.svg'} height="65%" width="65%"  alt="robot"/>
+                                <div className={classes.Helper}>
+                                    <img src={process.env.PUBLIC_URL + 'Helper2.svg'} height='1000' alt="robot"/>
+                                </div>
                             </Box>
                         </Grid>
                     </Grid>
@@ -117,7 +123,7 @@ export default function FirstHome(props) {
                             </WhiteTextTypography>
                         </Grid>
                         <Grid item sm={6} >
-                            <img src={process.env.PUBLIC_URL +'Images/DBTL example to remove.jpg'} height="85%" width="85%"  alt="robot"/>
+                            <img src={process.env.PUBLIC_URL +'Images/DBTL example to remove.jpg'} height='400px' alt="robot"/>
                         </Grid>
                     </Grid>
                 </Box>
@@ -183,7 +189,7 @@ export default function FirstHome(props) {
                             </WhiteTextTypography>
                         </Grid>
                         <Grid item sm={6} >
-                            <img src={process.env.PUBLIC_URL +'Images/DBTL example to remove.jpg'} height="85%" width="85%"  alt="robot"/>
+                            <img src={process.env.PUBLIC_URL +'Images/DBTL example to remove.jpg'} height="400px" alt="robot"/>
                         </Grid>
                     </Grid>
                 </Box>
@@ -195,7 +201,7 @@ export default function FirstHome(props) {
                 minHeight={"20%"}>
                     <Grid container  display="flex"  sm ={12} spacing={1}  className={classes.Container} bgcolor={"#FF6F90"} >
                         <Grid item sm={6} >
-                            <img src={process.env.PUBLIC_URL +'half_team.jpg'} height="85%" width="85%"  alt="robot"/>
+                            <img src={process.env.PUBLIC_URL +'half_team.jpg'} height="400px"  alt="robot"/>
                         </Grid>
                         <Grid item sm={6}>
                             <Typography variant={"h2"}>
