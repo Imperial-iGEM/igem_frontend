@@ -8,7 +8,7 @@ import {
 
 import FirstHome from "./Components/HomeComponents/FirstHome";
 import About from "./Components/AboutComponents/About";
-import Contact from "./PageComponents/AboutComponents/Contact";
+import Contact from "./Components/ContactComponents/Contact";
 import NavBar from './Components/NavBarComponent/NavBar';
 import ParentDesigner from './Pages/ParentDesigner';
 

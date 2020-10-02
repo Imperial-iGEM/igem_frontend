@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { makeStyles,Tabs, Tab, AppBar } from '@material-ui/core';
-import SBOLValidator from "../PageComponents/SBOLValidation/SBOLValidator";
-import FileUpload from "../PageComponents/SBOLValidation/FileUpload";
-import TutorialButton from "../PageComponents/SBOLValidation/TutorialButton"
+import SBOLValidator from "../SBOLValidation/SBOLValidator";
+import FileUpload from "../SBOLValidation/FileUpload";
+import TutorialButton from "../SBOLValidation/TutorialButton"
 import {Redirect, useLocation} from "react-router-dom";
 
 const useStyles = makeStyles({

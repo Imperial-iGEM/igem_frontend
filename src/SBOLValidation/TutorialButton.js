@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import TutorialPageFileUpload from "../../TutorialPageFileUpload";
+import TutorialPageFileUpload from "../TutorialPageFileUpload";
 import {useLocation} from "react-router-dom";
 import Modal from "@material-ui/core/Modal";
 
