@@ -31,11 +31,10 @@ export default function HomeComponent(props) {
     }
 
     return (
-<div display={"flex"} position={"relative"}>
-<div>
-    <FirstHome/>
-    </div>
-
-</div>
+        <div display={"flex"} position={"relative"}>
+            <div>
+                <FirstHome/>
+            </div>
+        </div>
     )
 }

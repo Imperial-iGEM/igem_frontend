@@ -22,8 +22,7 @@ function App() {
           <Route path="/" exact component={HomeComponent}/>
           <Route path="/about" component={About}/>
           <Route path="/designer" component={ParentDesigner} />
-            <Route path="/contact" component={Contact} />
-
+          <Route path="/contact" component={Contact} />
         </Switch>
       </div>
     </Router>
