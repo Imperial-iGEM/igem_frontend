@@ -29,16 +29,13 @@ export default function About(props)  {
                   <img src={process.env.PUBLIC_URL + 'team.jpg'} height="60%" width="60%" alt="help robot"  />
               </Grid>
               <Grid item sm={4}></Grid>
-
               <Grid item sm={6} alignContent={"center"}>
                   <img src={process.env.PUBLIC_URL + 'logo512.png'}  alt="team on opentrons use day"/>
-
               </Grid>
               <Grid item sm={6} alignContent={"center"}>
                 <Typography variant={"h2"} color={"#C4C4C4"}>
                     About
                 </Typography>
-
                 <Typography variant={"h6"}  color={"#c4c4c4"}>
                     Synthetic Biology made easy:
                 </Typography>
@@ -48,11 +45,10 @@ export default function About(props)  {
                     DNA assembly more accessible.
                 </Typography>
                 </Grid>
-              <Grid item sm={6} alignContent={"center"}>
-                  <Typography variant={"h2"} color={"#C4C4C4"}>
-                      About
-                  </Typography>
-
+                <Grid item sm={6} alignContent={"center"}>
+                    <Typography variant={"h2"} color={"#C4C4C4"}>
+                        About
+                    </Typography>
                   <Typography variant={"h6"}  color={"#c4c4c4"}>
                       Synthetic Biology made easy:
                   </Typography>
@@ -64,12 +60,9 @@ export default function About(props)  {
               </Grid>
               <Grid item sm={6} alignContent={"center"}>
                   <img src={process.env.PUBLIC_URL + 'logo512.png'} height="60%" width="60%" alt="help robot" />
-
               </Grid>
-
               <Grid item sm={12} alignContent={"center"}>
                   <img src={process.env.PUBLIC_URL + 'logo512.png'} height="40%" width="100%" alt="help robot" />
-
               </Grid>
           </Grid>
      </div>

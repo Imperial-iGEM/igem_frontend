@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
     textAlign: 'left',
+    padding: '10',
     color: 'black'
   },
 }));
@@ -39,10 +40,9 @@ export default function NavBar() {
       <AppBar position="static" color='transparent'>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} aria-label="menu">
-            <MenuIcon />
+            <img src={process.env.PUBLIC_URL +'ourlogo.png'} height="85" alt="logo"/>
           </IconButton>
           <Typography color='black' variant="h6" className={classes.title}>
-            Soap Labs
           </Typography>
           <Link style={navStyle} to='/designer'>
             <Button color="black">Designer</Button>
