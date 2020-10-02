@@ -24,7 +24,7 @@ export default function FileUpload(props) {
                 // Do whatever you want with the file contents
                 const string = reader.result
                 setFileString(string);
-                window.testData = string
+                window.sbolFile = string
                 console.log(string)
             }
             reader.readAsText(file)

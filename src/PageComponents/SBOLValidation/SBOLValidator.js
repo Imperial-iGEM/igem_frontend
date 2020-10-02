@@ -50,6 +50,7 @@ export default function SBOLValidator(props) {
         reader.onload = () => {
             let abba = reader.result;
             setFileString(abba);
+            window.sbolFile = abba;
         }
         reader.readAsText(acceptedFiles[0]);
         setDone(true);
