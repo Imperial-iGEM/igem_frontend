@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
     },
+    mainGrid: {
+        alignItems:"center",
+    },
     generalSpacing: {
       padding: theme.spacing(2),
       color: theme.palette.text.secondary,
@@ -25,7 +28,7 @@ export default function About(props)  {
 
     return (
       <div>
-          <Grid container spacing={1}>
+          <Grid className={classes.mainGrid} container spacing={1}>
             <Grid item xs={12}>
                 <div className={classes.generalSpacing}>
                     <OurStory />

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
     bottomLeft: {
         position: 'absolute',
-        bottom: '90px',
+        bottom: '110px',
         left:'40px',
     }
   }));

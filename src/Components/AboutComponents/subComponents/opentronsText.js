@@ -7,6 +7,10 @@ const useStyles = makeStyles((theme) => ({
     root:{
         textAlign: 'left',
     },
+    textSection:{
+        paddingLeft: '20px',
+        paddingRight: '20px',
+    },
     selectEmpty: {
       marginTop: theme.spacing(2),
     },
@@ -29,19 +33,21 @@ export default function OpentronsText(props){
 
     return(
         <div className={classes.root}>
-            <Typography variant={"h2"}>
-                We used Opentrons
-            </Typography>
-            <Typography variant={"h6"}>
-                Opentrons is cool for lots of reasons i will write below
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                consequat. Duis aute irure dolor Ut enim ad minim veniam, 
-                quis nostrud 
+            <div className={classes.textSection}>
+                <Typography variant={"h2"}>
+                    We used Opentrons
+                </Typography>
+                <Typography variant={"h6"}>
+                    Opentrons is cool for lots of reasons i will write below
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
                     exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                consequat. Duis aute irure dolor
+                    consequat. Duis aute irure dolor Ut enim ad minim veniam, 
+                    quis nostrud 
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+                    consequat. Duis aute irure dolor
 
-            </Typography>
+                </Typography>
+            </div>
         </div>
     )
 }
