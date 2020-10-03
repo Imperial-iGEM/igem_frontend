@@ -45,14 +45,14 @@ export default function NavBar() {
           </IconButton>
           <Typography color='black' variant="h6" className={classes.title}>
           </Typography>
-          <Link style={navStyle} to='/designer'>
-            <Button color="black">Designer</Button>
-          </Link>
           <Link style={navStyle} to='/'>
             <Button color="black">Home</Button>
           </Link>
           <Link style={navStyle} to='/about'>
             <Button color="black">About</Button>
+          </Link>
+          <Link style={navStyle} to='/designer'>
+            <Button color="black">Designer</Button>
           </Link>
           <Link style={navStyle} to='/about'>
             <Button color="black">Learn</Button>

@@ -2,6 +2,9 @@ import React from 'react'
 import {Grid,Typography,  makeStyles,withStyles } from "@material-ui/core";
 import Box from '@material-ui/core/Box';
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import { white } from '@material-ui/core/colors';
 
 
 const WhiteTextTypography = withStyles({
@@ -9,6 +12,16 @@ const WhiteTextTypography = withStyles({
         color: "#FFFFFF"
     }
 })(Typography);
+
+const ColorButton = withStyles((theme) => ({
+    root: {
+      color: "#FFFFFF",
+      backgroundColor: "#FF6F90",
+      '&:hover': {
+        backgroundColor: "#FF6F90",
+      },
+    },
+  }))(Button);
 
 let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -25,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.text.secondary,
     },
     boxman:{
-        textAlign: 'center',
+        textAlign: 'left',
         height: '674px',
     },
     Container:{
@@ -48,6 +61,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FirstHome(props) {
     const classes = useStyles();
+
+    const navStyle = {
+        color: 'white',
+        textDecoration: 'none',
+        background: ''
+    };
 
 
 
@@ -79,15 +98,12 @@ export default function FirstHome(props) {
                                 </Box>
                             </Grid>
                             <Grid item sm={6}></Grid>
-                            <Grid item sm={4} className={classes.boxman}>
-                                <Box
-                                bgcolor = "#FF6F90"
-                                color="#FFFFFF"
-                                p={2}
-                                flexGrow={1}
-                                >
-                                    Get Started!
-                                </Box>
+                            <Grid item sm={4}>
+                                <Link style={navStyle} to='/designer'>
+                                    <ColorButton size="large" variant="contained">
+                                        Designer
+                                    </ColorButton>
+                                </Link>
                             </Grid>
                             <Grid item sm={8}></Grid>
                         </Grid>
@@ -123,7 +139,7 @@ export default function FirstHome(props) {
                             </WhiteTextTypography>
                         </Grid>
                         <Grid item sm={6} >
-                            <img src={process.env.PUBLIC_URL +'Images/DBTL example to remove.jpg'} height='400px' alt="robot"/>
+                            <img src={process.env.PUBLIC_URL +'svg/designcycle.svg'} height='400px' alt="robot"/>
                         </Grid>
                     </Grid>
                 </Box>
