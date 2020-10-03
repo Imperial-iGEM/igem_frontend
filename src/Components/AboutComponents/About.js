@@ -7,6 +7,7 @@ import OpentronsAbout from './subComponents/opentrons'
 import OpentronsText from './subComponents/opentronsText'
 import TeamText from './subComponents/teamText'
 import TeamPhoto from './subComponents/teamPhoto'
+import Lotty from './subComponents/lotty'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -48,6 +49,11 @@ export default function About(props)  {
             <Grid item xs={6}>
                 <div className={classes.generalSpacing}>
                     <TeamPhoto />
+                </div>
+            </Grid>
+            <Grid item xs={12}>
+                <div className={classes.generalSpacing}>
+                    <Lotty />
                 </div>
             </Grid>
           </Grid>
