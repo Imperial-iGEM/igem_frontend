@@ -21,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
   },
+  centerButtons: {
+    textAlign: 'center',
+  }
 }));
 
 function getSteps() {
@@ -78,7 +81,7 @@ export default function ParentDesigner() {
         ) : (
           <div>
             <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-            <div>
+            <div className={classes.centerButtons}>
               <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}

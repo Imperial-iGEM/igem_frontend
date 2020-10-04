@@ -37,7 +37,7 @@ export default function Specifications(props) {
                 <SelectProtocol />
             </div>
             <div>
-            <StyledButton text="GENERATE SCRIPTS"/>
+                <StyledButton text="GENERATE SCRIPTS"/>
             </div>
             <div>
                 <Outputfiles/>
