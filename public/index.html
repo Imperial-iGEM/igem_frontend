@@ -42,9 +42,6 @@
         console.log(newSBOl);
         console.log(testReturn);
       }
-    </script>
-
-    <script>
       var webswingInstance0 = {
         options: {
           autoStart: true,
@@ -53,9 +50,38 @@
           binarySocket: getParam('binarySocket'),
           debugPort: getParam('debugPort'),
           recordingPlayback: getParam('recordingPlayback'),
-          connectionUrl:'https://sboldesigner.soaplab.io/sbol-designer'
+          connectionUrl:'https://sboldesigner.soaplab.io/sbol-designer',
         }
       }
+
+      function runSend(){
+
+        pingService.send(test()).then(
+                function(result){
+                  alert(result);
+                }
+        ).catch(
+                function(error){
+                  console.log(error);
+                }
+        )
+        return 1;
+      }
+
+      function runGet(){
+        var resultSbol = window.sbolFile
+        pingService.get().then(
+                function(result){
+                  resultSbol = result
+                }
+        ).catch(
+                function(error){
+                  console.log(error);
+                }
+        )
+        return resultSbol;
+      }
+
 
       function getParam(name) {
         name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");

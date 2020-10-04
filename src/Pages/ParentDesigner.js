@@ -46,6 +46,9 @@ export default function ParentDesigner() {
   const steps = getSteps();
 
   const handleNext = () => {
+    if(activeStep === 1){
+      window.sbolFile = window.runGet();
+    }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 

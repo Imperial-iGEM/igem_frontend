@@ -9,6 +9,20 @@ function SBOLDesigner(props) {
             onLoad(new Event('initialiseDesigner') );
     },[])
 
+    useEffect(() => {
+        function waitForPingService() {
+            console.log("Waiting for service");
+            if (typeof window.pingService !== "undefined") {
+                window.runSend();
+            } else {
+                setTimeout(waitForPingService, 250);
+            }
+        }
+
+        waitForPingService();
+    }, [])
+
+
     return (
         <div className="webswing-element" data-webswing-instance="webswingInstance0" style={{height: '80vh'}}>
         </div>
