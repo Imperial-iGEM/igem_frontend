@@ -4,11 +4,18 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Slide from '@material-ui/core/Slide';
 
 import SpecCard from './SubComponents/SpecCard';
 import SpecCard_run from './SubComponents/SpecCard_run';
 import SpecCard_output from './SubComponents/SpecCard_output';
 import SpecCard_labhardware from './SubComponents/SpecCard_labhardware';
+import TheDataTable from './SubComponents/datatable'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,14 +28,24 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+  myDialog: {
+    textAlign: 'center'
+  },
   button: {
       height:'100%',
       width:'100%'
   }
 }));
 
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
+
 export default function ExampleSpecification() {
   const classes = useStyles();
+
+  //Controling modal when generate scipts button is pressed
+  const [open, setOpen] = useState(false);
 
   //Run specification States
   const [prefixUri, setPrefixUri] = useState('');
@@ -95,8 +112,18 @@ export default function ExampleSpecification() {
   const outputhandleChange = (event) => {
     setOutState({ ...outState, [event.target.name]: event.target.checked });
     console.log(outState)
-};
-  
+  };
+
+  //Functions for controlling modal
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+
   function Generate() {
     console.log('labware attached',labware1)
     console.log('liquid handler',liquidHandler)
@@ -137,16 +164,41 @@ export default function ExampleSpecification() {
           />
         </Grid>
         <Grid item xs={3}>
-            <Button
+          <Button
             className={classes.button}
             variant="contained"
             color="secondary"
             className={classes.button}
             startIcon={<SaveIcon />}
-            onClick={Generate}
-            >
-            Generate Opentrons Scripts
-            </Button>
+            onClick={handleClickOpen}
+          >
+            Process Input
+          </Button>
+          <Dialog
+            maxWidth={"md"}
+            open={open}
+            TransitionComponent={Transition}
+            keepMounted
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-slide-title"
+            aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogTitle id="alert-dialog-slide-title">{"Fill in the concentrations of each part or accept default value"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide-description">
+                PLease fill the concentrations of each Part / Linker ypu have and also the plate number and well in which you desire to place each Part / Linker that you have
+                <TheDataTable />
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose} variant="contained" color="primary">
+                Close
+              </Button>
+              <Button onClick={handleClose} variant="contained" color="secondary">
+                Generate Opentrons Scripts
+              </Button>
+            </DialogActions>
+          </Dialog>
         </Grid>
       </Grid>
     </div>
