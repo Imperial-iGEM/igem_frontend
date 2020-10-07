@@ -55,30 +55,38 @@
       }
 
       function runSend(){
-
-        pingService.send(test()).then(
-                function(result){
-                  alert(result);
-                }
-        ).catch(
-                function(error){
-                  console.log(error);
-                }
-        )
+        try {
+          pingService.send(test()).then(
+                  function (result) {
+                  }
+          ).catch(
+                  function (error) {
+                    console.log(error);
+                  }
+          )
+        } catch (e) {
+          console.log(e);
+        }
         return 1;
       }
 
       function runGet(){
         var resultSbol = window.sbolFile
-        pingService.get().then(
-                function(result){
-                  resultSbol = result
-                }
-        ).catch(
-                function(error){
-                  console.log(error);
-                }
-        )
+        try {
+
+
+          pingService.get().then(
+                  function (result) {
+                    resultSbol = result
+                  }
+          ).catch(
+                  function (error) {
+                    console.log(error);
+                  }
+          )
+        } catch(e){
+          console.log(e);
+        }
         return resultSbol;
       }
 

@@ -24,7 +24,7 @@ function SBOLDesigner(props) {
 
 
     return (
-        <div className="webswing-element" data-webswing-instance="webswingInstance0" style={{height: '80vh'}}>
+        <div className="webswing-element" data-webswing-instance="webswingInstance0" style={{height: '100vh'}}>
         </div>
     )
 }
