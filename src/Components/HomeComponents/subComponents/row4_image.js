@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     },
     imagePosition:{
         textAlign: 'center',
-        paddingTop: '3%',
+        paddingTop: '7%',
     }
   }));
 
@@ -22,7 +22,7 @@ export default function Row4Image(props){
 
     return(
         <div className={classes.imagePosition}>
-            <img src={process.env.PUBLIC_URL + 'row4.jpg'} height="400px" alt="robot"/>
+            <img src={process.env.PUBLIC_URL + 'pippette.jpeg'} height="400px" alt="robot"/>
         </div>
     )
 }

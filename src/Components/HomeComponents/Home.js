@@ -24,19 +24,19 @@ const useStyles = makeStyles((theme) => ({
     pinkGrid: {
       backgroundColor: "#FF6F90",
       height: '100%',
-      minHeight: '500px',
+      minHeight: '550px',
     },
     darkblueGrid: {
       backgroundColor: "#324460",
-      minHeight: '500px',
+      minHeight: '550px',
     },
     blueGrid: {
       backgroundColor: "#859FE1",
-      minHeight: '500px',
+      minHeight: '550px',
     },
     lightblueGrid: {
       backgroundColor: "#C7EEFF",
-      minHeight: '500px',
+      minHeight: '550px',
     },
     mainGrid: {
         alignItems:"center",

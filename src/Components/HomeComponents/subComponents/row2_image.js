@@ -22,7 +22,7 @@ export default function Row2Image(props){
 
     return(
         <div className={classes.imagePosition}>
-            <img src={process.env.PUBLIC_URL + 'design_cycle.png'} height="400px" alt="robot"/>
+            <img src={process.env.PUBLIC_URL + 'designcycletransparent.png'} height="400px" alt="robot"/>
         </div>
     )
 }
