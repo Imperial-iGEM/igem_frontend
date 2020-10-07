@@ -57,16 +57,16 @@ export default function FileUpload(props) {
                 <List className={classes.list}>
                     {files.length > 0 && files.map((acceptedFile, index) => {
                         return [<ListItem key={index} className={classes.listItem}>
-                            <Paper elevation={3} className={classes.listItemPaper}>
-                                <a href={URL.createObjectURL(acceptedFile)}
-                                   download={acceptedFile.name}>{acceptedFile.name}</a>
-                            </Paper>
-                        </ListItem>,
-                            <ListItem key={10}>
-                                <SeqViz
-                                    style = {{height: '50vh', width:'100vw'}}
-                                    file ={acceptedFile}
-                                /></ListItem>]})}
+                                    <Paper elevation={3} className={classes.listItemPaper}>
+                                        <a href={URL.createObjectURL(acceptedFile)}
+                                        download={acceptedFile.name}>{acceptedFile.name}</a>
+                                    </Paper>
+                                </ListItem>,
+                                <ListItem key={10}>
+                                    <SeqViz
+                                        style = {{height: '50vh', width:'100vw'}}
+                                        file ={acceptedFile}
+                                    /></ListItem>]})}
                             {pythonLink1 !== "" && <ListItem key={11} className={classes.listItem}>
                                 <Paper elevation={3} className={classes.listItemPaper}>
                                     <a href={pythonLink1}
@@ -90,7 +90,7 @@ export default function FileUpload(props) {
                                     <a href={pythonLink4}
                                        download="4_transformation.ot2.py">4_transformation.ot2.py</a>
                                 </Paper>
-                            </ListItem>},
+                            </ListItem>}
                 </List>
                 <RiseLoader
                     css={{alignSelf:'center'}}
