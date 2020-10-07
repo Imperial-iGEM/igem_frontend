@@ -41,6 +41,9 @@ const useStyles = makeStyles((theme) => ({
     mainGrid: {
         alignItems:"center",
     },
+    lottieAnimation: {
+        paddingTop: '2%'
+    },
     generalSpacing: {
       padding: theme.spacing(2),
       color: theme.palette.text.secondary,
@@ -76,7 +79,9 @@ export default function Home(props)  {
             </Grid>
             <Grid item xs={6} className={classes.darkblueGrid}>
                 <div className={classes.generalSpacing}>
-                    <ThisAnimation />
+                    <div className={classes.lottieAnimation}>
+                        <ThisAnimation />
+                    </div>
                 </div>
             </Grid>
             <Grid item xs={6} className={classes.darkblueGrid}>

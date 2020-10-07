@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
         paddingRight: '25px',
         paddingLeft: '25px',
         alignItems: 'center',
+    },
+    myButton: {
+        padding: '10px'
     }
   }));
 
@@ -47,9 +50,13 @@ export default function Row2Text(props){
                     planning and carrying out repetitive assembly protocols by
                     hand, SOAP Lab helps you to automate the process.
                 </WhiteTextTypography>
-                <WhiteTextTypography variant={"h8"}>
-                    Read More
-                </WhiteTextTypography>
+                <div className={classes.myButton}>
+                    <Link style={navStyle} to='/about'>
+                        <Button size="medium" color="primary" variant="contained">
+                            Read More
+                        </Button>
+                    </Link>
+                </div>
             </div>
         </div>
     )

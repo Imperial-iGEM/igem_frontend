@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
         paddingRight: '25px',
         paddingLeft: '25px',
         alignItems: 'center',
+    },
+    myButton: {
+        padding: '10px'
     }
   }));
 
@@ -52,9 +55,13 @@ export default function Row3Text(props){
                 <WhiteTextTypography variant={"h6"}>
                     Resorces: Combinatorial Design/SBOL
                 </WhiteTextTypography>
-                <WhiteTextTypography variant={"h8"}>
-                    About
-                </WhiteTextTypography>
+                <div className={classes.myButton}>
+                    <Link style={navStyle} to='/learn'>
+                        <Button size="medium" color="secondary" variant="contained">
+                            Learn More
+                        </Button>
+                    </Link>
+                </div>
             </div>
         </div>
     )
