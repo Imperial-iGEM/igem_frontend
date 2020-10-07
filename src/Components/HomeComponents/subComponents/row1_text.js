@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'left',
     },
     textSection:{
-        paddingLeft: '20px',
+        paddingTop: '40%',
+        paddingLeft: '100px',
         paddingRight: '20px',
     },
     selectEmpty: {
