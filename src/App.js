@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import Home from "./Components/HomeComponents/Home"
+import Learn from "./Components/LearnComponent/Learn"
 import About from "./Components/AboutComponents/About";
 import Contact from "./Components/ContactComponents/Contact";
 import NavBar from './Components/NavBarComponent/NavBar';
@@ -22,7 +23,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/about" component={About}/>
-          <Route path="/learn" component={Home}/>
+          <Route path="/learn" component={Learn}/>
           <Route path="/designer" component={ParentDesigner} />
           <Route path="/contact" component={Contact} />
         </Switch>
