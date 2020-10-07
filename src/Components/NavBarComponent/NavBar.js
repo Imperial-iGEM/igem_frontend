@@ -56,7 +56,7 @@ export default function NavBar() {
           <Link style={navStyle} to='/designer'>
             <Button color="black">Designer</Button>
           </Link>
-          <Link style={navStyle} to='/about'>
+          <Link style={navStyle} to='/learn'>
             <Button color="black">Learn</Button>
           </Link>
           <Link style={navStyle} to='/contact'>

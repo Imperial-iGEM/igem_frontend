@@ -5,6 +5,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+
 import FileUploadPage from "./FileUploadPage";
 import ExampleSpecification from '../Components/DesignerComponents/Specification'
 import FileUpload from '../SBOLValidation/FileUpload';
