@@ -17,6 +17,8 @@ import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
+import Link from '@material-ui/core/Link';
+
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 export default function SBOLValidator(props) {
@@ -26,7 +28,6 @@ export default function SBOLValidator(props) {
         check_best_practices: true,
         fail_first_error: true,
         display_full_stack_trace: false,
-        output_format:"SBOL2",
     });
 
     const handleChange = (event) => {
@@ -76,7 +77,7 @@ console.log(state.non_compliant_URI)
                     },
                     data: {
                         'options': {
-                            'language': state.output_format,
+                            'language': "SBOL2",
                             'test_equality': false,
                             'check_uri_compliance': state.non_compliant_URI,
                             'check_completeness': state.incomplete_documents,
@@ -112,9 +113,17 @@ console.log(state.non_compliant_URI)
                 }
                 if(response.data.errors[0] === "") {
                     var outPutFile = response.data.output_file;
-                    document.getElementById("outPutFile").innerText = "Link to download validated file: \n" +  outPutFile;
+                    document.getElementById("OUTPUTFILEID").innerText="Click to Download"
+                    ;
 
+                    document.getElementById("OUTPUTFILEID").href=outPutFile;
+
+                    ////////////////////////////////////////////////////
                 }
+
+
+
+
                 else{
                     document.getElementById("outPutFile").innerText = "Fix Errors and try again";
 
@@ -142,42 +151,16 @@ console.log(state.non_compliant_URI)
             <div className={classes.root}>
                 <div className={classes.root} >
                     <Grid container  display="flex"  sm ={12} spacing={1}  className={classes.container}>
-                        <Grid item sm={6}>
-                            <div>
-                                <Paper >
-                                    <Typography variant="h4" component="h3">
-                                        Output File Options
 
-                                        <div>
 
-                                            <FormControl className={classes.formControl}>
-                                                <InputLabel id="demo-simple-select-label">language</InputLabel>
-                                                <Select
-                                                    labelId="demo-simple-select-label"
-                                                    id="demo-simple-select">
-                                                    <MenuItem value={10}>SBOL1</MenuItem>
-                                                    <MenuItem value={20}>SBOL2</MenuItem>
-                                                    <MenuItem value={30}>GenBank</MenuItem>
-                                                    <MenuItem value={40}>FASTA</MenuItem>
-                                                    <MenuItem value={50}>GFF3</MenuItem>
-
-                                                </Select>
-                                            </FormControl>
-                                        </div>
-                                    </Typography>
-                                </Paper>
-                            </div>
-
-                        </Grid>
-
-                        <Grid item sm={6}>
+                        <Grid item sm={12}>
                             <div>
                                     <Typography variant="h4" component="h3">
                                         Validation Options
 
                                         <div>
                                             <FormControl component="fieldset">
-                                                <FormLabel component="legend">Select options</FormLabel>
+                                                <FormLabel component="legend">Select</FormLabel>
                                                 <FormGroup>
                                                     <FormControlLabel
                                                         control={<Switch checked={state.non_compliant_URI} onChange={handleChange} name="non_compliant_URI" />}
@@ -249,7 +232,7 @@ console.log(state.non_compliant_URI)
                         <Paper style={{padding:20, marginTop:10, marginBottom:10}}>
 
                             <Typography variant="h6"  style = {{padding:20}}  id={"outPutFile"}>
-                                OutputFile
+                                <Link  id={"OUTPUTFILEID"} a={""}>OutputFile</Link>
                             </Typography>
                         </Paper>
                     </Paper>
