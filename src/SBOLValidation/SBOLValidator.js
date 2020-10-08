@@ -104,16 +104,11 @@ console.log(state.non_compliant_URI)
                 }
                 else{
                     document.getElementById("errorBox").innerText = "No Errors";
-
                 }
-                if(response.data.errors[0] === "") {
+                if(response.data.errors[0] === "" || response.data.errors[1] ==="Validation successful, no errors.") {
                     var outPutFile = response.data.output_file;
-                    document.getElementById("OUTPUTFILEID").innerText="Click to Download"
-                    ;
-
+                    document.getElementById("OUTPUTFILEID").innerText="Click to Download";
                     document.getElementById("OUTPUTFILEID").href=outPutFile;
-
-                    ////////////////////////////////////////////////////
                 }
 
 
@@ -121,7 +116,7 @@ console.log(state.non_compliant_URI)
 
                 else{
                     document.getElementById("outPutFile").innerText = "Fix Errors and try again";
-
+                    console.log("response.data.errors[1]",response.data.errors[1]  );
                 }
                 console.log("response: ", response.config.data);
 
