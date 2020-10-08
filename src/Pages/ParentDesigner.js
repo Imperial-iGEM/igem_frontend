@@ -34,13 +34,13 @@ function getSteps() {
 function getStepContent(stepIndex,handleDnaAssemblyChange,dnaAssembly) {
   switch (stepIndex) {
     case 0:
-      return <FileUploadPage 
+      return <FileUploadPage
                 handleDnaAssemblyChange={handleDnaAssemblyChange}
               />;
     case 1:
       return <SBOLDesigner />;
     case 2:
-      return <ExampleSpecification 
+      return <ExampleSpecification
                 dnaAssembly={dnaAssembly}
               />;
     default:
@@ -64,11 +64,12 @@ export default function ParentDesigner() {
 
   const handleNext = () => {
     if(activeStep === 1){
-      window.sbolFile = window.runGet().then(
+      window.runGet().then(
       (result) => {
         if (result.error){
           alert("Error getting sbol file from app")
         } else {
+          window.sbolFile = result;
           setActiveStep((prevActiveStep) => prevActiveStep + 1);
         }
       }
