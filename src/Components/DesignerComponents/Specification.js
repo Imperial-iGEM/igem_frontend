@@ -94,7 +94,7 @@ export default function ExampleSpecification(props) {
   const [
     finalSpec,
     {loading: finalSpecMutationLoading, error: finalSpecMutationError},
-  ] = useMutation(LINKER_MUTATION, {
+  ] = useMutation(SPEC_MUTATION, {
     variables:
         {
           "specifications":{
@@ -162,6 +162,7 @@ export default function ExampleSpecification(props) {
   const handleClickOpen = async () => {
     // send sbol file for linkers
     let linkers = await linkerList()
+    console.log(linkers);
     setOpen(true);
     Generate();
   };
