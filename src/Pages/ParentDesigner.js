@@ -31,14 +31,18 @@ function getSteps() {
   return ['SBOL File Upload', 'SBOL Designer', 'Specifications'];
 }
 
-function getStepContent(stepIndex) {
+function getStepContent(stepIndex,handleDnaAssemblyChange,dnaAssembly) {
   switch (stepIndex) {
     case 0:
-      return <FileUploadPage />;
+      return <FileUploadPage 
+                handleDnaAssemblyChange={handleDnaAssemblyChange}
+              />;
     case 1:
       return <SBOLDesigner />;
     case 2:
-      return <ExampleSpecification />;
+      return <ExampleSpecification 
+                dnaAssembly={dnaAssembly}
+              />;
     default:
       return 'Unknown stepIndex';
   }
@@ -46,8 +50,17 @@ function getStepContent(stepIndex) {
 
 export default function ParentDesigner() {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(2);
   const steps = getSteps();
+
+  // Storing DNA assembly selection
+  const [dnaAssembly, setDnaAssembly] = useState('basic');
+
+  // Storing change function for DNA assembly selection
+  const handleDnaAssemblyChange = (event) => {
+    setDnaAssembly(event.target.value);
+    console.log(event.target.value);
+  };
 
   const handleNext = () => {
     if(activeStep === 1){
@@ -81,7 +94,7 @@ export default function ParentDesigner() {
           </div>
         ) : (
           <div>
-            <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+            <Typography className={classes.instructions}>{getStepContent(activeStep,handleDnaAssemblyChange,dnaAssembly)}</Typography>
             <div className={classes.centerButtons}>
               <Button
                 disabled={activeStep === 0}

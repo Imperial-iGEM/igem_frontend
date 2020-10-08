@@ -38,14 +38,12 @@ export default function SpecCard_labhardware(props) {
             <FormControl className={classes.formControl}>
               <InputLabel id="demo-simple-select-label">Liquid Handler</InputLabel>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
+                labelId="liquid-handler-label"
+                id="liquid-handler"
                 value={props.liquidHandler}
                 onChange={props.handleChangeLiquid}
                 >
-                <MenuItem value={'P20'}>P20</MenuItem>
-                <MenuItem value={'P40'}>P40</MenuItem>
-                <MenuItem value={'P80'}>P80</MenuItem>
+                <MenuItem value={'opentronsOT2'}>Opentrons OT-2</MenuItem>
               </Select>
             </FormControl>
             <FormControl className={classes.formControl}>

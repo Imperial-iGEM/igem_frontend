@@ -41,7 +41,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function ExampleSpecification() {
+export default function ExampleSpecification(props) {
   const classes = useStyles();
 
   //Controling modal when generate scipts button is pressed
@@ -57,7 +57,7 @@ export default function ExampleSpecification() {
   const [reagentConcentrations, setReagentConcentrations] = useState('');
 
   //Opentrons Labware states
-  const [liquidHandler, setliquidHandler] = useState('P20');
+  const [liquidHandler, setliquidHandler] = useState('opentronsOT2');
   const [labware1, setlabware1] = useState('P20');
 
   //Output Files States
@@ -117,6 +117,7 @@ export default function ExampleSpecification() {
   //Functions for controlling modal
   const handleClickOpen = () => {
     setOpen(true);
+    Generate();
   };
 
   const handleClose = () => {
@@ -124,11 +125,11 @@ export default function ExampleSpecification() {
   };
 
 
-  function Generate() {
+  const Generate = () =>{
     console.log('labware attached',labware1)
     console.log('liquid handler',liquidHandler)
     console.log('prefixuri',prefixUri)
-
+    console.log('selected dna assembly method', props.dnaAssembly)
   }
 
   return (
@@ -165,7 +166,9 @@ export default function ExampleSpecification() {
             color="secondary"
             className={classes.button}
             startIcon={<SaveIcon />}
-            onClick={handleClickOpen}
+            onClick={
+              handleClickOpen
+            }
           >
             Process Input
           </Button>

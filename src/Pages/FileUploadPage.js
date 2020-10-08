@@ -24,13 +24,6 @@ const useStyles = makeStyles({
 export default function FileUploadPage(props) {
     const classes = useStyles();
     
-    // To Use Radio Buttons
-    const [value, setValue] = React.useState('basic');
-
-    // To Control Radio buttons
-    const handleChange = (event) => {
-        setValue(event.target.value);
-    };
     //const classes = useStyles();
     const [selectedTab, setSelectedTab] = React.useState(0);
     const [navigate, setNavigate] = useState(false);
@@ -79,7 +72,7 @@ export default function FileUploadPage(props) {
             <div className={classes.radioAssembly}>
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Which DNA Assembly method would you like to use?</FormLabel>
-                    <RadioGroup aria-label="position" name="position" defaultValue="top">
+                    <RadioGroup aria-label="position" name="position" defaultValue="top" onChange={props.handleDnaAssemblyChange}>
                         <FormControlLabel
                         value="basic"
                         control={<Radio color="primary" />}
