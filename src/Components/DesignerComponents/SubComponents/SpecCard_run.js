@@ -27,7 +27,7 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
   inputText: {
-    minWidth: '400px'
+    minWidth: '50%'
   }
 });
 

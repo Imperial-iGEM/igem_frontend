@@ -153,7 +153,7 @@ console.log(state.non_compliant_URI)
                     <Grid container  display="flex"  sm ={12} spacing={1}  className={classes.container}>
 
 
-                        <Grid item sm={12}>
+                        <Grid item xs={4}>
                             <div>
                                     <Typography variant="h4" component="h3">
                                         Validation Options
@@ -190,21 +190,23 @@ console.log(state.non_compliant_URI)
                             </div>
 
                         </Grid>
+                        <Grid item xs={8}>
+                            <Paper elevation={3} className={classes.dropZone}>
+                                <Dropzone onDrop={acceptedFiles => acceptFiles(acceptedFiles)} >
+                                    {({getRootProps, getInputProps}) => (
+                                        <section className={classes.dropZoneInner}>
+                                            <div {...getRootProps()} >
+                                                <input {...getInputProps()}  />
+                                                <div className={classes.dropText}>
+                                                    <p>Drag 'n' drop some files here, or click to select files</p>
+                                                </div>      
+                                            </div>
+                                        </section>
+                                    )}
+                                </Dropzone>
+                            </Paper>
+                        </Grid>
                     </Grid>
-                    <Paper elevation={3} className={classes.dropZone}>
-                        <Dropzone onDrop={acceptedFiles => acceptFiles(acceptedFiles)} >
-                            {({getRootProps, getInputProps}) => (
-                                <section className={classes.dropZoneInner}>
-                                    <div {...getRootProps()} >
-                                        <input {...getInputProps()}  />
-                                        <p>Drag 'n' drop some files here, or click to select files</p>
-                                    </div>
-                                </section>
-                            )}
-
-                        </Dropzone>
-
-                    </Paper>
                     <List className={classes.list}>
                         {files.length > 0 && files.map((acceptedFile, index) => {
                             return [<ListItem key={index} className={classes.listItem}>
@@ -259,6 +261,7 @@ const useStyles = makeStyles((theme) => ({
     },
     dropZone: {
         display: 'flex',
+        height: '100%',
         minHeight: 100,
         alignItems: 'center',
         justifyContent: 'center',
@@ -287,6 +290,7 @@ const useStyles = makeStyles((theme) => ({
     dropZoneInner: {
         flex: 1,
         display: 'flex',
+        height: '75%',
         flexDirection: 'column',
         alignItems: 'center',
         padding: 20,
@@ -298,5 +302,9 @@ const useStyles = makeStyles((theme) => ({
         color: '#bdbdbd',
         outline: 'none',
         margin: 10
+    },
+    dropText: {
+        alignItems: 'center',
+        paddingTop: '17%'
     }
 }));
