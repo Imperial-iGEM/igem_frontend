@@ -26,33 +26,13 @@ export default function FileUploadPage(props) {
     
     //const classes = useStyles();
     const [selectedTab, setSelectedTab] = React.useState(0);
-    const [navigate, setNavigate] = useState(false);
-    const [navigateTo, setNavigateTo] = useState({});
-    let currentLocation = useLocation();
 
-//the value is which tab is selected
 
 
     const handleTabChange = (event, newValue) => {
         setSelectedTab(newValue);
     }; // Triggered whenever we take a new value
 
-
-    let handleTabSelection = function (location, index) {
-        console.log(`In GeneDesign Component; Text: ${location.text}, Path: ${location.path}, Index: ${index}`)
-        setNavigateTo({path: location.path, push: true, state: {referrer: currentLocation}})
-        setNavigate(true)
-    }
-
-    if (navigate) {
-        return (<Redirect
-            to={{
-                pathname: navigateTo.path,
-                push: navigateTo.push,
-                state: navigateTo.state
-            }}
-        />)
-    }
 
     return (
         <div>

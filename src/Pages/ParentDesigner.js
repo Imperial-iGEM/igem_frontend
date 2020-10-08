@@ -64,9 +64,18 @@ export default function ParentDesigner() {
 
   const handleNext = () => {
     if(activeStep === 1){
-      window.sbolFile = window.runGet();
+      window.sbolFile = window.runGet().then(
+      (result) => {
+        if (result.error){
+          alert("Error getting sbol file from app")
+        } else {
+          setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        }
+      }
+    ).catch((error) => {
+      console.log(error);
+      });
     }
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleBack = () => {

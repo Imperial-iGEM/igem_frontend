@@ -54,7 +54,7 @@
         }
       }
 
-      function runSend(){
+      async function runSend() {
         try {
           pingService.send(test()).then(
                   function (result) {
@@ -70,24 +70,25 @@
         return 1;
       }
 
-      function runGet(){
+      async function runGet() {
         var resultSbol = window.sbolFile
+        var error = false;
         try {
-
-
           pingService.get().then(
-                  function (result) {
-                    resultSbol = result
-                  }
+            (result) => {
+              resultSbol = result
+            }
           ).catch(
-                  function (error) {
-                    console.log(error);
-                  }
-          )
-        } catch(e){
+            (error) => {
+              console.log(error);
+              error = true;
+            }
+          );
+        } catch (e) {
+          error = true;
           console.log(e);
         }
-        return resultSbol;
+        return {error: true, sbol: resultSbol};
       }
 
 

@@ -92,12 +92,6 @@ export default function FileUpload(props) {
                                 </Paper>
                             </ListItem>}
                 </List>
-                <RiseLoader
-                    css={{alignSelf:'center'}}
-                    size={150}
-                    color={"#123abc"}
-                    loading={pythonLink1 === "" && pythonLink2 === "" && pythonLink3 === "" && pythonLink4 === "" && files.length > 0}
-                />
             </div>
 
         </div>
