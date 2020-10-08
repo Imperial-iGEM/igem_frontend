@@ -11,6 +11,10 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+
 const useStyles = makeStyles((theme) => ({
     root: {
         minWidth: 420,
@@ -18,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
       },
     formControl: {
       margin: theme.spacing(1),
-      minWidth: 200,
+      minWidth: '90%',
     },
     selectEmpty: {
       marginTop: theme.spacing(2),
@@ -27,7 +31,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SpecCard_labhardware(props) {
 
-    const classes = useStyles();
+  const classes = useStyles();
+
+  const [state, setState] = React.useState({
+    checkedA: true,
+  });
+
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
 
   return (
     <Card className={classes.root} variant="outlined">
@@ -47,17 +59,27 @@ export default function SpecCard_labhardware(props) {
               </Select>
             </FormControl>
             <FormControl className={classes.formControl}>
-              <InputLabel id="demo-simple-select-label">Labware</InputLabel>
+              <InputLabel id="demo-simple-select-label">Pippete</InputLabel>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={props.labware1}
-                onChange={props.handleChangeLab}
+                labelId="pipette-label"
+                id="pipette"
+                value={props.pipette1}
+                onChange={props.handleChangePipette}
                 >
-                <MenuItem value={'P20'}>P20</MenuItem>
-                <MenuItem value={'P40'}>P40</MenuItem>
-                <MenuItem value={'P80'}>P80</MenuItem>
+                <MenuItem value={'p20singlechannel'}>P20 SINGLE-CHANNEL GEN2</MenuItem>
+                <MenuItem value={'P208channel'}>P20 8-CHANNEL GEN2</MenuItem>
+                <MenuItem value={'P300singlechannel'}>P300 SINGLE-CHANNEL GEN2</MenuItem>
+                <MenuItem value={'P3008channel'}>P300 8-CHANNEL GEN2</MenuItem>
+                <MenuItem value={'P1000singlechannel'}>P1000 SINGLE-CHANNEL GEN2</MenuItem>
               </Select>
+            </FormControl>
+            <FormControl>
+              <FormGroup row>
+                  <FormControlLabel
+                    control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                    label="Opentrons Thermocycler Module"
+                  />
+                </FormGroup>
             </FormControl>
           </div>
         </Typography>

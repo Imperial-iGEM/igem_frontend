@@ -94,6 +94,7 @@ export default function SpecCard_run(props) {
                                 props.linkerUploadhandleChange(event)
                                 checkError2(event)
                               }}
+                              error={error_input2}
                               id="linker-upload"
                               label="Number of runs/number of construct plates"
                               type="number" />

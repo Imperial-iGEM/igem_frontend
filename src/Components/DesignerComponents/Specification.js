@@ -58,7 +58,7 @@ export default function ExampleSpecification(props) {
 
   //Opentrons Labware states
   const [liquidHandler, setliquidHandler] = useState('opentronsOT2');
-  const [labware1, setlabware1] = useState('P20');
+  const [pipette1, setPipette1] = useState('p20singlechannel');
 
   //Output Files States
   const [outState, setOutState] = useState({
@@ -104,8 +104,8 @@ export default function ExampleSpecification(props) {
     setliquidHandler(event.target.value);
   };
 
-  const handleChangeLab = (event) => {
-      setlabware1(event.target.value);
+  const handleChangePipette = (event) => {
+      setPipette1(event.target.value);
   };
 
   //Output files state changing functions
@@ -126,7 +126,7 @@ export default function ExampleSpecification(props) {
 
 
   const Generate = () =>{
-    console.log('labware attached',labware1)
+    console.log('labware attached',pipette1)
     console.log('liquid handler',liquidHandler)
     console.log('prefixuri',prefixUri)
     console.log('selected dna assembly method', props.dnaAssembly)
@@ -152,11 +152,10 @@ export default function ExampleSpecification(props) {
         </Grid>
         <Grid item xs={5}>
           <SpecCard_labhardware 
-            labware1={labware1}
+            pipette1={pipette1}
             liquidHandler={liquidHandler}
             handleChangeLiquid={handleChangeLiquid}
-            handleChangeLab={handleChangeLab}
-
+            handleChangePipette={handleChangePipette}
           />
         </Grid>
         <Grid item xs={3}>
