@@ -107,7 +107,8 @@ export default function ExampleSpecification(props) {
             "outputReagentsList": outState.reagents_list,
             "outputPartSequences": outState.part_sequences_to_order,
             "outputLogs": outState.debugging_logs,
-            "outputMetaInformation": outState.run_metainformation
+            "outputMetaInformation": outState.run_metainformation,
+            "assemblyType": props.dnaAssembly
       },
        "linkerTypes":[]
     }});
