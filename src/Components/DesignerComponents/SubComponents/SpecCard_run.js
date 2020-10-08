@@ -6,11 +6,13 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import { PinDropSharp } from '@material-ui/icons';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 420,
+    minWidth: '420px',
     height: '100%',
   },
   bullet: {
@@ -24,10 +26,49 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  inputText: {
+    minWidth: '400px'
+  }
 });
 
 export default function SpecCard_run(props) {
   const classes = useStyles();
+
+  const [state, setState] = React.useState({
+    checkedA: true,
+  });
+
+  const [error_input1,setError_input1] = React.useState(false)
+  const [error_input2,setError_input2] = React.useState(false)
+  
+
+  const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
+
+  const checkError1 = (event) => {
+    if (event.target.value < 0) {
+      setError_input1(true)
+    } else {
+      setError_input1(false)
+    }
+  }
+
+  const checkError2 = (event) => {
+    if (event.target.value < 0) {
+      setError_input2(true)
+    } else {
+      setError_input2(false)
+    }
+  }
+
+  //function checkNegetive(event) {
+  //  if (event.target.value < 0) {
+  //    this.setState({ errorText: '' })
+  //  } else {
+  //    this.setState({ errorText: 'Invalid format: ###-###-####' })
+  //  }
+  //}
 
   return (
     <Card className={classes.root} variant="outlined">
@@ -37,43 +78,33 @@ export default function SpecCard_run(props) {
                 <div>
                     <form className={classes.root} noValidate autoComplete="off">
                         <CardActions>
-                            <TextField 
-                              onChange={(event) => props.prefixUrihandleChange(event)}
+                            <TextField
+                              className={classes.inputText} 
+                              onChange={(event) => {
+                                props.prefixUrihandleChange(event)
+                                checkError1(event)
+                              }}
+                              error={error_input1}
                               id="prefix-uri"
-                              label="Prefix URI"
-                              type="search" />
+                              label="Maximum number of wells filled per construct plate"
+                              type="number" />
                             <TextField
-                              onChange={(event) => props.linkerUploadhandleChange(event)}
+                              className={classes.inputText}
+                              onChange={(event) => {
+                                props.linkerUploadhandleChange(event)
+                                checkError2(event)
+                              }}
                               id="linker-upload"
-                              label="Linker Upload"
-                              type="search" />
-                            <TextField
-                              onChange={(event) => props.backboneUploadhandleChange(event)}
-                              id="backbone-upload"
-                              label="Backbone Upload"
-                              type="search" />
-                            <TextField 
-                              onChange={(event) => props.linkerSelectionhandleChange(event)}
-                              id="linker-selection"
-                              label="Linker Selection"
-                              type="search" />
+                              label="Number of runs/number of construct plates"
+                              type="number" />
                         </CardActions>
                         <CardActions>
-                            <TextField 
-                              onChange={(event) => props.noPlateRunshandleChange(event)}
-                              id="no-plates-runs"
-                              label="Num Plates/Runs"
-                              type="search" />
-                            <TextField 
-                              onChange={(event) => props.samplesPerPlatehandleChange(event)}
-                              id="samples-per-plate"
-                              label="Num Samples/plate"
-                              type="search" />
-                            <TextField 
-                              onChange={(event) => props.reagentConcentrationshandleChange(event)}
-                              id="reagent-concentrations"
-                              label="Concentrations"
-                              type="search" />
+                          <FormGroup row>
+                            <FormControlLabel
+                              control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                              label="Remove constructs with repeated parts"
+                            />
+                          </FormGroup>
                         </CardActions>
                     </form>
                 </div>

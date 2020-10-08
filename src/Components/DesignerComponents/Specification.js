@@ -141,11 +141,6 @@ export default function ExampleSpecification() {
           <SpecCard_run
             prefixUrihandleChange={prefixUrihandleChange}
             linkerUploadhandleChange={linkerUploadhandleChange}
-            backboneUploadhandleChange={backboneUploadhandleChange}
-            linkerSelectionhandleChange={linkerSelectionhandleChange}
-            noPlateRunshandleChange={noPlateRunshandleChange}
-            samplesPerPlatehandleChange={samplesPerPlatehandleChange}
-            reagentConcentrationshandleChange={reagentConcentrationshandleChange}
           />
         </Grid>
         <Grid item xs={4}>
