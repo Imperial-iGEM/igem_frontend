@@ -8,26 +8,7 @@ import SelectProtocol from "../PageComponents/DesignerComponents/SelectProtocol.
 import StyledButton from "../PageComponents/StyledButton.js";
 
 export default function Specifications(props) {
-    const [navigate, setNavigate] = useState(false);
-    const [navigateTo, setNavigateTo] = useState({})
-    let currentLocation = useLocation();
     const classes = useStyles();
-
-    //Custom function to intercept tab selection to allow for saving of data etc before changing tabs.
-    let handleTabSelection = function (location, index) {
-        console.log(`In GeneDesign Component; Text: ${location.text}, Path: ${location.path}, Index: ${index}`)
-        setNavigateTo({path: location.path, push: true, state: {referrer: currentLocation}})
-        setNavigate(true)
-    }
-    if (navigate) {
-        return (<Redirect
-            to={{
-                pathname: navigateTo.path,
-                push: navigateTo.push,
-                state: navigateTo.state
-            }}
-        />)
-    }
 
 
     return (
@@ -37,7 +18,7 @@ export default function Specifications(props) {
                 <SelectProtocol />
             </div>
             <div>
-                <StyledButton text="GENERATE SCRIPTS"/>
+                <StyledButton text="GENERATE SCRIPTS" />
             </div>
             <div>
                 <Outputfiles/>

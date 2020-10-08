@@ -16,7 +16,7 @@ import SpecCard_run from './SubComponents/SpecCard_run';
 import SpecCard_output from './SubComponents/SpecCard_output';
 import SpecCard_labhardware from './SubComponents/SpecCard_labhardware';
 import TheDataTable from './SubComponents/datatable'
-
+import gql, {useMutation} from "@apollo/client"
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -36,6 +36,20 @@ const useStyles = makeStyles((theme) => ({
       width:'100%'
   }
 }));
+
+const LINKER_MUTATION = gql`
+mutation($sbolFileString: String ){
+  linkerList(sbolFileString:$sbolFileString) {
+    linkerList
+  }
+}
+`
+const SPEC_MUTATION = gql`
+mutation($specifications: SpecificationsType, $linkers: [LinkerInType]){
+  finalSpec(specifications: $specifications, linkerTypes: $linkers) {
+    outputLinks
+  }
+}`
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -68,7 +82,37 @@ export default function ExampleSpecification(props) {
     run_metainformation: true,
     debugging_logs: true,
 });
-  
+  const [
+    linkerList,
+    {loading: linkerListMutationLoading, error: linkerListMutationError},
+  ] = useMutation(LINKER_MUTATION, {
+    variables: {
+      sbolFileString: btoa(window.sbolFile)
+    }});
+
+
+  const [
+    finalSpec,
+    {loading: finalSpecMutationLoading, error: finalSpecMutationError},
+  ] = useMutation(LINKER_MUTATION, {
+    variables:
+        {
+          "specifications":{
+            "sbolString": btoa(window.sbolFile),
+            "liquidHandler": liquidHandler,
+            "removeRepeated": true,
+            "numberOfWells": samplesPerPlate,
+            "numberOfRuns": noPlateRuns,
+            "outputPlatePositions": outState.plate_position,
+            "outputReagentsList": outState.reagents_list,
+            "outputPartSequences": outState.part_sequences_to_order,
+            "outputLogs": outState.debugging_logs,
+            "outputMetaInformation": outState.run_metainformation
+      },
+       "linkerTypes":[]
+    }});
+
+
   //Run Specification Update functions
   const prefixUrihandleChange = (event) => {
     setPrefixUri(event.target.value);
@@ -115,7 +159,9 @@ export default function ExampleSpecification(props) {
   };
 
   //Functions for controlling modal
-  const handleClickOpen = () => {
+  const handleClickOpen = async () => {
+    // send sbol file for linkers
+    let linkers = await linkerList()
     setOpen(true);
     Generate();
   };
@@ -123,6 +169,12 @@ export default function ExampleSpecification(props) {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleCloseGenerate = async () => {
+    // Send information
+    let outputLinks = await finalSpec()
+    setOpen(false);
+  }
 
 
   const Generate = () =>{
@@ -145,13 +197,13 @@ export default function ExampleSpecification(props) {
           />
         </Grid>
         <Grid item xs={4}>
-          <SpecCard_output 
+          <SpecCard_output
             outState={outState}
             outputhandleChange={outputhandleChange}
           />
         </Grid>
         <Grid item xs={5}>
-          <SpecCard_labhardware 
+          <SpecCard_labhardware
             pipette1={pipette1}
             liquidHandler={liquidHandler}
             handleChangeLiquid={handleChangeLiquid}
@@ -183,7 +235,7 @@ export default function ExampleSpecification(props) {
             <DialogTitle id="alert-dialog-slide-title">{"Fill in the concentrations of each part or accept default value"}</DialogTitle>
             <DialogContent>
               <DialogContentText id="alert-dialog-slide-description">
-                PLease fill the concentrations of each Part / Linker ypu have and also the plate number and well in which you desire to place each Part / Linker that you have
+                Please fill the concentrations of each Part / Linker ypu have and also the plate number and well in which you desire to place each Part / Linker that you have
                 <TheDataTable />
               </DialogContentText>
             </DialogContent>
@@ -191,7 +243,7 @@ export default function ExampleSpecification(props) {
               <Button onClick={handleClose} variant="contained" color="primary">
                 Close
               </Button>
-              <Button onClick={handleClose} variant="contained" color="secondary">
+              <Button onClick={handleCloseGenerate} variant="contained" color="secondary">
                 Generate Opentrons Scripts
               </Button>
             </DialogActions>
