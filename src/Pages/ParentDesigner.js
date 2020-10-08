@@ -50,7 +50,7 @@ function getStepContent(stepIndex,handleDnaAssemblyChange,dnaAssembly) {
 
 export default function ParentDesigner() {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = useState(2);
+  const [activeStep, setActiveStep] = useState(0);
   const steps = getSteps();
 
   // Storing DNA assembly selection
@@ -76,6 +76,8 @@ export default function ParentDesigner() {
     ).catch((error) => {
       console.log(error);
       });
+    } else {
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
   };
 

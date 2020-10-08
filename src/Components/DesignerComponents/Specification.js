@@ -16,7 +16,8 @@ import SpecCard_run from './SubComponents/SpecCard_run';
 import SpecCard_output from './SubComponents/SpecCard_output';
 import SpecCard_labhardware from './SubComponents/SpecCard_labhardware';
 import TheDataTable from './SubComponents/datatable'
-import gql, {useMutation} from "@apollo/client"
+import  {useMutation} from "@apollo/client"
+import gql from "graphql-tag"
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -42,14 +43,13 @@ mutation($sbolFileString: String ){
   linkerList(sbolFileString:$sbolFileString) {
     linkerList
   }
-}
-`
+}`;
 const SPEC_MUTATION = gql`
 mutation($specifications: SpecificationsType, $linkers: [LinkerInType]){
   finalSpec(specifications: $specifications, linkerTypes: $linkers) {
     outputLinks
   }
-}`
+}`;
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;

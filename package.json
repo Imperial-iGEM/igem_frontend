@@ -14,6 +14,7 @@
     "axios": "^0.19.2",
     "create-react-app": "^3.4.1",
     "graphql": "^15.3.0",
+    "graphql-tag": "^2.11.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-dropzone": "^11.0.1",
