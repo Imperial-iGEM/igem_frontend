@@ -8,11 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import { SeqViz } from "seqviz";
 import axios from "axios";
 import Typography from "@material-ui/core/Typography";
-import SBOLValidatorInput from "./SBOLValidatorInput";
 import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
 import FormLabel from "@material-ui/core/FormLabel";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -101,8 +97,7 @@ console.log(state.non_compliant_URI)
                 console.log("length", response.data.errors.length);
                 if(response.data.errors[0] !== "") {
                     for (i = 0; i < response.data.errors.length; i++) {
-                        errorString = '\n' + errorString + response.data.errors[i].toString() + '\n' + "             " + '\n';
-
+                        errorString =   errorString + response.data.errors[i].toString().trim() + '\n'  + '\n';
                     }
                     document.getElementById("errorBox").innerText = errorString;
 
@@ -130,8 +125,8 @@ console.log(state.non_compliant_URI)
                 }
                 console.log("response: ", response.config.data);
 
-                /* console.log("errorString", errorString);
-                 console.log("errorString: ", typeof errorString);
+                console.log("errorString", errorString);
+                 /* console.log("errorString: ", typeof errorString);
                  console.log("file: ", (files));
                  console.log("files[0]: ", (files[0]));
                  console.log("file type: ", (typeof files[0]));
@@ -224,16 +219,16 @@ console.log(state.non_compliant_URI)
 
                             ]})}
                     </List>
-                    <Paper elevation={3} >
-                        <Paper style={{padding:20, marginTop:10, marginBottom:10}} >
-                            <Typography variant="h6"  style = {{padding:20}} id={"errorBox"} >
+                    <Paper elevation={1} >
+                        <Paper style={{padding:20, marginTop:10, marginBottom:10, overflow:'scroll',maxHeight:"224px" }} >
+                            <Typography variant="h7"  style = {{padding:20}} id={"errorBox"} font={"Roboto"}>
                                 Errors
                             </Typography>
                         </Paper>
 
-                        <Paper style={{padding:20, marginTop:10, marginBottom:10}}>
+                        <Paper style={{padding:20, marginTop:10, marginBottom:10}}  elevation={0}>
 
-                            <Typography variant="h6"  style = {{padding:20}}  id={"outPutFile"}>
+                            <Typography variant="h7"  style = {{padding:20}}  id={"outPutFile"}>
                                 <Link  id={"OUTPUTFILEID"} a={""}>OutputFile</Link>
                             </Typography>
                         </Paper>
