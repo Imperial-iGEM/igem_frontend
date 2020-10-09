@@ -25,6 +25,18 @@ class TheDataTable extends Component {
     }
 
     render() {
+
+        var outputArray = []
+        var i;
+        for (i = 0; i < this.props.partsList.length; i++) {
+            var temp = {
+                part: this.props.partsList[i], concentration: '50.0', plate_number: '1', well: 'A'+String(i+1)
+            }
+            outputArray.push(temp);
+            temp = {};
+        }
+
+
         return (
             <div
                 className="ag-theme-balham"
@@ -33,7 +45,7 @@ class TheDataTable extends Component {
                 <AgGridReact
                     enableSorting={true}
                     columnDefs={this.state.columnDefs}
-                    rowData={this.state.rowData}>
+                    rowData={outputArray}>
                 </AgGridReact>
             </div>
         );

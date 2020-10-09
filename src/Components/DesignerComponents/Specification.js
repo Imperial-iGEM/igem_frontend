@@ -18,6 +18,8 @@ import SpecCard_labhardware from './SubComponents/SpecCard_labhardware';
 import TheDataTable from './SubComponents/datatable'
 import  {useMutation} from "@apollo/client"
 import gql from "graphql-tag"
+
+// Styling for components
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -38,12 +40,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+// example graphql linker mutation
 const LINKER_MUTATION = gql`
 mutation($sbolFileString: String ){
   linkerList(sbolFileString:$sbolFileString) {
     linkerList
   }
 }`;
+
+// example specification linker mutation
 const SPEC_MUTATION = gql`
 mutation($specifications: SpecificationsType, $linkers: [LinkerInType]){
   finalSpec(specifications: $specifications, linkerTypes: $linkers) {
@@ -51,12 +56,20 @@ mutation($specifications: SpecificationsType, $linkers: [LinkerInType]){
   }
 }`;
 
+// transition for modal to slide from bottom of the screen
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export default function ExampleSpecification(props) {
+  // use styling diffined above
   const classes = useStyles();
+
+  //set state for parts
+  const [myItems, setMyItems] = useState('');
+
+  //set state for parts
+  const [itemLoading, setItemLoading] = useState('');
 
   //Controling modal when generate scipts button is pressed
   const [open, setOpen] = useState(false);
@@ -64,8 +77,6 @@ export default function ExampleSpecification(props) {
   //Run specification States
   const [prefixUri, setPrefixUri] = useState('');
   const [linkerUpload, setLinkerUpload] = useState('');
-  const [backboneUpload, setBackboneUpload] = useState('');
-  const [linkerSelection, setLinkerSelection] = useState('');
   const [noPlateRuns, setNoPlateRuns] = useState('');
   const [samplesPerPlate, setSamplesPerPlate] = useState('');
   const [reagentConcentrations, setReagentConcentrations] = useState('');
@@ -81,7 +92,9 @@ export default function ExampleSpecification(props) {
     part_sequences_to_order: true,
     run_metainformation: true,
     debugging_logs: true,
-});
+  });
+
+  // Function called Linker used to make the graphql request
   const [
     linkerList,
     {loading: linkerListMutationLoading, error: linkerListMutationError},
@@ -90,7 +103,7 @@ export default function ExampleSpecification(props) {
       sbolFileString: btoa(window.sbolFile)
     }});
 
-
+  // Function called finalSpec used to make graphql request
   const [
     finalSpec,
     {loading: finalSpecMutationLoading, error: finalSpecMutationError},
@@ -123,32 +136,13 @@ export default function ExampleSpecification(props) {
     setLinkerUpload(event.target.value);
     console.log(linkerUpload)
   };
-  const backboneUploadhandleChange = (event) => {
-    setBackboneUpload(event.target.value);
-    console.log(backboneUpload)
-  };
-  const linkerSelectionhandleChange = (event) => {
-    setLinkerSelection(event.target.value);
-    console.log(linkerSelection)
-  };
-  const noPlateRunshandleChange = (event) => {
-    setNoPlateRuns(event.target.value);
-    console.log(noPlateRuns)
-  };
-  const samplesPerPlatehandleChange = (event) => {
-    setSamplesPerPlate(event.target.value);
-    console.log(samplesPerPlate)
-  };
-  const reagentConcentrationshandleChange = (event) => {
-    setReagentConcentrations(event.target.value);
-    console.log(reagentConcentrations)
-  };
-
-  //Opentrons Labware Updatefunctions
+  
+  //Opentrons Labware Update functions
   const handleChangeLiquid = (event) => {
     setliquidHandler(event.target.value);
   };
 
+  //Opentrons Pipette Update fucntion
   const handleChangePipette = (event) => {
       setPipette1(event.target.value);
   };
@@ -159,11 +153,15 @@ export default function ExampleSpecification(props) {
     console.log(outState)
   };
 
+
   //Functions for controlling modal
   const handleClickOpen = async () => {
     // send sbol file for linkers
+    console.log(btoa(window.sbolFile))
     let linkers = await linkerList()
-    console.log(linkers);
+    setMyItems(linkers.data.linkerList.linkerList)
+    setItemLoading(linkers.loading);
+    setTimeout(() => {  setItemLoading(linkers.loading); }, 2000);
     setOpen(true);
     Generate();
   };
@@ -238,7 +236,7 @@ export default function ExampleSpecification(props) {
             <DialogContent>
               <DialogContentText id="alert-dialog-slide-description">
                 Please fill the concentrations of each Part / Linker ypu have and also the plate number and well in which you desire to place each Part / Linker that you have
-                <TheDataTable />
+                <TheDataTable partsList={myItems} />
               </DialogContentText>
             </DialogContent>
             <DialogActions>
