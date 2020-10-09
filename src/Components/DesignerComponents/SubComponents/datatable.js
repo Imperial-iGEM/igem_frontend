@@ -11,7 +11,7 @@ class TheDataTable extends Component {
         this.state = {
             columnDefs: [
                 {headerName: 'Part / Linker ID', field: 'part', width: '227'},
-                {headerName: 'Concentration (μl/mg)', field: 'concentration', editable: true, width: '227'},
+                {headerName: 'Concentration (μg/ml)', field: 'concentration', editable: true, width: '227'},
                 {headerName: 'Plate Number', field: 'plate_number', editable: true, width: '227'},
                 {headerName: 'Well', field: 'well', editable: true, width: '227'}
 
@@ -36,6 +36,8 @@ class TheDataTable extends Component {
             temp = {};
         }
 
+        this.state.rowData = outputArray;
+
 
         return (
             <div
@@ -45,7 +47,7 @@ class TheDataTable extends Component {
                 <AgGridReact
                     enableSorting={true}
                     columnDefs={this.state.columnDefs}
-                    rowData={outputArray}>
+                    rowData={this.state.rowData}>
                 </AgGridReact>
             </div>
         );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -16,6 +16,11 @@ import SpecCard_run from './SubComponents/SpecCard_run';
 import SpecCard_output from './SubComponents/SpecCard_output';
 import SpecCard_labhardware from './SubComponents/SpecCard_labhardware';
 import TheDataTable from './SubComponents/datatable'
+
+import { AgGridReact } from 'ag-grid-react';
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+
 import  {useMutation} from "@apollo/client"
 import gql from "graphql-tag"
 
@@ -67,24 +72,16 @@ export default function ExampleSpecification(props) {
 
   //set state for parts
   const [myItems, setMyItems] = useState('');
-
-  //set state for parts
+  //set state loading
   const [itemLoading, setItemLoading] = useState('');
-
   //Controling modal when generate scipts button is pressed
   const [open, setOpen] = useState(false);
-
   //Run specification States
-  const [prefixUri, setPrefixUri] = useState('');
-  const [linkerUpload, setLinkerUpload] = useState('');
-  const [noPlateRuns, setNoPlateRuns] = useState('');
-  const [samplesPerPlate, setSamplesPerPlate] = useState('');
-  const [reagentConcentrations, setReagentConcentrations] = useState('');
-
+  const [maxNumWellPerPlate, setMaxNumWellPerPlate] = useState('');
+  const [numRunPerPlate, setNumRunPerPlate] = useState('');
   //Opentrons Labware states
   const [liquidHandler, setliquidHandler] = useState('opentronsOT2');
   const [pipette1, setPipette1] = useState('p20singlechannel');
-
   //Output Files States
   const [outState, setOutState] = useState({
     plate_position: true,
@@ -114,8 +111,6 @@ export default function ExampleSpecification(props) {
             "sbolString": btoa(window.sbolFile),
             "liquidHandler": liquidHandler,
             "removeRepeated": true,
-            "numberOfWells": samplesPerPlate,
-            "numberOfRuns": noPlateRuns,
             "outputPlatePositions": outState.plate_position,
             "outputReagentsList": outState.reagents_list,
             "outputPartSequences": outState.part_sequences_to_order,
@@ -128,13 +123,13 @@ export default function ExampleSpecification(props) {
 
 
   //Run Specification Update functions
-  const prefixUrihandleChange = (event) => {
-    setPrefixUri(event.target.value);
-    console.log(prefixUri)
+  const maxNumWellPerPlateHandleChange = (event) => {
+    setMaxNumWellPerPlate(event.target.value);
+    console.log(maxNumWellPerPlate)
   };
-  const linkerUploadhandleChange = (event) => {
-    setLinkerUpload(event.target.value);
-    console.log(linkerUpload)
+  const numRunPerPlateHandleChange = (event) => {
+    setNumRunPerPlate(event.target.value);
+    console.log(numRunPerPlate)
   };
   
   //Opentrons Labware Update functions
@@ -180,9 +175,9 @@ export default function ExampleSpecification(props) {
   const Generate = () =>{
     console.log('labware attached',pipette1)
     console.log('liquid handler',liquidHandler)
-    console.log('prefixuri',prefixUri)
     console.log('selected dna assembly method', props.dnaAssembly)
   }
+
 
   return (
     <div className={classes.root}>
@@ -192,8 +187,8 @@ export default function ExampleSpecification(props) {
         </Grid>
         <Grid item xs={8}>
           <SpecCard_run
-            prefixUrihandleChange={prefixUrihandleChange}
-            linkerUploadhandleChange={linkerUploadhandleChange}
+            maxNumWellPerPlateHandleChange={maxNumWellPerPlateHandleChange}
+            numRunPerPlateHandleChange={numRunPerPlateHandleChange}
           />
         </Grid>
         <Grid item xs={4}>

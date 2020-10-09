@@ -81,21 +81,21 @@ export default function SpecCard_run(props) {
                             <TextField
                               className={classes.inputText} 
                               onChange={(event) => {
-                                props.prefixUrihandleChange(event)
+                                props.maxNumWellPerPlateHandleChange(event)
                                 checkError1(event)
                               }}
                               error={error_input1}
-                              id="prefix-uri"
+                              id="max_num_wells_per+plate"
                               label="Maximum number of wells filled per construct plate"
                               type="number" />
                             <TextField
                               className={classes.inputText}
                               onChange={(event) => {
-                                props.linkerUploadhandleChange(event)
+                                props.numRunPerPlateHandleChange(event)
                                 checkError2(event)
                               }}
                               error={error_input2}
-                              id="linker-upload"
+                              id="num_runs_per_plate"
                               label="Number of runs/number of construct plates"
                               type="number" />
                         </CardActions>
