@@ -12,6 +12,8 @@ const useStyles = makeStyles((theme) => ({
     imagePosition:{
         paddingLeft: '2%',
         paddingTop: '3%',
+
+
     }
   }));
 

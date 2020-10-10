@@ -21,8 +21,8 @@ export default function ThisAnimation() {
       <div>
         <Lottie 
           options={defaultOptions}
-          height={432}
-          width={786}
+          //height={432}
+         // width={786}
         />
       </div>
     );
