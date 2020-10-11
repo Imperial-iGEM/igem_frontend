@@ -3,7 +3,7 @@ import Dropzone from 'react-dropzone'
 import {Paper, List, ListItem, makeStyles} from '@material-ui/core'
 
 import { SeqViz } from "seqviz";
-import {RiseLoader} from "react-spinners";
+import lottie from "../Components/HomeComponents/subComponents/lottie";
 
 export default function FileUpload(props) {
 

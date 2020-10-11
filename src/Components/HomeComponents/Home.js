@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import {Grid, Typography } from "@material-ui/core";
-import Box from '@material-ui/core/Box';
+import React from 'react'
+import {Grid } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 
 import Row1Text from './subComponents/row1_text'
@@ -22,7 +21,9 @@ const useStyles = makeStyles((theme) => ({
       height: '100%'
     },
     pinkGrid: {
-      backgroundColor: "#FF6F90",
+
+
+        backgroundColor: "#FF6F90",
       height: '100%',
       minHeight: '550px',
     },
@@ -52,6 +53,22 @@ const useStyles = makeStyles((theme) => ({
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
         padding: theme.spacing(2),
+    },
+    responsiveImage: {
+        [theme.breakpoints.up("xs")]:{
+            height:"100",
+        },
+        [theme.breakpoints.up("sm")]:{
+        height:"200",
+            },
+            [theme.breakpoints.up("md")]:{
+    height:"300",
+},
+
+                [theme.breakpoints.up("md")]:{
+    height:"400",
+}
+
     }
   }));
 
@@ -110,7 +127,7 @@ export default function Home(props)  {
                     </div>
                 </Grid>
                 <Grid item xs={6} className={classes.blueGrid}>
-                    <div className={classes.generalSpacing}>
+                    <div className={classes.generalImage}>
                         <Row4Image />
                     </div>
                 </Grid>
