@@ -34,17 +34,8 @@ const useStyles = makeStyles({
 export default function SpecCard_run(props) {
   const classes = useStyles();
 
-  const [state, setState] = React.useState({
-    checkedA: true,
-  });
-
   const [error_input1,setError_input1] = React.useState(false)
   const [error_input2,setError_input2] = React.useState(false)
-  
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
 
   const checkError1 = (event) => {
     if (event.target.value < 0) {
@@ -61,14 +52,6 @@ export default function SpecCard_run(props) {
       setError_input2(false)
     }
   }
-
-  //function checkNegetive(event) {
-  //  if (event.target.value < 0) {
-  //    this.setState({ errorText: '' })
-  //  } else {
-  //    this.setState({ errorText: 'Invalid format: ###-###-####' })
-  //  }
-  //}
 
   return (
     <Card className={classes.root} variant="outlined">
@@ -102,7 +85,7 @@ export default function SpecCard_run(props) {
                         <CardActions>
                           <FormGroup row>
                             <FormControlLabel
-                              control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                              control={<Checkbox checked={props.stateRemoveRepeats.checkedA} onChange={props.handleChangeRemoveRepeates} name="checkedA" />}
                               label="Remove constructs with repeated parts"
                             />
                           </FormGroup>
