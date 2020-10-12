@@ -66,9 +66,9 @@ export default function FileUploadPage(props) {
                         labelPlacement="right"
                         />
                         <FormControlLabel
-                        value="goldengate"
+                        value="biobricks"
                         control={<Radio color="primary" />}
-                        label="Golden Gate"
+                        label="Bio Bricks"
                         labelPlacement="right"
                         />
                     </RadioGroup>

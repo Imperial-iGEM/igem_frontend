@@ -70,8 +70,6 @@ export default function ExampleSpecification(props) {
   // use styling diffined above
   const classes = useStyles();
 
-  //set state for parts
-  const [myItems, setMyItems] = useState([]);
   //set state loading
   const [itemLoading, setItemLoading] = useState('');
   //Controling modal when generate scipts button is pressed
@@ -79,6 +77,7 @@ export default function ExampleSpecification(props) {
   //Run specification States
   const [maxNumWellPerPlate, setMaxNumWellPerPlate] = useState('');
   const [numRunPerPlate, setNumRunPerPlate] = useState('');
+  
   //Opentrons Labware states
   const [liquidHandler, setliquidHandler] = useState('opentronsOT2');
   const [pipette1, setPipette1] = useState('p20singlechannel');
@@ -154,7 +153,7 @@ export default function ExampleSpecification(props) {
     // send sbol file for linkers
     console.log(btoa(window.sbolFile))
     let linkers = await linkerList()
-    setMyItems(linkers.data.linkerList.linkerList)
+
     //creating cool row data
     var outputArray = []
     var i;
@@ -177,13 +176,21 @@ export default function ExampleSpecification(props) {
   };
 
   const handleCloseGenerate = async () => {
-    // Send information
-    console.log(myItems);
     //let outputLinks = await finalSpec()
     setOpen(false);
   }
 
-  /// Data table 3
+  // Repeats
+
+  const [stateRemoveRepeats, setStateRemoveRepeats] = React.useState({
+    checkedA: true,
+  });
+
+  const handleChangeRemoveRepeates = (event) => {
+    setStateRemoveRepeats({ ...stateRemoveRepeats, [event.target.name]: event.target.checked });
+  };
+
+  /// Data table 
   const [columnDefs,setColumnDefs] = useState([
     {headerName: 'Part / Linker ID', field: 'part', width: '227'},
     {headerName: 'Concentration (μg/ml)', field: 'concentration', editable: true, width: '227'},
@@ -207,6 +214,8 @@ export default function ExampleSpecification(props) {
           <SpecCard_run
             maxNumWellPerPlateHandleChange={maxNumWellPerPlateHandleChange}
             numRunPerPlateHandleChange={numRunPerPlateHandleChange}
+            handleChangeRemoveRepeates={handleChangeRemoveRepeates}
+            stateRemoveRepeats={stateRemoveRepeats}
           />
         </Grid>
         <Grid item xs={4}>
