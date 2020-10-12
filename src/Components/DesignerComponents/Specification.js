@@ -105,20 +105,21 @@ export default function ExampleSpecification(props) {
     {loading: finalSpecMutationLoading, error: finalSpecMutationError},
   ] = useMutation(SPEC_MUTATION, {
     variables:
-        {
-          "specifications":{
-            "sbolString": btoa(window.sbolFile),
-            "liquidHandler": liquidHandler,
-            "removeRepeated": true,
-            "outputPlatePositions": outState.plate_position,
-            "outputReagentsList": outState.reagents_list,
-            "outputPartSequences": outState.part_sequences_to_order,
-            "outputLogs": outState.debugging_logs,
-            "outputMetaInformation": outState.run_metainformation,
-            "assemblyType": props.dnaAssembly
-      },
-       "linkerTypes":[]
-    }});
+      {
+        "specifications":{
+          "sbolString": btoa(window.sbolFile),
+          "liquidHandler": liquidHandler,
+          "removeRepeated": true,
+          "outputPlatePositions": outState.plate_position,
+          "outputReagentsList": outState.reagents_list,
+          "outputPartSequences": outState.part_sequences_to_order,
+          "outputLogs": outState.debugging_logs,
+          "outputMetaInformation": outState.run_metainformation,
+          "assemblyType": props.dnaAssembly
+        },
+        "linkerTypes":rowData
+      }
+    });
 
 
   //Run Specification Update functions
@@ -159,7 +160,7 @@ export default function ExampleSpecification(props) {
     var i;
     for (i = 0; i < linkers.data.linkerList.linkerList.length; i++) {
         var temp = {
-            part: linkers.data.linkerList.linkerList[i], concentration: '50.0', plate_number: '1', well: 'A'+String(i+1)
+          linker_id: linkers.data.linkerList.linkerList[i], concentration: '50.0', plate_number: '1', well: 'A'+String(i+1)
         }
         outputArray.push(temp);
         temp = {};
@@ -192,16 +193,16 @@ export default function ExampleSpecification(props) {
 
   /// Data table 
   const [columnDefs,setColumnDefs] = useState([
-    {headerName: 'Part / Linker ID', field: 'part', width: '227'},
+    {headerName: 'Part / Linker ID', field: 'linker_id', width: '227'},
     {headerName: 'Concentration (μg/ml)', field: 'concentration', editable: true, width: '227'},
     {headerName: 'Plate Number', field: 'plate_number', editable: true, width: '227'},
     {headerName: 'Well', field: 'well', editable: true, width: '227'}
   ]);
 
   const [rowData, setRowData] = useState([
-    {part: 'BASIC_mCherry_ORF.1', concentration: '50.0', plate_number: '1', well: 'A1'},
-    {part: 'BASIC_sfGFP_ORF.1', concentration: '50.0', plate_number: '1', well: 'A2'},
-    {part: 'BASIC_mTagBFP2_ORF.1', concentration: '50.0', plate_number: '1', well: 'A3'}
+    {linker_id: 'BASIC_mCherry_ORF.1', concentration: '50.0', plate_number: '1', well: 'A1'},
+    {linker_id: 'BASIC_sfGFP_ORF.1', concentration: '50.0', plate_number: '1', well: 'A2'},
+    {linker_id: 'BASIC_mTagBFP2_ORF.1', concentration: '50.0', plate_number: '1', well: 'A3'}
   ]);
 
   return (
