@@ -71,7 +71,7 @@ export default function ExampleSpecification(props) {
   const classes = useStyles();
 
   //set state for parts
-  const [myItems, setMyItems] = useState('');
+  const [myItems, setMyItems] = useState([]);
   //set state loading
   const [itemLoading, setItemLoading] = useState('');
   //Controling modal when generate scipts button is pressed
@@ -155,10 +155,21 @@ export default function ExampleSpecification(props) {
     console.log(btoa(window.sbolFile))
     let linkers = await linkerList()
     setMyItems(linkers.data.linkerList.linkerList)
+    //creating cool row data
+    var outputArray = []
+    var i;
+    for (i = 0; i < linkers.data.linkerList.linkerList.length; i++) {
+        var temp = {
+            part: linkers.data.linkerList.linkerList[i], concentration: '50.0', plate_number: '1', well: 'A'+String(i+1)
+        }
+        outputArray.push(temp);
+        temp = {};
+    }
+    setRowData(outputArray)
+    //end
     setItemLoading(linkers.loading);
     setTimeout(() => {  setItemLoading(linkers.loading); }, 2000);
     setOpen(true);
-    Generate();
   };
 
   const handleClose = () => {
@@ -167,17 +178,24 @@ export default function ExampleSpecification(props) {
 
   const handleCloseGenerate = async () => {
     // Send information
-    let outputLinks = await finalSpec()
+    console.log(myItems);
+    //let outputLinks = await finalSpec()
     setOpen(false);
   }
 
+  /// Data table 3
+  const [columnDefs,setColumnDefs] = useState([
+    {headerName: 'Part / Linker ID', field: 'part', width: '227'},
+    {headerName: 'Concentration (μg/ml)', field: 'concentration', editable: true, width: '227'},
+    {headerName: 'Plate Number', field: 'plate_number', editable: true, width: '227'},
+    {headerName: 'Well', field: 'well', editable: true, width: '227'}
+  ]);
 
-  const Generate = () =>{
-    console.log('labware attached',pipette1)
-    console.log('liquid handler',liquidHandler)
-    console.log('selected dna assembly method', props.dnaAssembly)
-  }
-
+  const [rowData, setRowData] = useState([
+    {part: 'BASIC_mCherry_ORF.1', concentration: '50.0', plate_number: '1', well: 'A1'},
+    {part: 'BASIC_sfGFP_ORF.1', concentration: '50.0', plate_number: '1', well: 'A2'},
+    {part: 'BASIC_mTagBFP2_ORF.1', concentration: '50.0', plate_number: '1', well: 'A3'}
+  ]);
 
   return (
     <div className={classes.root}>
@@ -231,7 +249,10 @@ export default function ExampleSpecification(props) {
             <DialogContent>
               <DialogContentText id="alert-dialog-slide-description">
                 Please fill the concentrations of each Part / Linker ypu have and also the plate number and well in which you desire to place each Part / Linker that you have
-                <TheDataTable partsList={myItems} />
+                <TheDataTable
+                  columnDefs={columnDefs}
+                  rowData={rowData}
+                />
               </DialogContentText>
             </DialogContent>
             <DialogActions>
