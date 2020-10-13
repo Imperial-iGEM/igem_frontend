@@ -55,10 +55,18 @@ mutation($sbolFileString: String ){
 
 // example specification linker mutation
 const SPEC_MUTATION = gql`
-mutation($specifications: SpecificationsType, $linkers: [LinkerInType]){
-  finalSpec(specifications: $specifications, linkerTypes: $linkers) {
-    outputLinks
-  }
+mutation finalSpec(
+  $assemblyType: String
+  $linkerTypes: [LinkerInType]
+  $sbolFileString: String
+  $specificationsBasic: InputSpecsBASIC
+  $specificationsBioBricks: InputSpecsBioBricks
+  $specificationsMoClo: InputSpecsMoClo
+  ) {
+    finalSpec(assemblyType: $assemblyType, linkerTypes: $linkerTypes, sbolFileString:$sbolFileString,
+    specificationsBasic: $specificationsBasic, specificationsBioBricks:$specificationsBioBricks, specificationsMoClo: $specificationsMoClo  ){
+      outputLinks
+    }
 }`;
 
 // transition for modal to slide from bottom of the screen
@@ -66,10 +74,24 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
+//          "sbolString": btoa(window.sbolFile),
+//"liquidHandler": liquidHandler,
+//"removeRepeated": true,
+//"outputPlatePositions": outState.plate_position,
+//"outputReagentsList": outState.reagents_list,
+//"outputPartSequences": outState.part_sequences_to_order,
+//"outputLogs": outState.debugging_logs,
+//"outputMetaInformation": outState.run_metainformation,
+//"assemblyType": props.dnaAssembly
+//},
+//"linkerTypes":rowData
+
 export default function ExampleSpecification(props) {
   // use styling diffined above
   const classes = useStyles();
 
+  //to store output links
+  const [opentronsOutputLinks, setOpentronsOutputLinks] = useState([]);
   //set state loading
   const [itemLoading, setItemLoading] = useState('');
   //Controling modal when generate scipts button is pressed
@@ -106,18 +128,59 @@ export default function ExampleSpecification(props) {
   ] = useMutation(SPEC_MUTATION, {
     variables:
       {
-        "specifications":{
-          "sbolString": btoa(window.sbolFile),
-          "liquidHandler": liquidHandler,
-          "removeRepeated": true,
-          "outputPlatePositions": outState.plate_position,
-          "outputReagentsList": outState.reagents_list,
-          "outputPartSequences": outState.part_sequences_to_order,
-          "outputLogs": outState.debugging_logs,
-          "outputMetaInformation": outState.run_metainformation,
-          "assemblyType": props.dnaAssembly
+        "assemblyType": props.dnaAssembly,
+        "specificationsBasic": {
+          "labwareDict": {
+            "commonLabware": {
+              "p10Mount": "right",
+              "p300Mount": "left",
+              "p10Type": "p10_single",
+              "p300Type": "p300_single",
+              "wellPlate": "biorad_96_wellplate_200ul_pcr"
+            },
+            "reagentPlate": "usascientific_12_reservoir_22ml",
+            "tubeRack": "opentrons_24_tuberack_nest_1.5ml_snapcap",
+            "magPlate": "biorad_96_wellplate_200ul_pcr",
+            "aluminumBlock": "opentrons_96_aluminumblock_biorad_wellplate_200ul",
+            "beadContainer": "usascientific_96_wellplate_2.4ml_deep",
+            "socPlate": "usascientific_96_wellplate_2.4ml_deep",
+            "agarPlate": "thermofisher_96_wellplate_180ul"
+          },
+          "ethanolWellForStage2": "A1",
+          "deepWellPlateStage4": "1"
         },
-        "linkerTypes":rowData
+        "specificationsMoClo": {
+          "labwareDict": {
+            "commonLabware": {
+              "p10Mount": "right",
+              "p300Mount": "left",
+              "p10Type": "p10_single",
+              "p300Type": "p300_single",
+              "wellPlate": "biorad_96_wellplate_200ul_pcr"
+            },
+            "reagentPlate": "biorad_96_wellplate_200ul_pcr",
+            "trough": "usascientific_12_reservoir_22ml", 
+            "agarPlate": "thermofisher_96_wellplate_180ul"
+          },
+          "thermocycle": true
+        },
+        "specificationsBioBricks": {
+          "labwareDict": {
+            "commonLabware": {
+              "p10Mount": "right",
+              "p300Mount": "left",
+              "p10Type": "p10_single",
+              "p300Type": "p300_single",
+              "wellPlate": "biorad_96_wellplate_200ul_pcr"
+            },
+            "tubeRack": "opentrons_24_tuberack_nest_1.5ml_snapcap",
+            "socPlate": "usascientific_96_wellplate_2.4ml_deep",
+            "transformationPlate": "corning_96_wellplate_360ul_flat"
+          },
+          "thermocycle": true
+        },
+        "linkerTypes": rowData,
+        "sbolFileString": btoa(window.sbolFile)
       }
     });
 
@@ -177,7 +240,8 @@ export default function ExampleSpecification(props) {
   };
 
   const handleCloseGenerate = async () => {
-    //let outputLinks = await finalSpec()
+    let outputLinks = await finalSpec()
+    console.log(outputLinks)
     setOpen(false);
   }
 
@@ -274,6 +338,9 @@ export default function ExampleSpecification(props) {
               </Button>
             </DialogActions>
           </Dialog>
+        </Grid>
+        <Grid item xs={12}>
+          {opentronsOutputLinks}
         </Grid>
       </Grid>
     </div>
