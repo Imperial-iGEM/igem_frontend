@@ -91,7 +91,7 @@ export default function ExampleSpecification(props) {
   const classes = useStyles();
 
   //to store output links
-  const [opentronsOutputLinks, setOpentronsOutputLinks] = useState([]);
+  const [opentronsOutputLinks, setOpentronsOutputLinks] = useState(['outputlinks before']);
   //set state loading
   const [itemLoading, setItemLoading] = useState('');
   //Controling modal when generate scipts button is pressed
@@ -111,6 +111,12 @@ export default function ExampleSpecification(props) {
     run_metainformation: true,
     debugging_logs: true,
   });
+
+  const [rowData, setRowData] = useState([
+    {linker_id: 'BASIC_mCherry_ORF.1', concentration: '50.0', plate_number: '1', well: 'A1'},
+    {linker_id: 'BASIC_sfGFP_ORF.1', concentration: '50.0', plate_number: '1', well: 'A2'},
+    {linker_id: 'BASIC_mTagBFP2_ORF.1', concentration: '50.0', plate_number: '1', well: 'A3'}
+  ]);
 
   // Function called Linker used to make the graphql request
   const [
@@ -240,6 +246,7 @@ export default function ExampleSpecification(props) {
   };
 
   const handleCloseGenerate = async () => {
+    console.log(props.dnaAssembly)
     let outputLinks = await finalSpec()
     console.log(outputLinks)
     setOpen(false);
@@ -261,12 +268,6 @@ export default function ExampleSpecification(props) {
     {headerName: 'Concentration (μg/ml)', field: 'concentration', editable: true, width: '227'},
     {headerName: 'Plate Number', field: 'plate_number', editable: true, width: '227'},
     {headerName: 'Well', field: 'well', editable: true, width: '227'}
-  ]);
-
-  const [rowData, setRowData] = useState([
-    {linker_id: 'BASIC_mCherry_ORF.1', concentration: '50.0', plate_number: '1', well: 'A1'},
-    {linker_id: 'BASIC_sfGFP_ORF.1', concentration: '50.0', plate_number: '1', well: 'A2'},
-    {linker_id: 'BASIC_mTagBFP2_ORF.1', concentration: '50.0', plate_number: '1', well: 'A3'}
   ]);
 
   return (
