@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Dropzone from 'react-dropzone'
 import {Paper, List, ListItem, makeStyles} from '@material-ui/core'
-
 import { SeqViz } from "seqviz";
-import lottie from "../Components/HomeComponents/subComponents/lottie";
 
 export default function FileUpload(props) {
 

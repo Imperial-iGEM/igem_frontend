@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
@@ -17,7 +16,6 @@ import SpecCard_output from './SubComponents/SpecCard_output';
 import SpecCard_labhardware from './SubComponents/SpecCard_labhardware';
 import TheDataTable from './SubComponents/datatable'
 
-import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
@@ -87,7 +85,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 //"linkerTypes":rowData
 
 export default function ExampleSpecification(props) {
-  // use styling diffined above
+  // use styling defined above
   const classes = useStyles();
 
   //to store output links
@@ -303,7 +301,6 @@ export default function ExampleSpecification(props) {
             className={classes.button}
             variant="contained"
             color="secondary"
-            className={classes.button}
             startIcon={<SaveIcon />}
             onClick={
               handleClickOpen
