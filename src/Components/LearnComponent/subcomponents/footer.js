@@ -43,15 +43,15 @@ export default function LearnFooter(props){
                         Links
                     </Typography>
                     <Typography variant={"h6"}>
-                        The Synthetic Biology Open Language: <a>https://sbolstandard.org/</a>
+                        The Synthetic Biology Open Language: <a href={"https://sbolstandard.org/"}>https://sbolstandard.org/</a>
                     
                     </Typography>
                     <Typography variant={"h6"}>
                         SynBioHub and SBOL Designer Demo: 
-                        https://sbolstandard.org/synbiohub-and-sbol-designer-demo/
+                        <a href={"https://sbolstandard.org/synbiohub-and-sbol-designer-demo/"}>https://sbolstandard.org/synbiohub-and-sbol-designer-demo/</a>
                     </Typography>
                     <Typography variant={"h6"}>
-                        SynBioHub: https://synbiohub.org/
+                        SynBioHub: <a href={"https://synbiohub.org/"}>https://synbiohub.org/</a>
                     </Typography>
                     <Typography variant={"h6"}>
                         A design repository for people designing biological constructs 
