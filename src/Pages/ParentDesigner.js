@@ -34,11 +34,11 @@ function getSteps() {
 function getStepContent(stepIndex,handleDnaAssemblyChange,dnaAssembly) {
   switch (stepIndex) {
     case 0:
+      return <SBOLDesigner />;
+    case 1:
       return <FileUploadPage
                 handleDnaAssemblyChange={handleDnaAssemblyChange}
               />;
-    case 1:
-      return <SBOLDesigner />;
     case 2:
       return <ExampleSpecification
                 dnaAssembly={dnaAssembly}
