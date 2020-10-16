@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ['SBOL File Upload', 'SBOL Designer', 'Specifications'];
+  return ['SBOL Designer', 'SBOL File Upload', 'Specifications'];
 }
 
 function getStepContent(stepIndex,handleDnaAssemblyChange,dnaAssembly) {
