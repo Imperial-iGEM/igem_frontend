@@ -14,6 +14,7 @@ import Row5Text from './subComponents/row5_text'
 import Row5Image from './subComponents/row5_image'
 
 import ThisDesignAnimation from './subComponents/lottiedatadesign'
+import ThisWinkAnimation from './subComponents/lottiedatawink'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -48,6 +49,10 @@ const useStyles = makeStyles((theme) => ({
     },
     lottieDesignAnimation: {
         height: '550px'
+    },
+    lottieWinkAnimation: {
+        height: '100%',
+        float:'right',
     },
     generalSpacing: {
       padding: theme.spacing(2),
@@ -91,8 +96,8 @@ export default function Home(props)  {
                     </div>
                 </Grid>
                 <Grid item xs={8} className={classes.whiteGrid}>
-                    <div>
-                        <Row1Image />
+                    <div className={classes.lottieWinkAnimation}>
+                        <ThisWinkAnimation />
                     </div>
                 </Grid>
 

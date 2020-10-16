@@ -257,7 +257,7 @@ export default function ExampleSpecification(props) {
   const handleCloseGenerate = async () => {
     console.log(props.dnaAssembly)
     let outputLinks = await finalSpec()
-    console.log(outputLinks)
+    console.log('output links',outputLinks)
     setOpen(false);
   }
 

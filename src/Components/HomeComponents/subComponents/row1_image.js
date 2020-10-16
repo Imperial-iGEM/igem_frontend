@@ -5,12 +5,11 @@ import { Container } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
+import ThisWinkAnimation from './lottiedatawink'
+
 const useStyles = makeStyles((theme) => ({
-    root:{
-        textAlign: 'left',
-    },
     imagePosition:{
-        textAlign: 'right',
+        height:'850px'
     }
   }));
 
@@ -21,7 +20,8 @@ export default function Row1Image(props){
 
     return(
         <div className={classes.imagePosition}>
-            <img src={process.env.PUBLIC_URL + 'gifgit.gif'} height="850px" alt="robot"/>
+            <ThisWinkAnimation />
+            
         </div>
     )
 }
