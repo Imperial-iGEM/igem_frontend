@@ -13,6 +13,8 @@ import Row4Image from './subComponents/row4_image'
 import Row5Text from './subComponents/row5_text'
 import Row5Image from './subComponents/row5_image'
 
+import ThisDesignAnimation from './subComponents/lottiedatadesign'
+
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -44,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
     },
     lottieAnimation: {
         paddingTop: '2%',
+    },
+    lottieDesignAnimation: {
+        height: '550px'
     },
     generalSpacing: {
       padding: theme.spacing(2),
@@ -100,7 +105,9 @@ export default function Home(props)  {
                 </Grid>
                 <Grid item xs={6} className={classes.pinkGrid}>
                     <div className={classes.generalSpacing}>
-                        <Row2Image />
+                        <div className={classes.lottieDesignAnimation}>
+                            <ThisDesignAnimation />
+                        </div>
                     </div>
                 </Grid>
             </Grid>
