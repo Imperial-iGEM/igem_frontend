@@ -21,7 +21,7 @@ export default function Row1Image(props){
 
     return(
         <div className={classes.imagePosition}>
-            <img src={process.env.PUBLIC_URL + 'CroppedHelper2.png'} height="850px" alt="robot"/>
+            <img src={process.env.PUBLIC_URL + 'gifgit.gif'} height="850px" alt="robot"/>
         </div>
     )
 }

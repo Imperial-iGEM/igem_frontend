@@ -20,12 +20,11 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
     },
     whiteGrid: {
-      height: '100%'
+      height: '850px',
+      backgroundColor: "#FFFFFF",
     },
     pinkGrid: {
-
-
-        backgroundColor: "#FF6F90",
+      backgroundColor: "#FF6F90",
       height: '100%',
       minHeight: '550px',
     },
