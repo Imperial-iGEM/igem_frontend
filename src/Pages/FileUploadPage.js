@@ -56,7 +56,7 @@ export default function FileUploadPage(props) {
                         <FormControlLabel
                         value="basic"
                         control={<Radio color="primary" />}
-                        label="Basic"
+                        label="BASIC"
                         labelPlacement="right"
                         />
                         <FormControlLabel
