@@ -41,7 +41,7 @@ export default function Row2Text(props){
     return(
         <div className={classes.root}>
             <div className={classes.textSection}>
-                <WhiteTextTypography variant={"h2"} color="#FFFFFF">
+                <WhiteTextTypography variant={"h3"} color="#FFFFFF">
                     Synthetic Biology made easy
                 </WhiteTextTypography>
                 <WhiteTextTypography variant={"h6"} color="#FFFFFF">
