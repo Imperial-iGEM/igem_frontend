@@ -38,7 +38,7 @@ export default function Row4Text(props){
     return(
         <div className={classes.root}>
             <div className={classes.textSection}>
-                <WhiteTextTypography variant={"h2"}>
+                <WhiteTextTypography variant={"h4"}>
                     Automation Made Accessible
                 </WhiteTextTypography>
                 <WhiteTextTypography variant={"h6"}>

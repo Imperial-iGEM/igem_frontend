@@ -3,7 +3,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Container } from '@material-ui/core';
 import Lottie from 'react-lottie';
-import animationData from './lottiedata/dropbox';
+import animationData from './lottiedata/lf30_5egnodig.json'
 
 
 

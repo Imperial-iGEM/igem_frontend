@@ -41,7 +41,7 @@ export default function Row3Text(props){
     return(
         <div className={classes.root}>
             <div className={classes.textSection}>
-                <WhiteTextTypography variant={"h2"}>
+                <WhiteTextTypography variant={"h3"}>
                     Connecting Design & Build
                 </WhiteTextTypography>
                 <WhiteTextTypography variant={"h6"}>
