@@ -90,12 +90,12 @@ export default function Home(props)  {
           <Grid className={classes.mainGrid} container>
 
 
-                <Grid item xs={4} className={classes.whiteGrid}>
+                <Grid item xs={6} className={classes.whiteGrid}>
                     <div>
                         <Row1Text />
                     </div>
                 </Grid>
-                <Grid item xs={8} className={classes.whiteGrid}>
+                <Grid item xs={6} className={classes.whiteGrid}>
                     <div className={classes.lottieWinkAnimation}>
                         <ThisWinkAnimation />
                     </div>
