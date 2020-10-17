@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { makeStyles,Tabs, Tab, AppBar } from '@material-ui/core';
 import SBOLValidator from "../SBOLValidation/SBOLValidator";
 import FileUpload from "../SBOLValidation/FileUpload";
 import TutorialButton from "../SBOLValidation/TutorialButton"
-import {Redirect, useLocation} from "react-router-dom";
 
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -62,7 +61,7 @@ export default function FileUploadPage(props) {
                         <FormControlLabel
                         value="moclo"
                         control={<Radio color="primary" />}
-                        label="Mo Clo"
+                        label="MoClo (Golden Gate)"
                         labelPlacement="right"
                         />
                         <FormControlLabel

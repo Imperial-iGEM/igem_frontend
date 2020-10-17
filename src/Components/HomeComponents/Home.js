@@ -1,20 +1,51 @@
 import React from 'react'
 import {Grid } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles,createMuiTheme } from '@material-ui/core/styles';
 
 import Row1Text from './subComponents/row1_text'
 import Row1Image from './subComponents/row1_image'
+
 import Row2Text from './subComponents/row2_text'
 import Row2Image from './subComponents/row2_image'
+
 import Row3Text from './subComponents/row3_text'
 import ThisAnimation from './subComponents/lottie'
+
 import Row4Text from './subComponents/row4_text'
 import Row4Image from './subComponents/row4_image'
+
 import Row5Text from './subComponents/row5_text'
 import Row5Image from './subComponents/row5_image'
 
 import ThisDesignAnimation from './subComponents/lottiedatadesign'
 import ThisWinkAnimation from './subComponents/lottiedatawink'
+
+
+
+const responsiveTheme = createMuiTheme({
+    breakpoints: {
+        values: {
+            xs: 0,
+            small:320,
+            small2:360,
+            small3:410,
+            small4:480,
+            small5:540,
+            sm: 600,
+
+            medium1:768,
+            medium2:800,
+            md: 960,
+
+            large1:1024,
+            lg: 1280,
+
+            extralarge1:1440,
+            xl: 1920,
+        },
+    },
+})
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
