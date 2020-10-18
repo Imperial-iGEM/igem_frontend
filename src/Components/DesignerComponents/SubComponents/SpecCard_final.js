@@ -5,32 +5,46 @@ import React, {useState, useEffect} from 'react'
 //
 import { makeStyles } from '@material-ui/core/styles';
 import {Paper, Typography} from "@material-ui/core";
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
     height: '100%',
+    padding: '20px'
+  },
+  Button: {
+    paddingRight: '8px',
+    textDecoration: 'none'
   }
 });
 
 export default function SpecCard_final(props) {
     const classes = useStyles();
 
-
+    //<a href={"app.soaplab.io/"+link.substr(30)} download>
+    //{generateFileName(link)}
+    //</a>
     function linkGen(link){
         return ( <Typography variant="h5" component="h2">
-                     Opentrons Output Files
-                     <a>
-                         {link}
-                     </a>
+                    <Grid item xs={2} spacing={3} className={classes.Button}>
+                      <a href={"app.soaplab.io/"+link.substr(30)} download style={{ textDecoration: 'none' }}>
+                        <Button variant="outlined" color="secondary">
+                          {generateFileName(link)}
+                        </Button>
+                      </a>
+                    </Grid>
                  </Typography>
        )
     }
+
+    function generateFileName(link){
+      const n = link.search("media/output");
+      const k = n + 31
+      return link.substr(k)
+  }
 
     function Testnon0(props) {
         const links = props.links;
@@ -45,8 +59,13 @@ export default function SpecCard_final(props) {
 
     return (
         <Card className={classes.root} variant="outlined">
+          <Typography variant="h5" component="h2">
+            Opentrons & Output Files
+          </Typography>
             <CardContent>
+              <Grid container alignItems="stretch" spacing={3}>
                 <Testnon0 links={props.links} />
+              </Grid>
             </CardContent>
         </Card>
     );
