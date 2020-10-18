@@ -31,16 +31,16 @@ export default function SpecCard() {
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>
-        <Typography variant="h5" component="h2">
+        <Typography variant="h4" component="h2">
           Specification Page
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          add your details to the construct ready for automation
+          Add details of your run configuration.
         </Typography>
         <Typography variant="body2" component="p">
-          once everything has been filled click generate opentron scripts
+          Once you have filled out the relevant fields, click the 'Process input' button to get your scripts as download links!
           <br />
-          {'"for help or support navigate to contact us"'}
+          {'For help / support, visit the Learn or the Contact page.'}
         </Typography>
       </CardContent>
       <CardActions>
