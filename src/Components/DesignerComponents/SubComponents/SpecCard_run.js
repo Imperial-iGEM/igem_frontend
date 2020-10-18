@@ -69,6 +69,7 @@ export default function SpecCard_run(props) {
                               error={error_input1}
                               id="max_num_wells_per+plate"
                               label="Maximum number of wells filled per construct plate"
+                              defaultValue="96"
                               type="number" />
                             <TextField
                               className={classes.inputText}
@@ -79,6 +80,7 @@ export default function SpecCard_run(props) {
                               error={error_input2}
                               id="num_runs_per_plate"
                               label="Number of runs/number of construct plates"
+                              defaultValue="1"
                               type="number" />
                         </CardActions>
                         <CardActions>
