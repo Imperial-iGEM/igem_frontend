@@ -45,7 +45,7 @@ const responsiveTheme = createMuiTheme({
 })
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((responsiveTheme) => ({
     root: {
       flexGrow: 1,
     },
@@ -81,19 +81,31 @@ const useStyles = makeStyles((theme) => ({
         maxHeight: '550px'
     },
     lottieWinkAnimation: {
-        height: '100%',
-        maxHeight: '550px',
-
         float:'right',
+        maxHeight:"550px",
+
+        [responsiveTheme.breakpoints.up("xs")]:{
+            maxHeight:"171px",
+        },
+        [responsiveTheme.breakpoints.up("sm")]:{
+            maxHeight:"321px"
+        },
+        [responsiveTheme.breakpoints.up("md")]:{
+            maxHeight:"514px",
+        },
+        [responsiveTheme.breakpoints.up("lg")]:{
+            height:"685px",
+        }
+
     },
     generalSpacing: {
-      padding: theme.spacing(2),
-      color: theme.palette.text.secondary,
+      padding: responsiveTheme.spacing(2),
+      color: responsiveTheme.palette.text.secondary,
     },
     generalImage: {
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
-        padding: theme.spacing(2),
+        padding: responsiveTheme.spacing(2),
     }}));
 
 export default function Home(props)  {
@@ -103,8 +115,7 @@ export default function Home(props)  {
     return (
       <div>
           <Grid className={classes.mainGrid} container>
-
-
+              <Grid container className={classes.mainGrid} xs={12}>
                 <Grid item xs={6} className={classes.whiteGrid}>
                     <div>
                         <Row1Text />
@@ -115,7 +126,7 @@ export default function Home(props)  {
                         <ThisWinkAnimation />
                     </div>
                 </Grid>
-
+              </Grid>
             <Grid container xs={12} className={classes.pinkGrid}>
               <Grid item xs={6} className={classes.pinkGrid}>
                     <div className={classes.generalSpacing}>
