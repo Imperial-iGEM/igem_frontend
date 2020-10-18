@@ -9,7 +9,6 @@ import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-//import FormHelperText from '@material-ui/core/FormHelperText';
 import Switch from '@material-ui/core/Switch';
 
 const useStyles = makeStyles({
@@ -22,28 +21,32 @@ const useStyles = makeStyles({
 export default function SpecCard_final(props) {
     const classes = useStyles();
 
-    //const [state, setState] = React.useState({
-    //    plate_position: true,
-    //    reagents_list: false,
-    //    part_sequences_to_order: true,
-    //    run_metainformation: true,
-    //    debugging_logs: false,
-    //});
 
-    //const handleChange = (event) => {
-    //    setState({ ...state, [event.target.name]: event.target.checked });
-    //};
+    function linkGen(link){
+        return ( <Typography variant="h5" component="h2">
+                     Opentrons Output Files
+                     <a>
+                         {link}
+                     </a>
+                 </Typography>
+       )
+    }
+
+    function Testnon0(props) {
+        const links = props.links;
+        if (links.length > 0) {
+          return <div>output links</div>;
+        }
+        return props.links.map(link => linkGen(link));
+      }
+
+
 
     return (
         <Card className={classes.root} variant="outlined">
-        <CardContent>
-        <Typography variant="h5" component="h2">
-                    Opentrons Output Files
-                    <div>
-                        {props.links}
-                    </div>
-                </Typography>
-        </CardContent>
+            <CardContent>
+                <Testnon0 links={props.links} />
+            </CardContent>
         </Card>
     );
 }

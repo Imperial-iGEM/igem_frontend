@@ -90,7 +90,7 @@ export default function ExampleSpecification(props) {
   const classes = useStyles();
 
   //to store output links
-  const [opentronsOutputLinks, setOpentronsOutputLinks] = useState(['outputlinks before']);
+  const [opentronsOutputLinks, setOpentronsOutputLinks] = useState([]);
   //set state loading
   const [itemLoading, setItemLoading] = useState('');
   //Controling modal when generate scipts button is pressed
