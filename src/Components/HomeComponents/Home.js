@@ -79,7 +79,8 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: '2%',
     },
     lottieDesignAnimation: {
-        height: '550px'
+        height: '100%',
+        maxHeight: '550px'
     },
     lottieWinkAnimation: {
         height: '100%',
