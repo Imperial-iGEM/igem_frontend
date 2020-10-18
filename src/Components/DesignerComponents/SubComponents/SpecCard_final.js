@@ -34,7 +34,8 @@ export default function SpecCard_final(props) {
 
     function Testnon0(props) {
         const links = props.links;
-        if (links.length > 0) {
+        console.log('links before length check',links)
+        if (links.length == 0) {
           return <div>output links</div>;
         }
         return props.links.map(link => linkGen(link));

@@ -259,6 +259,7 @@ export default function ExampleSpecification(props) {
     console.log(props.dnaAssembly)
     let outputLinks = await finalSpec()
     console.log('output links',outputLinks)
+    console.log('array',outputLinks.data.finalSpec.outputLinks)
     setOpentronsOutputLinks(outputLinks.data.finalSpec.outputLinks)
     setOpen(false);
   }
