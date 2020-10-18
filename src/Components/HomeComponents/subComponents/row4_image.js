@@ -15,17 +15,18 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: '7%',
 
         [theme.breakpoints.up("xs")]:{
-            height:"100px",
-            maxHeight:"100px",
+            maxHeight:"70px",
 
         },
         [theme.breakpoints.up("sm")]:{
-            height:"300px",
-            maxHeight:"300px"
+            maxHeight:"210px"
         },
         [theme.breakpoints.up("md")]:{
-            height:"400px",
-            maxHeight:"400px",
+            maxHeight:"280px",
+
+        },
+        [theme.breakpoints.up("lg")]:{
+            maxHeight:"421px",
 
         }
   }}));

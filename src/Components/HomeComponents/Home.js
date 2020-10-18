@@ -3,10 +3,8 @@ import {Grid } from "@material-ui/core";
 import { makeStyles,createMuiTheme } from '@material-ui/core/styles';
 
 import Row1Text from './subComponents/row1_text'
-import Row1Image from './subComponents/row1_image'
 
 import Row2Text from './subComponents/row2_text'
-import Row2Image from './subComponents/row2_image'
 
 import Row3Text from './subComponents/row3_text'
 import ThisAnimation from './subComponents/lottie'
@@ -84,6 +82,8 @@ const useStyles = makeStyles((theme) => ({
     },
     lottieWinkAnimation: {
         height: '100%',
+        maxHeight: '550px',
+
         float:'right',
     },
     generalSpacing: {
@@ -94,24 +94,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
         padding: theme.spacing(2),
-    },
-    responsiveImage: {
-        [theme.breakpoints.up("xs")]:{
-            height:"100",
-        },
-        [theme.breakpoints.up("sm")]:{
-        height:"200",
-            },
-            [theme.breakpoints.up("md")]:{
-    height:"300",
-},
-
-                [theme.breakpoints.up("md")]:{
-    height:"400",
-}
-
-    }
-  }));
+    }}));
 
 export default function Home(props)  {
 
