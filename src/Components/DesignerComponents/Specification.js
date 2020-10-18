@@ -120,9 +120,9 @@ export default function ExampleSpecification(props) {
   });
 
   const [rowData, setRowData] = useState([
-    {linker_id: 'BASIC_mCherry_ORF.1', concentration: '50.0', plate_number: '1', well: 'A1'},
-    {linker_id: 'BASIC_sfGFP_ORF.1', concentration: '50.0', plate_number: '1', well: 'A2'},
-    {linker_id: 'BASIC_mTagBFP2_ORF.1', concentration: '50.0', plate_number: '1', well: 'A3'}
+    {linkerId: 'BASIC_mCherry_ORF.1', concentration: '50.0', plateNumber: '1', well: 'A1'},
+    {linkerId: 'BASIC_sfGFP_ORF.1', concentration: '50.0', plateNumber: '1', well: 'A2'},
+    {linkerId: 'BASIC_mTagBFP2_ORF.1', concentration: '50.0', plateNumber: '1', well: 'A3'}
   ]);
 
   // Function called Linker used to make the graphql request
@@ -237,7 +237,7 @@ export default function ExampleSpecification(props) {
     var i;
     for (i = 0; i < linkers.data.linkerList.linkerList.length; i++) {
         var temp = {
-          linker_id: linkers.data.linkerList.linkerList[i], concentration: '50.0', plate_number: '1', well: wellLabels96[i]
+          linkerId: linkers.data.linkerList.linkerList[i], concentration: '50.0', plateNumber: '1', well: wellLabels96[i]
         }
         outputArray.push(temp);
         temp = {};
@@ -273,9 +273,9 @@ export default function ExampleSpecification(props) {
 
   /// Data table 
   const [columnDefs,setColumnDefs] = useState([
-    {headerName: 'Part / Linker ID', field: 'linker_id', width: '227'},
+    {headerName: 'Part / Linker ID', field: 'linkerId', width: '227'},
     {headerName: 'Concentration (μg/ml)', field: 'concentration', editable: true, width: '227'},
-    {headerName: 'Plate Number', field: 'plate_number', editable: true, width: '227'},
+    {headerName: 'Plate Number', field: 'plateNumber', editable: true, width: '227'},
     {headerName: 'Well', field: 'well', editable: true, width: '227'}
   ]);
 
