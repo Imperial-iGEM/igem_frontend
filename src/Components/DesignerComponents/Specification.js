@@ -14,6 +14,7 @@ import SpecCard from './SubComponents/SpecCard';
 import SpecCard_run from './SubComponents/SpecCard_run';
 import SpecCard_output from './SubComponents/SpecCard_output';
 import SpecCard_labhardware from './SubComponents/SpecCard_labhardware';
+import SpecCard_final from './SubComponents/SpecCard_final';
 import TheDataTable from './SubComponents/datatable'
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
@@ -350,7 +351,7 @@ export default function ExampleSpecification(props) {
           </Dialog>
         </Grid>
         <Grid item xs={12}>
-          {opentronsOutputLinks}
+          <SpecCard_final links={opentronsOutputLinks} />
         </Grid>
       </Grid>
     </div>
