@@ -2,7 +2,8 @@ import React from 'react';
 import { makeStyles,Tabs, Tab, AppBar } from '@material-ui/core';
 import SBOLValidator from "../SBOLValidation/SBOLValidator";
 import FileUpload from "../SBOLValidation/FileUpload";
-import TutorialButton from "../SBOLValidation/TutorialButton"
+import TutorialButton from "../SBOLValidation/TutorialButton";
+import DownloadTemplate from "../SBOLValidation/DownloadTemplate";
 
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -32,22 +33,12 @@ export default function FileUploadPage(props) {
         setSelectedTab(newValue);
     }; // Triggered whenever we take a new value
 
-
-    return (
-        <div>
-            <AppBar position ="static" style={{ background: '#C4C4C4' }}>
-                <Tabs
-                value={selectedTab}
-                onChange={handleTabChange}
-                indicatorColor="#FF6F90"
-                textColor="primary"
-                centered
-                variant="standard">
-                    <Tab label="Upload File"  title={"Upload to SBOLDesigner without validating"} />
-                    <Tab label="Upload File and Validate" title={"Upload to SBOLDesigner after validating"} />
-                </Tabs>
-
-            </AppBar>
+    function TestnonDownload(props) {
+        const mytab = props.currentTab;
+        if (mytab == 2) {
+          return <div></div>;
+        }
+        return (
             <div className={classes.radioAssembly}>
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Which DNA Assembly method would you like to use?</FormLabel>
@@ -73,6 +64,28 @@ export default function FileUploadPage(props) {
                     </RadioGroup>
                 </FormControl>
             </div>
+        )
+      }
+
+
+    return (
+        <div>
+            <AppBar position ="static" style={{ background: '#C4C4C4' }}>
+                <Tabs
+                value={selectedTab}
+                onChange={handleTabChange}
+                indicatorColor="#FF6F90"
+                textColor="primary"
+                centered
+                variant="standard">
+                    <Tab label="Upload File"  title={"Upload to SBOLDesigner without validating"} />
+                    <Tab label="Upload File and Validate" title={"Upload to SBOLDesigner after validating"} />
+                    <Tab label="Download Example File" title={"Download Example SBOL files to test software"} />
+                </Tabs>
+
+            </AppBar>
+            <TestnonDownload currentTab={selectedTab} />
+                {selectedTab === 2 && <DownloadTemplate/>}
                 {selectedTab === 1 && <SBOLValidator/>}
                 {selectedTab === 0 && <FileUpload/>}
             <div>
