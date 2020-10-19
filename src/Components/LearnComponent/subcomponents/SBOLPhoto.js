@@ -30,7 +30,7 @@ export default function SBOLPhoto(props){
     return(
         <div className={classes.root}>
             <div className={Container}>
-                <img src={process.env.PUBLIC_URL + 'sbol_logo.png'} width="100%" alt="help robot" />
+                <img src={process.env.PUBLIC_URL + 'SBOLLogo.svg'} width="100%" alt="help robot" />
             </div>
         </div>
     )
