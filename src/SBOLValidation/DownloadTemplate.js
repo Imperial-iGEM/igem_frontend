@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     myButton: {
       width: '100%',
-      minHeight: '50px'
+      minHeight: '100px'
     },
     myGrid: {
         padding: '10px'
