@@ -51,7 +51,7 @@ export default function FileUploadPage(props) {
             <div className={classes.radioAssembly}>
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Which DNA Assembly method would you like to use?</FormLabel>
-                    <RadioGroup aria-label="position" name="position" defaultValue="top" onChange={props.handleDnaAssemblyChange}>
+                    <RadioGroup aria-label="position" name="position" defaultValue="basic" onChange={props.handleDnaAssemblyChange}>
                         <FormControlLabel
                         value="basic"
                         control={<Radio color="primary" />}
