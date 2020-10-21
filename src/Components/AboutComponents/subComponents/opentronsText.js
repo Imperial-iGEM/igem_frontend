@@ -8,16 +8,16 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'left',
     },
     textSection:{
-        paddingLeft: '20px',
+        paddingLeft: '30px',
         paddingRight: '20px',
     },
     selectEmpty: {
-      marginTop: theme.spacing(2),
+        marginTop: theme.spacing(2),
     },
     bottomLeft: {
         position: 'absolute',
         bottom: '10px',
-        left:'10px',
+        left:'15px',
     }
   }));
 
@@ -35,17 +35,20 @@ export default function OpentronsText(props){
         <div className={classes.root}>
             <div className={classes.textSection}>
                 <Typography variant={"h2"}>
-                    We used Opentrons
+                    Our iniative
                 </Typography>
                 <Typography variant={"h6"}>
-                    Opentrons is cool for lots of reasons i will write below
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                    consequat. Duis aute irure dolor Ut enim ad minim veniam, 
-                    quis nostrud 
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                    consequat. Duis aute irure dolor
+                    We are an Imperial College iGEM team of students
+                    from Bioengineering, Physics, Computing, and Biochemistry.
+                    Our project developed in line with a Tryptophan
+                    optimisation project we were working on that required 
+                    a lot of combinatorial derivation. 
 
+                    Generating the Opentrons programs ourselves for 
+                    all our assemblies would be a tedious task for 
+                    anyone, which made us realise we could help realise 
+                    the potential of open-source automation, and thus 
+                    SOAP Lab was born.
                 </Typography>
             </div>
         </div>
