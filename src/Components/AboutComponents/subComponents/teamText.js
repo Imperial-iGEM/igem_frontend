@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'left',
     },
     textSection:{
-        paddingLeft: '20px',
+        paddingLeft: '30px',
         paddingRight: '20px',
     },
     selectEmpty: {
@@ -35,17 +35,21 @@ export default function TeamText(props){
     return(
         <div className={classes.root}>
             <div className={classes.textSection}>
-            <Typography variant={"h2"}>
-                Heres our team in action
+                <Typography variant={"h2"}>
+                    Our pipeline in action
                 </Typography>
                 <Typography variant={"h6"}>
-                    Opentrons is cool for lots of reasons i will write below
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                    consequat. Duis aute irure dolor Ut enim ad minim veniam, 
-                    quis nostrud 
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-                    consequat. Duis aute irure dolor
+                    Our user interface makes it possible to get a fully fledged 
+                    assembly script for your Opentrons just from your genetic 
+                    design. We work with the SBOL standard to make our code 
+                    integrable with other software pipelines, especially through 
+                    our SBOL Parser.
+
+                    All our assembly protocols are tested on our shared Opentrons in 
+                    Opencell London and through testing with other iGEM teams (thank 
+                    you Hamburg!). We are also in the process of linking our software 
+                    into GALAXY SynBio-CAD, a workflow platform for synthetic 
+                    biology software tools.
                 </Typography>
             </div>
         </div>
