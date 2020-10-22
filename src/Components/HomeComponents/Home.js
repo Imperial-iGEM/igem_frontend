@@ -45,49 +45,43 @@ const responsiveTheme = createMuiTheme({
 })
 
 
-const useStyles = makeStyles((responsiveTheme) => ({
+const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
     },
     whiteGrid: {
-      height: '850px',
-      backgroundColor: "#FFFFFF",
+        backgroundColor: "#FFFFFF",
+        [theme.breakpoints.up("xs")]:{
+            height: '200px',
+        },
+        [theme.breakpoints.up("sm")]:{
+            height: '400px',
+        },
+        [theme.breakpoints.up("md")]:{
+            height: '650px',
+        },
+        [theme.breakpoints.up("lg")]:{
+            height: '850px',
+        }
     },
     pinkGrid: {
       backgroundColor: "#FF6F90",
+      minHeight:'550px'
     },
     darkblueGrid: {
       backgroundColor: "#324460",
-      minHeight: '550px',
+      minHeight:'550px'
     },
     blueGrid: {
       backgroundColor: "#859FE1",
-      minHeight: '550px',
+      minHeight:'550px'
     },
     lightblueGrid: {
       backgroundColor: "#C7EEFF",
-      minHeight: '550px',
-    },
-    lottieAnimation: {
-        paddingTop: '2%',
+      minHeight:'550px'
     },
     lottieWinkAnimation: {
         float:'right',
-        maxHeight:"550px",
-
-        [responsiveTheme.breakpoints.up("xs")]:{
-            maxHeight:"171px",
-        },
-        [responsiveTheme.breakpoints.up("sm")]:{
-            maxHeight:"321px"
-        },
-        [responsiveTheme.breakpoints.up("md")]:{
-            maxHeight:"514px",
-        },
-        [responsiveTheme.breakpoints.up("lg")]:{
-            height:"685px",
-        }
-
     },
     generalImage: {
         backgroundSize: 'contain',
@@ -123,6 +117,7 @@ export default function Home(props)  {
             className={classes.pinkGrid}
             spacing={2}
             >
+                <Grid item xs={12}/>
                 <Grid item xs={1} sm={1} />
                 <Grid item xs={11} sm={5}>
                     <Row2Text />
@@ -130,6 +125,7 @@ export default function Home(props)  {
                 <Grid item xs={12} sm={6}>
                     <ThisDesignAnimation />
                 </Grid>
+                <Grid item xs={12}/>
             </Grid>
             <Grid 
             container 
@@ -140,6 +136,7 @@ export default function Home(props)  {
             className={classes.darkblueGrid}
             spacing={2}
             >
+                <Grid item xs={12}/>
                 <Grid item xs={12} sm={6}>
                     <ThisAnimation />
                 </Grid>
@@ -147,6 +144,7 @@ export default function Home(props)  {
                     <Row3Text />
                 </Grid>
                 <Grid item xs={1} sm={1} />
+                <Grid item xs={12}/>
             </Grid>
             <Grid 
             container 
@@ -157,6 +155,7 @@ export default function Home(props)  {
             className={classes.blueGrid}
             spacing={2}
             >
+                <Grid item xs={12}/>
                 <Grid item xs={1} sm={1} />
                 <Grid item xs={11} sm={5}>
                     <Row4Text />
@@ -164,6 +163,7 @@ export default function Home(props)  {
                 <Grid item xs={12} sm={6}>
                     <Row4Image />
                 </Grid>
+                <Grid item xs={12}/>
             </Grid>
             <Grid 
             container 
@@ -174,6 +174,7 @@ export default function Home(props)  {
             className={classes.lightblueGrid}
             spacing={2}
             >
+                <Grid item xs={12}/>
                 <Grid item xs={12} sm={6}>
                     <Row5Image />
                 </Grid>
@@ -181,6 +182,7 @@ export default function Home(props)  {
                     <Row5Text />
                 </Grid>
                 <Grid item xs={1} sm={1} />
+                <Grid item xs={12}/>
             </Grid>
         </Grid>
      </div>
