@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 
 import FileUploadPage from "./FileUploadPage";
 import ExampleSpecification from '../Components/DesignerComponents/Specification'
-import FileUpload from '../SBOLValidation/FileUpload';
 import SBOLDesigner from '../Components/DesignerComponents/SBOLDesigner';
 
 const useStyles = makeStyles((theme) => ({

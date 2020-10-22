@@ -1,10 +1,10 @@
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 //
 import { makeStyles } from '@material-ui/core/styles';
-import {Paper, Typography} from "@material-ui/core";
+import { Typography} from "@material-ui/core";
 import FormLabel from '@material-ui/core/FormLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function SpecCard_output(props) {
+export default function SpecCardOutput(props) {
     const classes = useStyles();
 
     //const [state, setState] = React.useState({

@@ -1,17 +1,12 @@
-import React, {useState, useEffect} from 'react'
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from "@material-ui/core";
-import { Container } from '@material-ui/core';
-import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 
 import LearnHeader from './subcomponents/header';
 import OpentronsPhoto from './subcomponents/opentronPhoto';
 import SBOLPhoto from './subcomponents/SBOLPhoto';
 import OpentronsText from './subcomponents/OpentronsText';
 import SBOLText from './subcomponents/SBOLText';
-import learnFooter from './subcomponents/footer';
 import LearnFooter from './subcomponents/footer';
 
 const useStyles = makeStyles((theme) => ({

@@ -1,6 +1,6 @@
 import React from 'react'
-import {Grid, Typography, Paper } from "@material-ui/core";
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import {Grid } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
 
 import ContactHeader from './subcomponents/header';
 import EMAILText from './subcomponents/email';

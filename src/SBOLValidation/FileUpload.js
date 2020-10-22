@@ -10,7 +10,7 @@ export default function FileUpload(props) {
     const [pythonLink2] = useState("");
     const [pythonLink3] = useState("");
     const [pythonLink4] = useState("");
-    const [fileString, setFileString] = useState("");
+    //const [fileString, setFileString] = useState("");
     function acceptFiles(acceptedFiles) {
         setFiles(acceptedFiles);
         acceptedFiles.forEach((file) => {
@@ -21,7 +21,7 @@ export default function FileUpload(props) {
             reader.onload = () => {
                 // Do whatever you want with the file contents
                 const string = reader.result
-                setFileString(string);
+                //setFileString(string);
                 window.sbolFile = string
                 console.log(string)
             }

@@ -1,7 +1,6 @@
-import React, {useState, useEffect} from 'react'
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import React from 'react'
+import { makeStyles  } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import { Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -22,11 +21,6 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-const WhiteTextTypography = withStyles({
-    root: {
-        color: "#FFFFFF"
-    }
-})(Typography);
 
 export default function TWITTERText(props){
 

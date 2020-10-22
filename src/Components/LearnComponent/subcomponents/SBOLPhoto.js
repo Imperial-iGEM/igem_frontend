@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -17,11 +16,6 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-const WhiteTextTypography = withStyles({
-    root: {
-        color: "#FFFFFF"
-    }
-})(Typography);
 
 export default function SBOLPhoto(props){
 

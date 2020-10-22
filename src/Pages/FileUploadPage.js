@@ -35,7 +35,7 @@ export default function FileUploadPage(props) {
 
     function TestnonDownload(props) {
         const mytab = props.currentTab;
-        if (mytab == 2) {
+        if (mytab === 2) {
           return <div></div>;
         }
         return (

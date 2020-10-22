@@ -30,7 +30,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function SpecCard_run(props) {
+export default function SpecCardRun(props) {
   const classes = useStyles();
 
   const [error_input1,setError_input1] = React.useState(false)

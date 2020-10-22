@@ -32,7 +32,7 @@ export default function SBOLValidator(props) {
 
     const classes = useStyles();
     const [files, setFiles] = useState([]);
-    const [done, setDone] = useState(false)
+    //const [done, setDone] = useState(false)
     const [fileString,  setFileString]  = useState("")
 
     //Custom function to intercept tab selection to allow for saving of data etc before changing tabs.
@@ -50,7 +50,7 @@ export default function SBOLValidator(props) {
             window.sbolFile = abba;
         }
         reader.readAsText(acceptedFiles[0]);
-        setDone(true);
+        //setDone(true);
 
         /************************************************************************************************************************/
     }

@@ -1,11 +1,10 @@
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-import React, {useState, useEffect} from 'react'
-//
+import React from 'react'
+
 import { makeStyles } from '@material-ui/core/styles';
-import {Paper, Typography} from "@material-ui/core";
-import Switch from '@material-ui/core/Switch';
+import {Typography} from "@material-ui/core";
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
@@ -21,7 +20,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function SpecCard_final(props) {
+export default function SpecCardFinal(props) {
     const classes = useStyles();
 
     //<a href={"app.soaplab.io/"+link.substr(30)} download>
@@ -49,7 +48,7 @@ export default function SpecCard_final(props) {
     function Testnon0(props) {
         const links = props.links;
         console.log('links before length check',links)
-        if (links.length == 0) {
+        if (links.length === 0) {
           return <div>output links</div>;
         }
         return props.links.map(link => linkGen(link));

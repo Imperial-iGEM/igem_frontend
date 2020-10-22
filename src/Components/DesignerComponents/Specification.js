@@ -11,10 +11,10 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 
 import SpecCard from './SubComponents/SpecCard';
-import SpecCard_run from './SubComponents/SpecCard_run';
-import SpecCard_output from './SubComponents/SpecCard_output';
-import SpecCard_labhardware from './SubComponents/SpecCard_labhardware';
-import SpecCard_final from './SubComponents/SpecCard_final';
+import SpecCardRun from './SubComponents/SpecCard_run';
+import SpecCardOutput from './SubComponents/SpecCard_output';
+import SpecCardLabhardware from './SubComponents/SpecCard_labhardware';
+import SpecCardFinal from './SubComponents/SpecCard_final';
 import TheDataTable from './SubComponents/datatable'
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
@@ -92,14 +92,14 @@ export default function ExampleSpecification(props) {
   //to store output links
   const [opentronsOutputLinks, setOpentronsOutputLinks] = useState([]);
   //set state loading
-  const [itemLoading, setItemLoading] = useState('');
+  //const [itemLoading, setItemLoading] = useState('');
   //Controling modal when generate scipts button is pressed
   const [open, setOpen] = useState(false);
   //Run specification States
   const [maxNumWellPerPlate, setMaxNumWellPerPlate] = useState('');
   const [numRunPerPlate, setNumRunPerPlate] = useState('');
 
-  const [wellLabels96,setWellLabels96] = useState(['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11','A12',
+  const [wellLabels96 ] = useState(['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11','A12',
                                                    'B1','B2','B3','B4','B5','B6','B7','B9','B9','B10','B11','B12',
                                                    'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12',
                                                    'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12',
@@ -129,7 +129,6 @@ export default function ExampleSpecification(props) {
   // Function called Linker used to make the graphql request
   const [
     linkerList,
-    {loading: linkerListMutationLoading, error: linkerListMutationError},
   ] = useMutation(LINKER_MUTATION, {
     variables: {
       sbolFileString: btoa(window.sbolFile)
@@ -138,7 +137,6 @@ export default function ExampleSpecification(props) {
   // Function called finalSpec used to make graphql request
   const [
     finalSpec,
-    {loading: finalSpecMutationLoading, error: finalSpecMutationError},
   ] = useMutation(SPEC_MUTATION, {
     variables:
       {
@@ -246,8 +244,8 @@ export default function ExampleSpecification(props) {
     setRowData(outputArray)
     console.log(outputArray)
     console.log(btoa(window.sbolFile))
-    setItemLoading(linkers.loading);
-    setTimeout(() => {  setItemLoading(linkers.loading); }, 2000);
+    //setItemLoading(linkers.loading);
+    //setTimeout(() => {  setItemLoading(linkers.loading); }, 2000);
     setOpen(true);
   };
 
@@ -275,7 +273,7 @@ export default function ExampleSpecification(props) {
   };
 
   /// Data table 
-  const [columnDefs,setColumnDefs] = useState([
+  const [columnDefs ] = useState([
     {headerName: 'Part / Linker ID', field: 'linkerId', width: '227'},
     {headerName: 'Concentration (μg/ml)', field: 'concentration', editable: true, width: '227'},
     {headerName: 'Plate Number', field: 'plateNumber', editable: true, width: '227'},
@@ -289,7 +287,7 @@ export default function ExampleSpecification(props) {
           <SpecCard />
         </Grid>
         <Grid item xs={8}>
-          <SpecCard_run
+          <SpecCardRun
             maxNumWellPerPlateHandleChange={maxNumWellPerPlateHandleChange}
             numRunPerPlateHandleChange={numRunPerPlateHandleChange}
             handleChangeRemoveRepeates={handleChangeRemoveRepeates}
@@ -297,13 +295,13 @@ export default function ExampleSpecification(props) {
           />
         </Grid>
         <Grid item xs={4}>
-          <SpecCard_output
+          <SpecCardOutput
             outState={outState}
             outputhandleChange={outputhandleChange}
           />
         </Grid>
         <Grid item xs={5}>
-          <SpecCard_labhardware
+          <SpecCardLabhardware
             pipette1={pipette1}
             liquidHandler={liquidHandler}
             handleChangeLiquid={handleChangeLiquid}
@@ -352,7 +350,7 @@ export default function ExampleSpecification(props) {
           </Dialog>
         </Grid>
         <Grid item xs={12}>
-          <SpecCard_final links={opentronsOutputLinks} />
+          <SpecCardFinal links={opentronsOutputLinks} />
         </Grid>
       </Grid>
     </div>

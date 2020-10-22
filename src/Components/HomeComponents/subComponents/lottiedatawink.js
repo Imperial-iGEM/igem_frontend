@@ -1,7 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import { Container } from '@material-ui/core';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles';
 import Lottie from 'react-lottie';
 import animationData from './lottiedatawink/lf30_spvlbbdz.json';
 

@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import {Paper, Typography} from '@material-ui/core'
+import React from 'react'
+import { Typography} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -7,9 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -29,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-export default function SpecCard_labhardware(props) {
+export default function SpecCardLabhardware(props) {
 
   const classes = useStyles();
 
