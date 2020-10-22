@@ -1,6 +1,8 @@
 import React from 'react'
 import {Grid } from "@material-ui/core";
 import { makeStyles,createMuiTheme } from '@material-ui/core/styles';
+import Hidden from '@material-ui/core/Hidden';
+import withWidth from '@material-ui/core/withWidth';
 
 import Row1Text from './subComponents/row1_text'
 
@@ -111,7 +113,9 @@ export default function Home(props)  {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <div className={classes.lottieWinkAnimation}>
-                        <ThisWinkAnimation />
+                        <Hidden xsDown>
+                            <ThisWinkAnimation />
+                        </Hidden>
                     </div>
                 </Grid>
                 <Grid item xs={12}/>
