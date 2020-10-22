@@ -94,10 +94,11 @@ console.log(state.non_compliant_URI)
                 });
                 var errorString= "Errors:  \n";
                 var i;
+                var newLineCharacter = "\n";
                 console.log("length", response.data.errors.length);
                 if(response.data.errors[0] !== "") {
                     for (i = 0; i < response.data.errors.length; i++) {
-                        errorString =   errorString + response.data.errors[i].toString().trim() + '\n'  + '\n';
+                        errorString =  errorString + response.data.errors[i].toString().trim() + newLineCharacter;
                     }
                     document.getElementById("errorBox").innerText = errorString;
 
@@ -132,7 +133,8 @@ console.log(state.non_compliant_URI)
             }
 
         })()
-    }, [fileString, files]);
+    }, [fileString, files,state.check_best_practices,state.display_full_stack_trace,
+        state.fail_first_error,state.incomplete_documents,state.non_compliant_URI]);
 
     //must go after previous part!
 
