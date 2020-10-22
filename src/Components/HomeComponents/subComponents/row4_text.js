@@ -16,7 +16,11 @@ const useStyles = makeStyles((theme) => ({
     root:{
         textAlign: 'left',
         alignContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        [theme.breakpoints.up("xs")]:{
+            paddingTop: '30px',
+            paddingBottom: '30px',
+        },
     }
   }));
 

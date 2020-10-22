@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
 
         [theme.breakpoints.up("xs")]:{
             maxHeight:"234px",
+            paddingBottom: '30px',
 
         },
         [theme.breakpoints.up("sm")]:{

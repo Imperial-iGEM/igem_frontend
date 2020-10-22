@@ -5,6 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
+import Hidden from '@material-ui/core/Hidden';
+import TemporaryDrawer from './DrawBar';
 
 import { Link } from 'react-router-dom'
 
@@ -44,21 +46,26 @@ export default function NavBar() {
           </Link>
           <Typography color='black' variant="h6" className={classes.title}>
           </Typography>
-          <Link style={navStyle} to='/'>
-            <Button color="black">Home</Button>
-          </Link>
-          <Link style={navStyle} to='/about'>
-            <Button color="black">About</Button>
-          </Link>
-          <Link style={navStyle} to='/designer'>
-            <Button color="black">Designer</Button>
-          </Link>
-          <Link style={navStyle} to='/learn'>
-            <Button color="black">Learn</Button>
-          </Link>
-          <Link style={navStyle} to='/contact'>
-            <Button color="black">Contact</Button>
-          </Link>
+          <Hidden xsDown>
+            <Link style={navStyle} to='/'>
+              <Button color="black">Home</Button>
+            </Link>
+            <Link style={navStyle} to='/about'>
+              <Button color="black">About</Button>
+            </Link>
+            <Link style={navStyle} to='/designer'>
+              <Button color="black">Designer</Button>
+            </Link>
+            <Link style={navStyle} to='/learn'>
+              <Button color="black">Learn</Button>
+            </Link>
+            <Link style={navStyle} to='/contact'>
+              <Button color="black">Contact</Button>
+            </Link>
+          </Hidden>
+          <Hidden smUp>
+            <TemporaryDrawer />
+          </Hidden>
         </Toolbar>
       </AppBar>
     </div>

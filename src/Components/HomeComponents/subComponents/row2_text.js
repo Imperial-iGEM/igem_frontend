@@ -10,7 +10,10 @@ theme = responsiveFontSizes(theme);
 
 const WhiteTextTypography = withStyles({
     root: {
-        color: "#FFFFFF"
+        color: "#FFFFFF",
+        [theme.breakpoints.up("xs")]:{
+            paddingTop: '30px',
+        },
     }
 })(Typography);
 

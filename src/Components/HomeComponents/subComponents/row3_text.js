@@ -17,6 +17,9 @@ const WhiteTextTypography = withStyles({
 const useStyles = makeStyles((theme) => ({
     root:{
         textAlign: 'right',
+        [theme.breakpoints.up("xs")]:{
+            paddingBottom: '30px',
+        },
     },
     myButton: {
         padding: '10px'

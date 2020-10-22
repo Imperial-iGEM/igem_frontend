@@ -1,36 +1,36 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Lottie from 'react-lottie';
-import animationData from './lottiedatadesign/lf30_uq79sbpk.json';
+import animationData from '../HomeComponents/subComponents/lottiedatawink/lf30_spvlbbdz.json'
 
 const useStyles = makeStyles((theme) => ({
     root:{
-        height: '100%',
+      textAlign: 'right',
+      justifyContent: 'bottom',
+      float:'bottom'
     },
     responsiveImage: {
       textAlign: 'center',
       [theme.breakpoints.up("xs")]:{
-        height:"200px",
-        width:"364px",
-        paddingTop:'30px'
-
+        height:"290px",
+        width:"235px"
       },
       [theme.breakpoints.up("sm")]:{
-        height:"270px",
-        width:"437px"
+        height:"400px",
+        width:"336px"
       },
       [theme.breakpoints.up("md")]:{
-        height:"350px",
-        width:"658px"
+        height:"650px",
+        width:"546px"
       },
       [theme.breakpoints.up("lg")]:{
-        height:"432px",
-        width:"786px"
-    },
+        height:"850px",
+        width:"715px"
+    }
   }
 }));
 
-export default function ThisDesignAnimation() {
+export default function ThisWinkAnimation() {
 
     const classes = useStyles();
 
@@ -45,11 +45,11 @@ export default function ThisDesignAnimation() {
     
     return (
       <div className={classes.root}>
-        <Lottie 
-          options={defaultOptions}
-          //height={432}
-         // width={786}
-        />
+        <div className={classes.responsiveImage}>
+          <Lottie 
+            options={defaultOptions}
+          />
+        </div>
       </div>
     );
   }

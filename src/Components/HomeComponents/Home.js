@@ -2,7 +2,6 @@ import React from 'react'
 import {Grid } from "@material-ui/core";
 import { makeStyles,createMuiTheme } from '@material-ui/core/styles';
 import Hidden from '@material-ui/core/Hidden';
-import withWidth from '@material-ui/core/withWidth';
 
 import Row1Text from './subComponents/row1_text'
 
