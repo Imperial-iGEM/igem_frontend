@@ -7,11 +7,30 @@ import animationData from './lottiedatawink/lf30_spvlbbdz.json';
 
 const useStyles = makeStyles((theme) => ({
     root:{
-        textAlign: 'right',
-        justifyContent: 'bottom',
-        float:'bottom'
-        }
-    }));
+      textAlign: 'right',
+      justifyContent: 'bottom',
+      float:'bottom'
+    },
+    responsiveImage: {
+      textAlign: 'center',
+      [theme.breakpoints.up("xs")]:{
+        height:"200px",
+        width:"168px"
+      },
+      [theme.breakpoints.up("sm")]:{
+        height:"400px",
+        width:"336px"
+      },
+      [theme.breakpoints.up("md")]:{
+        height:"650px",
+        width:"546px"
+      },
+      [theme.breakpoints.up("lg")]:{
+        height:"850px",
+        width:"715px"
+    }
+  }
+}));
 
 export default function ThisWinkAnimation() {
 
@@ -28,11 +47,11 @@ export default function ThisWinkAnimation() {
     
     return (
       <div className={classes.root}>
-        <Lottie 
-          options={defaultOptions}
-          height={850}
-          width={715}
-        />
+        <div className={classes.responsiveImage}>
+          <Lottie 
+            options={defaultOptions}
+          />
+        </div>
       </div>
     );
   }
