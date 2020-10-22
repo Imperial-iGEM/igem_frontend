@@ -3,6 +3,10 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
 
 const ColorButton = withStyles((theme) => ({
     root: {
@@ -46,17 +50,19 @@ export default function Row1Text(props){
     return(
         <div className={classes.root}>
             <div className={classes.textSection}>
-                <Typography variant={"h4"}>
-                    Welcome to
-                </Typography>
-                <Typography variant={"h1"}>
-                    SOAPLab
-                </Typography>
-                <Link style={navStyle} to='/designer'>
-                    <ColorButton size="large" variant="contained">
-                        Designer
-                    </ColorButton>
-                </Link>
+                <ThemeProvider theme={theme}>
+                    <Typography variant={"h4"}>
+                        Welcome to
+                    </Typography>
+                    <Typography variant={"h1"}>
+                        SOAPLab
+                    </Typography>
+                    <Link style={navStyle} to='/designer'>
+                        <ColorButton size="large" variant="contained">
+                            Designer
+                        </ColorButton>
+                    </Link>
+                </ThemeProvider>
             </div>
         </div>
     )
