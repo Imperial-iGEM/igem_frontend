@@ -7,13 +7,11 @@ const useStyles = makeStyles((theme) => ({
     },
     imagePosition:{
         textAlign: 'center',
-        paddingTop: '3%',
     }
     ,
 
     responsiveImage: {
         textAlign: 'center',
-        paddingTop: '3%',
 
         [theme.breakpoints.up("xs")]:{
             height:"100px",

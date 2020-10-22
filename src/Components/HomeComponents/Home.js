@@ -55,8 +55,6 @@ const useStyles = makeStyles((responsiveTheme) => ({
     },
     pinkGrid: {
       backgroundColor: "#FF6F90",
-      height: '100%',
-      minHeight: '550px',
     },
     darkblueGrid: {
       backgroundColor: "#324460",
@@ -70,15 +68,8 @@ const useStyles = makeStyles((responsiveTheme) => ({
       backgroundColor: "#C7EEFF",
       minHeight: '550px',
     },
-    mainGrid: {
-        alignItems:"center",
-    },
     lottieAnimation: {
         paddingTop: '2%',
-    },
-    lottieDesignAnimation: {
-        height: '100%',
-        maxHeight: '550px'
     },
     lottieWinkAnimation: {
         float:'right',
@@ -97,10 +88,6 @@ const useStyles = makeStyles((responsiveTheme) => ({
             height:"685px",
         }
 
-    },
-    generalSpacing: {
-      padding: responsiveTheme.spacing(2),
-      color: responsiveTheme.palette.text.secondary,
     },
     generalImage: {
         backgroundSize: 'contain',
@@ -127,61 +114,75 @@ export default function Home(props)  {
                     </div>
                 </Grid>
               </Grid>
-            <Grid container xs={12} className={classes.pinkGrid}>
-              <Grid item xs={6} className={classes.pinkGrid}>
-                    <div className={classes.generalSpacing}>
-                        <Row2Text />
-                    </div>
+            <Grid 
+            container 
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+            xs={12}
+            className={classes.pinkGrid}
+            spacing={2}
+            >
+                <Grid item xs={1} sm={1} />
+                <Grid item xs={11} sm={5}>
+                    <Row2Text />
                 </Grid>
-                <Grid item xs={6} className={classes.pinkGrid}>
-                    <div className={classes.generalSpacing}>
-                        <div className={classes.lottieDesignAnimation}>
-                            <ThisDesignAnimation />
-                        </div>
-                    </div>
-                </Grid>
-            </Grid>
-            <Grid container xs={12} className={classes.darkblueGrid}>
-                <Grid item  xs={6} className={classes.darkblueGrid}>
-                    <div className={classes.generalSpacing}>
-
-                        <div className={classes.lottieAnimation}>
-                            <ThisAnimation />
-                            </div>
-                    </div>
-                </Grid>
-
-                <Grid item xs={6} className={classes.darkblueGrid}>
-                    <div className={classes.generalSpacing}>
-                        <Row3Text />
-                    </div>
+                <Grid item xs={12} sm={6}>
+                    <ThisDesignAnimation />
                 </Grid>
             </Grid>
-            <Grid container xs={12} className={classes.blueGrid}>
-                <Grid item xs={6} className={classes.blueGrid}>
-                    <div className={classes.generalSpacing}>
-                        <Row4Text />
-                    </div>
+            <Grid 
+            container 
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+            xs={12}
+            className={classes.darkblueGrid}
+            spacing={2}
+            >
+                <Grid item xs={12} sm={6}>
+                    <ThisAnimation />
                 </Grid>
-                <Grid item xs={6} className={classes.blueGrid}>
-                    <div className={classes.generalImage}>
-                        <Row4Image />
-                    </div>
+                <Grid item xs={11} sm={5}>
+                    <Row3Text />
+                </Grid>
+                <Grid item xs={1} sm={1} />
+            </Grid>
+            <Grid 
+            container 
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+            xs={12}
+            className={classes.blueGrid}
+            spacing={2}
+            >
+                <Grid item xs={1} sm={1} />
+                <Grid item xs={11} sm={5}>
+                    <Row4Text />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <Row4Image />
                 </Grid>
             </Grid>
-            <Grid container xs={12} className={classes.lightblueGrid}>
-                <Grid item xs={8} className={classes.lightblueGrid}>
-                    <div className={classes.generalImage}>
-                        <Row5Image />
-                    </div>
+            <Grid 
+            container 
+            direction="row"
+            justify="space-around"
+            alignItems="center"
+            xs={12}
+            className={classes.lightblueGrid}
+            spacing={2}
+            >
+                <Grid item xs={12} sm={6}>
+                    <Row5Image />
                 </Grid>
-                <Grid item xs={4} className={classes.lightblueGrid}>
-                    <div className={classes.generalSpacing}>
-                        <Row5Text />
-                    </div>
+                <Grid item xs={11} sm={5}>
+                    <Row5Text />
                 </Grid>
+                <Grid item xs={1} sm={1} />
             </Grid>
-              </Grid>
+        </Grid>
      </div>
     );
 }

@@ -5,14 +5,9 @@ const useStyles = makeStyles((theme) => ({
     root:{
         textAlign: 'left',
     },
-    imagePosition:{
-        textAlign: 'center',
-        paddingTop: '7%',
-    },
 
     responsiveImage: {
         textAlign: 'center',
-        paddingTop: '7%',
 
         [theme.breakpoints.up("xs")]:{
             maxHeight:"70px",

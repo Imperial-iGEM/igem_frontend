@@ -17,12 +17,6 @@ const useStyles = makeStyles((theme) => ({
         alignContent: 'center',
         alignItems: 'center'
     },
-    textSection:{
-        paddingTop: '14%',
-        paddingRight: '25px',
-        paddingLeft: '25px',
-        alignItems: 'center',
-    },
     myButton: {
         padding: '10px'
     }
@@ -39,8 +33,8 @@ export default function Row2Text(props){
     };
 
     return(
-        <div className={classes.root}>
-            <div className={classes.textSection}>
+        <div>
+            <div>
                 <WhiteTextTypography variant={"h3"} color="#FFFFFF">
                     Synthetic Biology made easy
                 </WhiteTextTypography>
