@@ -10,19 +10,18 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
 
         [theme.breakpoints.up("xs")]:{
-            maxHeight:"70px",
+            maxHeight:"234px",
 
         },
         [theme.breakpoints.up("sm")]:{
-            maxHeight:"210px"
+            maxHeight:"234px"
         },
         [theme.breakpoints.up("md")]:{
             maxHeight:"280px",
 
         },
         [theme.breakpoints.up("lg")]:{
-            maxHeight:"421px",
-
+            maxHeight:"390px",
         }
   }}));
 
