@@ -3,6 +3,10 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+
+let theme = createMuiTheme();
+theme = responsiveFontSizes(theme);
 
 const WhiteTextTypography = withStyles({
     root: {
@@ -32,8 +36,8 @@ export default function Row2Text(props){
     };
 
     return(
-        <div>
-            <div>
+        <div className={classes.root}>
+            <ThemeProvider theme={theme}>
                 <WhiteTextTypography variant={"h3"} color="#FFFFFF">
                     Synthetic Biology made easy
                 </WhiteTextTypography>
@@ -50,7 +54,7 @@ export default function Row2Text(props){
                         </Button>
                     </Link>
                 </div>
-            </div>
-        </div>
+            </ThemeProvider>
+    </div>
     )
 }

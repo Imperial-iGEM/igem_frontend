@@ -22,11 +22,6 @@ const useStyles = makeStyles((theme) => ({
     root:{
         textAlign: 'left',
     },
-    textSection:{
-        paddingTop: '40%',
-        paddingLeft: '100px',
-        paddingRight: '20px',
-    },
     selectEmpty: {
       marginTop: theme.spacing(2),
     },
@@ -49,21 +44,19 @@ export default function Row1Text(props){
 
     return(
         <div className={classes.root}>
-            <div className={classes.textSection}>
-                <ThemeProvider theme={theme}>
-                    <Typography variant={"h4"}>
-                        Welcome to
-                    </Typography>
-                    <Typography variant={"h1"}>
-                        SOAPLab
-                    </Typography>
-                    <Link style={navStyle} to='/designer'>
-                        <ColorButton size="large" variant="contained">
-                            Designer
-                        </ColorButton>
-                    </Link>
-                </ThemeProvider>
-            </div>
+            <ThemeProvider theme={theme}>
+                <Typography variant={"h4"}>
+                    Welcome to
+                </Typography>
+                <Typography variant={"h1"}>
+                    SOAPLab
+                </Typography>
+                <Link style={navStyle} to='/designer'>
+                    <ColorButton size="large" variant="contained">
+                        Designer
+                    </ColorButton>
+                </Link>
+            </ThemeProvider>
         </div>
     )
 }

@@ -96,18 +96,26 @@ export default function Home(props)  {
     return (
       <div>
           <Grid className={classes.mainGrid} container>
-              <Grid container className={classes.mainGrid} xs={12}>
-                <Grid item xs={6} className={classes.whiteGrid}>
-                    <div>
-                        <Row1Text />
-                    </div>
+                <Grid 
+                container 
+                direction="row"
+                justify="space-around"
+                alignItems="center"
+                xs={12}
+                className={classes.whiteGrid}
+                >
+                <Grid item xs={12}/>
+                <Grid item xs={1} sm={1} />
+                <Grid item xs={11} sm={5}>
+                    <Row1Text />
                 </Grid>
-                <Grid item xs={6} className={classes.whiteGrid}>
+                <Grid item xs={12} sm={6}>
                     <div className={classes.lottieWinkAnimation}>
                         <ThisWinkAnimation />
                     </div>
                 </Grid>
-              </Grid>
+                <Grid item xs={12}/>
+            </Grid>
             <Grid 
             container 
             direction="row"
@@ -115,7 +123,6 @@ export default function Home(props)  {
             alignItems="center"
             xs={12}
             className={classes.pinkGrid}
-            spacing={2}
             >
                 <Grid item xs={12}/>
                 <Grid item xs={1} sm={1} />
@@ -134,7 +141,6 @@ export default function Home(props)  {
             alignItems="center"
             xs={12}
             className={classes.darkblueGrid}
-            spacing={2}
             >
                 <Grid item xs={12}/>
                 <Grid item xs={12} sm={6}>
@@ -153,7 +159,6 @@ export default function Home(props)  {
             alignItems="center"
             xs={12}
             className={classes.blueGrid}
-            spacing={2}
             >
                 <Grid item xs={12}/>
                 <Grid item xs={1} sm={1} />
@@ -172,7 +177,6 @@ export default function Home(props)  {
             alignItems="center"
             xs={12}
             className={classes.lightblueGrid}
-            spacing={2}
             >
                 <Grid item xs={12}/>
                 <Grid item xs={12} sm={6}>
