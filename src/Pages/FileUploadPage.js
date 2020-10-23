@@ -2,8 +2,8 @@ import React from 'react';
 import { makeStyles,Tabs, Tab, AppBar } from '@material-ui/core';
 import SBOLValidator from "../SBOLValidation/SBOLValidator";
 import FileUpload from "../SBOLValidation/FileUpload";
-import TutorialButton from "../SBOLValidation/TutorialButton";
 import DownloadTemplate from "../SBOLValidation/DownloadTemplate";
+import DraggableDialog from './UploadTutorial2';
 
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -40,6 +40,9 @@ export default function FileUploadPage(props) {
         }
         return (
             <div className={classes.radioAssembly}>
+                <div>
+                    <DraggableDialog />
+                </div>
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Which DNA Assembly method would you like to use?</FormLabel>
                     <RadioGroup aria-label="position" name="position" defaultValue="basic" onChange={props.handleDnaAssemblyChange}>
@@ -88,9 +91,6 @@ export default function FileUploadPage(props) {
                 {selectedTab === 2 && <DownloadTemplate/>}
                 {selectedTab === 1 && <SBOLValidator/>}
                 {selectedTab === 0 && <FileUpload/>}
-            <div>
-                <TutorialButton></TutorialButton>
-            </div>
         </div>
     );
 }
