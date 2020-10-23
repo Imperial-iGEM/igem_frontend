@@ -8,7 +8,12 @@ theme = responsiveFontSizes(theme);
 
 const WhiteTextTypography = withStyles({
     root: {
-        color: "#FFFFFF"
+        color: "#FFFFFF",
+        textAlign: 'left',
+        [theme.breakpoints.only("xs")]:{
+            paddingTop: '30px',
+            textAlign: 'center',
+        },
     }
 })(Typography);
 

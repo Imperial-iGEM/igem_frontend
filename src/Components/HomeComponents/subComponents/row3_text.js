@@ -10,7 +10,12 @@ theme = responsiveFontSizes(theme);
 
 const WhiteTextTypography = withStyles({
     root: {
-        color: "#FFFFFF"
+        color: "#FFFFFF",
+        textAlign: 'right',
+        [theme.breakpoints.only("xs")]:{
+            paddingTop: '30px',
+            textAlign: 'center',
+        },
     }
 })(Typography);
 
@@ -22,7 +27,12 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     myButton: {
-        padding: '10px'
+        padding: '10px',
+        [theme.breakpoints.only("xs")]:{
+            padding: '0px',
+            paddingTop: '10px',
+            textAlign: 'center',
+        },
     }
   }));
 

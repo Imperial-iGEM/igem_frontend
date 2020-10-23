@@ -129,9 +129,12 @@ export default function Home(props)  {
             >
                 <Grid item xs={12}/>
                 <Grid item xs={1} sm={1} />
-                <Grid item xs={11} sm={5}>
+                <Grid item xs={10} sm={5}>
                     <Row2Text />
                 </Grid>
+                <Hidden only={['sm', 'md', 'lg', 'xl']}>
+                    <Grid item xs={1}/>
+                </Hidden>
                 <Grid item xs={12} sm={6}>
                     <ThisDesignAnimation />
                 </Grid>
@@ -149,7 +152,10 @@ export default function Home(props)  {
                 <Grid item xs={12} sm={6}>
                     <ThisAnimation />
                 </Grid>
-                <Grid item xs={11} sm={5}>
+                <Hidden only={['sm', 'md', 'lg', 'xl']}>
+                    <Grid item xs={1}/>
+                </Hidden>
+                <Grid item xs={10} sm={5}>
                     <Row3Text />
                 </Grid>
                 <Grid item xs={1} sm={1} />
@@ -165,9 +171,12 @@ export default function Home(props)  {
             >
                 <Grid item xs={12}/>
                 <Grid item xs={1} sm={1} />
-                <Grid item xs={11} sm={5}>
+                <Grid item xs={10} sm={5}>
                     <Row4Text />
                 </Grid>
+                <Hidden only={['sm', 'md', 'lg', 'xl']}>
+                    <Grid item xs={1}/>
+                </Hidden>
                 <Grid item xs={12} sm={6}>
                     <Row4Image />
                 </Grid>
@@ -185,7 +194,10 @@ export default function Home(props)  {
                 <Grid item xs={12} sm={6}>
                     <Row5Image />
                 </Grid>
-                <Grid item xs={11} sm={5}>
+                <Hidden only={['sm', 'md', 'lg', 'xl']}>
+                    <Grid item xs={1}/>
+                </Hidden>
+                <Grid item xs={10} sm={5}>
                     <Row5Text />
                 </Grid>
                 <Grid item xs={1} sm={1} />
