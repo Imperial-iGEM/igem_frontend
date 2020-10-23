@@ -84,7 +84,7 @@ export default function DownloadTemplate(props){
         className={classes.myGrid}
         >
             <Grid item xs={12} sm={6} md={3} >
-                <a href={process.env.PUBLIC_URL + 'SBOL/basic_validation.xml'} download style={{ textDecoration: 'none' }}>
+                <a href={process.env.PUBLIC_URL + 'SBOL/basic_linkers_standard.xml'} download style={{ textDecoration: 'none' }}>
                     <Button onClick={handleClickBasicLS} className={classes.myButton} variant="outlined" color="secondary">
                         Basic Linkers Standard
                     </Button>
