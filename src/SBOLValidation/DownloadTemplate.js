@@ -23,10 +23,15 @@ export default function DownloadTemplate(props){
 
     const classes = useStyles();
 
+    const [openBasicLS, setOpenBasicLS] = React.useState(false);
     const [openBasic, setOpenBasic] = React.useState(false);
     const [openMoclo, setOpenMoclo] = React.useState(false);
     const [openBiobricks, setOpenBiobricks] = React.useState(false);
 
+    const handleClickBasicLS = () => {
+        setOpenBasicLS(true);
+    };
+    
     const handleClickBasic = () => {
         setOpenBasic(true);
     };
@@ -35,6 +40,14 @@ export default function DownloadTemplate(props){
     };
     const handleClickBiobricks = () => {
         setOpenBiobricks(true);
+    };
+
+    const handleCloseBasicLS = (event, reason) => {
+        if (reason === 'clickaway') {
+        return;
+        }
+
+        setOpenBasicLS(false);
     };
 
     const handleCloseBasic = (event, reason) => {
@@ -70,7 +83,19 @@ export default function DownloadTemplate(props){
         spacing={2}
         className={classes.myGrid}
         >
-            <Grid item xs={12} sm={4} >
+            <Grid item xs={12} sm={6} md={3} >
+                <a href={process.env.PUBLIC_URL + 'SBOL/basic_validation.xml'} download style={{ textDecoration: 'none' }}>
+                    <Button onClick={handleClickBasicLS} className={classes.myButton} variant="outlined" color="secondary">
+                        Basic Linkers Standard
+                    </Button>
+                </a>
+                <Snackbar open={openBasicLS} autoHideDuration={6000} onClose={handleCloseBasicLS}>
+                    <Alert onClose={handleCloseBasicLS} severity="success">
+                        Successfully Downloaded example Basic Linkers Standard SBOL File
+                    </Alert>
+                </Snackbar>
+            </Grid>
+            <Grid item xs={12} sm={6} md={3} >
                 <a href={process.env.PUBLIC_URL + 'SBOL/basic_validation.xml'} download style={{ textDecoration: 'none' }}>
                     <Button onClick={handleClickBasic} className={classes.myButton} variant="outlined" color="secondary">
                         Basic
@@ -82,7 +107,7 @@ export default function DownloadTemplate(props){
                     </Alert>
                 </Snackbar>
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={6} md={3}>
                 <a href={process.env.PUBLIC_URL + 'SBOL/moclo_validation.xml'} download style={{ textDecoration: 'none' }}>
                     <Button onClick={handleClickMoclo} className={classes.myButton} variant="outlined" color="secondary">
                         MoClo (Golden Gate)
@@ -94,7 +119,7 @@ export default function DownloadTemplate(props){
                     </Alert>
                 </Snackbar>
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={6} md={3}>
                 <a href={process.env.PUBLIC_URL + 'SBOL/bb_validation_level1.xml'} download style={{ textDecoration: 'none' }}>
                     <Button onClick={handleClickBiobricks} className={classes.myButton} variant="outlined" color="secondary">
                         BioBricks
