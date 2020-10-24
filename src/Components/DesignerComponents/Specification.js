@@ -14,7 +14,7 @@ import SpecCard from './SubComponents/SpecCard';
 import SpecCardRun from './SubComponents/SpecCard_run';
 import SpecCardOutput from './SubComponents/SpecCard_output';
 import SpecCardLabhardware from './SubComponents/SpecCard_labhardware';
-import SpecCardLabhardwareEXP from './SubComponents/SpecCard_labhardare_EXPERIMENTAL';
+import SpecCardLabhardwareEXP from './SubComponents/SpecCard_labhardware_EXPERIMENTAL';
 import SpecCardFinal from './SubComponents/SpecCard_final';
 import TheDataTable from './SubComponents/datatable'
 
@@ -403,11 +403,6 @@ export default function ExampleSpecification(props) {
         <Grid item xs={12}>
           {/* <SpecCardLabhardware     OLIVE EDIT*/}
           <SpecCardLabhardwareEXP
-            pipette1={pipette1}
-            liquidHandler={liquidHandler}
-            handleChangeLiquid={handleChangeLiquid}
-            handleChangePipette={handleChangePipette}
-
             // Common labware 
             handleChangeP10={commonLabwareP10HandleChange}
             handleChangeP300={commonLabwareP300HandleChange}
