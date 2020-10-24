@@ -14,13 +14,31 @@ http://soaplab.io/
 
 The react front end of our automated DNA assemble project hosted from Digital Ocean.
 
-## Run SOAPLabs Locally
+## getting set up 👨‍💻
+
+Open your command line and create a directory in which you would like to work
+
+Make a directory (recommended SoapLabFrontend)
+
+`$ mkdir SoapLabFrontend`
+
+change directory into your new directory
+
+`$ cd SoapLabFrontend`
+
+clone our repositry
+
+`$ git clone https://github.com/Imperial-iGEM/igem_frontend.git`
+
+change directory into cloned repositry
+
+`$ cd SoapLabFrontend`
 
 In the project directory, you can run:
-```
-npm install
-npm start
-```
+
+`$ npm install`
+
+`$ npm start`
 
 This starts the app locally in development mode
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
