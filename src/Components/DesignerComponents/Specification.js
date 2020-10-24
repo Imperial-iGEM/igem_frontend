@@ -74,24 +74,13 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-//          "sbolString": btoa(window.sbolFile),
-//"liquidHandler": liquidHandler,
-//"removeRepeated": true,
-//"outputPlatePositions": outState.plate_position,
-//"outputReagentsList": outState.reagents_list,
-//"outputPartSequences": outState.part_sequences_to_order,
-//"outputLogs": outState.debugging_logs,
-//"outputMetaInformation": outState.run_metainformation,
-//"assemblyType": props.dnaAssembly
-//},
-//"linkerTypes":rowData
 
 export default function ExampleSpecification(props) {
   // use styling defined above
   const classes = useStyles();
 
   // /* Olive const's
-  // Common labware 
+  // Common labware
   const [commonLabwareP10, setCommonLabwareP10] = useState('');
   const [commonLabwareP300, setCommonLabwareP300] = useState('');
   const [commonLabwareP10Type, setCommonLabwareP10Type] = useState('');
@@ -117,7 +106,7 @@ export default function ExampleSpecification(props) {
   const [moCloReagentPlate, setmoCloReagentPlate] = useState('');
   const [moCloAgarPlate, setmoCloAgarPlate] = useState('');
   // Handle Changes
-  // Common Labware 
+  // Common Labware
   const commonLabwareP10HandleChange = (event) => {
     setCommonLabwareP10(event.target.value);
     console.log(commonLabwareP10)
@@ -214,7 +203,7 @@ export default function ExampleSpecification(props) {
                                     'F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11','F12',
                                     'G1','G2','G3','G4','V5','G6','G7','G8','G9','G10','G11','G12',
                                     'H1','H2','H3','H4','H5','H6','H7','H8','H9','H10','H11','H12',])
-  
+
   //Opentrons Labware states
   const [liquidHandler, setliquidHandler] = useState('opentronsOT2');
   const [pipette1, setPipette1] = useState('p20singlechannel');
@@ -278,7 +267,7 @@ export default function ExampleSpecification(props) {
               "wellPlate": "biorad_96_wellplate_200ul_pcr"
             },
             "reagentPlate": "biorad_96_wellplate_200ul_pcr",
-            "trough": "usascientific_12_reservoir_22ml", 
+            "trough": "usascientific_12_reservoir_22ml",
             "agarPlate": "thermofisher_96_wellplate_180ul"
           },
           "thermocycle": true
@@ -312,7 +301,7 @@ export default function ExampleSpecification(props) {
     setNumRunPerPlate(event.target.value);
     console.log(numRunPerPlate)
   };
-  
+
   //Opentrons Labware Update functions
   const handleChangeLiquid = (event) => {
     setliquidHandler(event.target.value);
@@ -378,7 +367,7 @@ export default function ExampleSpecification(props) {
     setStateRemoveRepeats({ ...stateRemoveRepeats, [event.target.name]: event.target.checked });
   };
 
-  /// Data table 
+  /// Data table
   const [columnDefs ] = useState([
     {headerName: 'Part / Linker ID', field: 'linkerId', width: '227'},
     {headerName: 'Concentration (μg/ml)', field: 'concentration', editable: true, width: '227'},
@@ -403,7 +392,8 @@ export default function ExampleSpecification(props) {
         <Grid item xs={12}>
           {/* <SpecCardLabhardware     OLIVE EDIT*/}
           <SpecCardLabhardwareEXP
-            // Common labware 
+              assemblyType={props.dnaAssembly}
+            // Common labware
             handleChangeP10={commonLabwareP10HandleChange}
             handleChangeP300={commonLabwareP300HandleChange}
             handleChangeP10Type={commonLabwareP10TypeHandleChange}

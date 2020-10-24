@@ -36,7 +36,7 @@ function getStepContent(stepIndex,handleDnaAssemblyChange,dnaAssembly) {
       return <SBOLDesigner />;
     case 1:
       return <FileUploadPage
-                handleDnaAssemblyChange={handleDnaAssemblyChange}
+                handleDnaAssemblyChange={handleDnaAssemblyChange} dnaAssembly={dnaAssembly}
               />;
     case 2:
       return <ExampleSpecification
@@ -56,29 +56,12 @@ export default function ParentDesigner() {
   const [dnaAssembly, setDnaAssembly] = useState('basic');
 
   // Storing change function for DNA assembly selection
-  const handleDnaAssemblyChange = (event) => {
+  function handleDnaAssemblyChange (event) {
     setDnaAssembly(event.target.value);
-    console.log(event.target.value);
   };
 
   const handleNext = () => {
-    // if(activeStep === 1){
-    //   window.runGet().then(
-    //   (result) => {
-    //     if (result.error){
-    //       // alert("Error getting sbol file from app")
-    //       setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    //     } else {
-    //       window.sbolFile = result;
-    //       setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    //     }
-    //   }
-    // ).catch((error) => {
-    //   console.log(error);
-    //   });
-    // }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-
   };
 
   const handleBack = () => {

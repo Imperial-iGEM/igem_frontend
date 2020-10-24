@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     textAlign: 'left',
     padding: '10',
-    color: 'black'
+    color: 'primary'
   },
 }));
 
@@ -48,19 +48,19 @@ export default function NavBar() {
           </Typography>
           <Hidden xsDown>
             <Link style={navStyle} to='/'>
-              <Button color="black">Home</Button>
+              <Button>Home</Button>
             </Link>
             <Link style={navStyle} to='/about'>
-              <Button color="black">About</Button>
+              <Button>About</Button>
             </Link>
             <Link style={navStyle} to='/designer'>
-              <Button color="black">Designer</Button>
+              <Button >Designer</Button>
             </Link>
             <Link style={navStyle} to='/learn'>
-              <Button color="black">Learn</Button>
+              <Button >Learn</Button>
             </Link>
             <Link style={navStyle} to='/contact'>
-              <Button color="black">Contact</Button>
+              <Button >Contact</Button>
             </Link>
           </Hidden>
           <Hidden smUp>

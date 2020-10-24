@@ -8,19 +8,19 @@ function SBOLDesigner(props) {
             webswingFinction(window, document);
             onLoad(new Event('initialiseDesigner') );
     },[])
-
-    useEffect(() => {
-        function waitForPingService() {
-            console.log("Waiting for service");
-            if (typeof window.pingService !== "undefined") {
-                window.runSend();
-            } else {
-                setTimeout(waitForPingService, 250);
-            }
-        }
-
-        waitForPingService();
-    }, [])
+    // No longer used as designer doesn't support two way communication currently
+    // useEffect(() => {
+    //     function waitForPingService() {
+    //         console.log("Waiting for service");
+    //         if (typeof window.pingService !== "undefined") {
+    //             window.runSend();
+    //         } else {
+    //             setTimeout(waitForPingService, 250);
+    //         }
+    //     }
+    //
+    //     waitForPingService();
+    // }, [])
 
 
     return (

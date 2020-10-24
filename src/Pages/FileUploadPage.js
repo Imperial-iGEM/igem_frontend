@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles,Tabs, Tab, AppBar } from '@material-ui/core';
 import SBOLValidator from "../SBOLValidation/SBOLValidator";
 import FileUpload from "../SBOLValidation/FileUpload";
@@ -23,20 +23,18 @@ const useStyles = makeStyles({
 
 export default function FileUploadPage(props) {
     const classes = useStyles();
-    
+
     //const classes = useStyles();
-    const [selectedTab, setSelectedTab] = React.useState(0);
-
-
+    const [selectedTab, setSelectedTab] = useState(0);
 
     const handleTabChange = (event, newValue) => {
         setSelectedTab(newValue);
     }; // Triggered whenever we take a new value
 
-    function TestnonDownload(props) {
-        const mytab = props.currentTab;
+    function TestnonDownload(tabs) {
+        const mytab = tabs.currentTab;
         if (mytab === 2) {
-          return <div></div>;
+          return <></>;
         }
         return (
             <div className={classes.radioAssembly}>
@@ -45,7 +43,7 @@ export default function FileUploadPage(props) {
                 </div>
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Which DNA Assembly method would you like to use?</FormLabel>
-                    <RadioGroup aria-label="position" name="position" defaultValue="basic" onChange={props.handleDnaAssemblyChange}>
+                    <RadioGroup aria-label="position" name="position" defaultValue={props.dnaAssembly} onChange={props.handleDnaAssemblyChange}>
                         <FormControlLabel
                         value="basic"
                         control={<Radio color="primary" />}
