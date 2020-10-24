@@ -2,7 +2,9 @@
   <img src="https://github.com/Imperial-iGEM/igem_frontend/blob/master/public/ourlogo.png" height="200"/>
 </p>
 
-# SOAPLabs.io
+# SoapLab Frontend
+
+## SOAPLabs.io React App
 
 The react front end of our automated DNA assemble project hosted from Digital Ocean.
 
