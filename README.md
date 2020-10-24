@@ -6,6 +6,7 @@
 
 ## SOAPLabs.io React App
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Imperial-iGEM/igem_frontend/Node.js%20CI)
 ![GitHub repo size](https://img.shields.io/github/repo-size/Imperial-iGEM/igem_frontend)
 ![GitHub search hit counter](https://img.shields.io/github/search/Imperial-iGEM/igem_frontend/goto)
 
