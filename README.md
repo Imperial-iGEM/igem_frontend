@@ -47,6 +47,20 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits
 You will also see any lint errors in the console.
 
+## Unit tests and intergration test ✅
+
+To test out application run in the command line terminal
+
+`$ npm test`
+
+this is ran on every push or pull request to the master branch, the status of which can be seen at the top of the page in a bagdge
+
+this is made possible with github workflows located in the `.github/workflows`
+
+## Continous Intergration ✅
+
+We used circle CI to ensure when the master branch is updated it is built to http://soaplab.io/ ensuring the hosted website is always uptodate with the master branch
+
 ## Build Production SOAPLabs
 
 `npm run build`
