@@ -81,30 +81,33 @@ export default function ExampleSpecification(props) {
 
   // /* Olive const's
   // Common labware
-  const [commonLabwareP10, setCommonLabwareP10] = useState('');
-  const [commonLabwareP300, setCommonLabwareP300] = useState('');
-  const [commonLabwareP10Type, setCommonLabwareP10Type] = useState('');
-  const [commonLabwareP300Type, setCommonLabwareP300Type] = useState('');
-  const [commonLabware96WellPlate, setCommonLabware96WellPlate] = useState('');
+  const [commonLabwareP10, setCommonLabwareP10] = useState('right');
+  const [commonLabwareP300, setCommonLabwareP300] = useState('left');
+  const [commonLabwareP10Type, setCommonLabwareP10Type] = useState('p10_single');
+  const [commonLabwareP300Type, setCommonLabwareP300Type] = useState('p300_single');
+  const [commonLabware96WellPlate, setCommonLabware96WellPlate] = useState('biorad_96_wellplate_200ul_pcr');
   // BASIC
-  const [basicReagentPlate, setbasicReagentPlate] = useState('');
-  const [basicTubeRack, setbasicTubeRack] = useState('');
-  const [basicMagPlate, setbasicMagPlate] = useState('');
-  const [basicAluminumBlock, setbasicAluminumBlock] = useState('');
-  const [basicBeadContainer, setbasicBeadContainer] = useState('');
-  const [basicSocPlate, setbasicSocPlate] = useState('');
-  const [basicAgarPlate, setbasicAgarPlate] = useState('');
+  const [basicReagentPlate, setbasicReagentPlate] = useState('usascientific_12_reservoir_22ml');
+  const [basicTubeRack, setbasicTubeRack] = useState('opentrons_24_tuberack_nest_1.5ml_snapcap');
+  const [basicMagPlate, setbasicMagPlate] = useState('biorad_96_wellplate_200ul_pcr');
+  const [basicAluminumBlock, setbasicAluminumBlock] = useState('opentrons_96_aluminumblock_biorad_wellplate_200ul');
+  const [basicBeadContainer, setbasicBeadContainer] = useState('usascientific_96_wellplate_2.4ml_deep');
+  const [basicSocPlate, setbasicSocPlate] = useState('usascientific_96_wellplate_2.4ml_deep');
+  const [basicAgarPlate, setbasicAgarPlate] = useState('thermofisher_96_wellplate_180ul');
 
-  const [basicEthanolWell, setbasicEthanolWell] = useState('');
-  const [basicDeepWellPlate, setbasicDeepWellPlate] = useState('');
+  const [basicEthanolWell, setbasicEthanolWell] = useState('A1');
+  const [basicDeepWellPlate, setbasicDeepWellPlate] = useState('1');
   // BioBricks
-  const [biobricksTransformationPlate, setbiobricksTransformationPlate] = useState('');
-  const [biobricksTubeRack, setbiobricksTubeRack] = useState('');
-  const [biobricksSocPlate, setbiobricksSocPlate] = useState('');
+  const [biobricksTransformationPlate, setbiobricksTransformationPlate] = useState('corning_96_wellplate_360ul_flat');
+  const [biobricksTubeRack, setbiobricksTubeRack] = useState('opentrons_24_tuberack_nest_1.5ml_snapcap');
+  const [biobricksSocPlate, setbiobricksSocPlate] = useState('usascientific_96_wellplate_2.4ml_deep');
   // MoClo (GoldenGate)
-  const [moCloTrough, setmoCloTrough] = useState('');
-  const [moCloReagentPlate, setmoCloReagentPlate] = useState('');
-  const [moCloAgarPlate, setmoCloAgarPlate] = useState('');
+  const [moCloTrough, setmoCloTrough] = useState('usascientific_12_reservoir_22ml');
+  const [moCloReagentPlate, setmoCloReagentPlate] = useState('biorad_96_wellplate_200ul_pcr');
+  const [moCloAgarPlate, setmoCloAgarPlate] = useState('thermofisher_96_wellplate_180ul');
+  const [stateUseThermocycler, setStateUseThermocycler] = useState({
+    checkedA: true,
+  });
   // Handle Changes
   // Common Labware
   const commonLabwareP10HandleChange = (event) => {
@@ -127,9 +130,7 @@ export default function ExampleSpecification(props) {
     setCommonLabware96WellPlate(event.target.value);
     console.log(commonLabware96WellPlate)
   };
-  const [stateUseThermocycler, setStateUseThermocycler] = React.useState({
-    checkedA: true,
-  });
+
   const handleChangeUseThermocycler = (event) => {
     setStateUseThermocycler({ ...stateUseThermocycler, [event.target.name]: event.target.checked });
   };
@@ -240,52 +241,52 @@ export default function ExampleSpecification(props) {
         "specificationsBasic": {
           "labwareDict": {
             "commonLabware": {
-              "p10Mount": "right",
-              "p300Mount": "left",
-              "p10Type": "p10_single",
-              "p300Type": "p300_single",
-              "wellPlate": "biorad_96_wellplate_200ul_pcr"
+              "p10Mount": commonLabwareP10,
+              "p300Mount": commonLabwareP300,
+              "p10Type": commonLabwareP10Type,
+              "p300Type": commonLabwareP300Type,
+              "wellPlate": commonLabware96WellPlate
             },
-            "reagentPlate": "usascientific_12_reservoir_22ml",
-            "tubeRack": "opentrons_24_tuberack_nest_1.5ml_snapcap",
-            "magPlate": "biorad_96_wellplate_200ul_pcr",
-            "aluminumBlock": "opentrons_96_aluminumblock_biorad_wellplate_200ul",
-            "beadContainer": "usascientific_96_wellplate_2.4ml_deep",
-            "socPlate": "usascientific_96_wellplate_2.4ml_deep",
-            "agarPlate": "thermofisher_96_wellplate_180ul"
+            "reagentPlate": basicReagentPlate,
+            "tubeRack": basicTubeRack,
+            "magPlate": basicMagPlate,
+            "aluminumBlock": basicAluminumBlock,
+            "beadContainer": basicBeadContainer,
+            "socPlate": basicSocPlate,
+            "agarPlate": basicAgarPlate
           },
-          "ethanolWellForStage2": "A1",
-          "deepWellPlateStage4": "1"
+          "ethanolWellForStage2": basicEthanolWell,
+          "deepWellPlateStage4": basicDeepWellPlate
         },
         "specificationsMoClo": {
           "labwareDict": {
             "commonLabware": {
-              "p10Mount": "right",
-              "p300Mount": "left",
-              "p10Type": "p10_single",
-              "p300Type": "p300_single",
-              "wellPlate": "biorad_96_wellplate_200ul_pcr"
+              "p10Mount": commonLabwareP10,
+              "p300Mount": commonLabwareP300,
+              "p10Type": commonLabwareP10Type,
+              "p300Type": commonLabwareP300Type,
+              "wellPlate": commonLabware96WellPlate
             },
-            "reagentPlate": "biorad_96_wellplate_200ul_pcr",
-            "trough": "usascientific_12_reservoir_22ml",
-            "agarPlate": "thermofisher_96_wellplate_180ul"
+            "reagentPlate": moCloReagentPlate,
+            "trough": moCloTrough,
+            "agarPlate": moCloAgarPlate
           },
-          "thermocycle": true
+          "thermocycle": stateUseThermocycler.checkedA
         },
         "specificationsBioBricks": {
           "labwareDict": {
             "commonLabware": {
-              "p10Mount": "right",
-              "p300Mount": "left",
-              "p10Type": "p10_single",
-              "p300Type": "p300_single",
-              "wellPlate": "biorad_96_wellplate_200ul_pcr"
+              "p10Mount": commonLabwareP10,
+              "p300Mount": commonLabwareP300,
+              "p10Type": commonLabwareP10Type,
+              "p300Type": commonLabwareP300Type,
+              "wellPlate": commonLabware96WellPlate
             },
-            "tubeRack": "opentrons_24_tuberack_nest_1.5ml_snapcap",
-            "socPlate": "usascientific_96_wellplate_2.4ml_deep",
-            "transformationPlate": "corning_96_wellplate_360ul_flat"
+            "tubeRack": biobricksTubeRack,
+            "socPlate": biobricksSocPlate,
+            "transformationPlate": biobricksTransformationPlate
           },
-          "thermocycle": true
+          "thermocycle": stateUseThermocycler.checkedA
         },
         "linkerTypes": rowData,
         "sbolFileString": btoa(window.sbolFile)
