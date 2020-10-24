@@ -6,11 +6,13 @@
 
 ## SOAPLabs.io React App
 
-The react front end of our automated DNA assemble project hosted from Digital Ocean.
+![GitHub repo size](https://img.shields.io/github/repo-size/Imperial-iGEM/igem_frontend)
+![GitHub search hit counter](https://img.shields.io/github/search/Imperial-iGEM/igem_frontend/goto)
 
-Available At:
-
+Hosted and available at:
 http://soaplab.io/
+
+The react front end of our automated DNA assemble project hosted from Digital Ocean.
 
 ## Run SOAPLabs Locally
 
