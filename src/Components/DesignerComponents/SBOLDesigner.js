@@ -1,5 +1,16 @@
 import React, {useEffect} from 'react'
+import MethodChoice from "./SubComponents/MethodChoice.js";
+import {makeStyles} from "@material-ui/core";
 
+const useStyles = makeStyles({
+    root: {
+        flexGrow: 1,
+    },
+    radioAssembly: {
+        textAlign: 'center',
+        padding: '15px',
+    }
+});
 
 function SBOLDesigner(props) {
     useEffect(() =>{
@@ -22,9 +33,12 @@ function SBOLDesigner(props) {
     //     waitForPingService();
     // }, [])
 
+    const classes = useStyles();
 
     return (
-        <div className="webswing-element" data-webswing-instance="webswingInstance0" style={{height: '100vh'}}>
+        <div className={classes.radioAssembly}>
+            <MethodChoice dnaAssembly={props.dnaAssembly} handleDnaAssemblyChange={props.handleDnaAssemblyChange}/>
+            <div className="webswing-element" data-webswing-instance="webswingInstance0" style={{height: '100vh'}}></div>
         </div>
     )
 }
