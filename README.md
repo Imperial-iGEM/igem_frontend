@@ -35,3 +35,10 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
+
+## Interested in Contributing 🤔💡
+
+We welcome everyone interested in contrubuting if your a seasoned open source professional or interested in learning something new fell free to open issues and pull requests.
+
+If you have any specific questions feel free to send an email to the 2020 imperial igem team 🚀
+> imperialigem2020@gmail.com
