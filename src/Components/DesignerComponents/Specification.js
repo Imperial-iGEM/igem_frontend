@@ -14,6 +14,7 @@ import SpecCard from './SubComponents/SpecCard';
 import SpecCardRun from './SubComponents/SpecCard_run';
 import SpecCardOutput from './SubComponents/SpecCard_output';
 import SpecCardLabhardware from './SubComponents/SpecCard_labhardware';
+import SpecCardLabhardwareEXP from './SubComponents/SpecCard_labhardare_EXPERIMENTAL';
 import SpecCardFinal from './SubComponents/SpecCard_final';
 import TheDataTable from './SubComponents/datatable'
 
@@ -89,6 +90,112 @@ export default function ExampleSpecification(props) {
   // use styling defined above
   const classes = useStyles();
 
+  // /* Olive const's
+  // Common labware 
+  const [commonLabwareP10, setCommonLabwareP10] = useState('');
+  const [commonLabwareP300, setCommonLabwareP300] = useState('');
+  const [commonLabwareP10Type, setCommonLabwareP10Type] = useState('');
+  const [commonLabwareP300Type, setCommonLabwareP300Type] = useState('');
+  const [commonLabware96WellPlate, setCommonLabware96WellPlate] = useState('');
+  // BASIC
+  const [basicReagentPlate, setbasicReagentPlate] = useState('');
+  const [basicTubeRack, setbasicTubeRack] = useState('');
+  const [basicMagPlate, setbasicMagPlate] = useState('');
+  const [basicAluminumBlock, setbasicAluminumBlock] = useState('');
+  const [basicBeadContainer, setbasicBeadContainer] = useState('');
+  const [basicSocPlate, setbasicSocPlate] = useState('');
+  const [basicAgarPlate, setbasicAgarPlate] = useState('');
+
+  const [basicEthanolWell, setbasicEthanolWell] = useState('');
+  const [basicDeepWellPlate, setbasicDeepWellPlate] = useState('');
+  // BioBricks
+  const [biobricksTransformationPlate, setbiobricksTransformationPlate] = useState('');
+  const [biobricksTubeRack, setbiobricksTubeRack] = useState('');
+  const [biobricksSocPlate, setbiobricksSocPlate] = useState('');
+  // MoClo (GoldenGate)
+  const [moCloTrough, setmoCloTrough] = useState('');
+  const [moCloReagentPlate, setmoCloReagentPlate] = useState('');
+  const [moCloAgarPlate, setmoCloAgarPlate] = useState('');
+  // Handle Changes
+  // Common Labware 
+  const commonLabwareP10HandleChange = (event) => {
+    setCommonLabwareP10(event.target.value);
+    console.log(commonLabwareP10)
+  };
+  const commonLabwareP300HandleChange = (event) => {
+    setCommonLabwareP300(event.target.value);
+    console.log(commonLabwareP300)
+  };
+  const commonLabwareP10TypeHandleChange = (event) => {
+    setCommonLabwareP10Type(event.target.value);
+    console.log(commonLabwareP10Type)
+  };
+  const commonLabwareP300TypeHandleChange = (event) => {
+    setCommonLabwareP300Type(event.target.value);
+    console.log(commonLabwareP300Type)
+  };
+  const commonLabware96WellPlateHandleChange = (event) => {
+    setCommonLabware96WellPlate(event.target.value);
+    console.log(commonLabware96WellPlate)
+  };
+  const [stateUseThermocycler, setStateUseThermocycler] = React.useState({
+    checkedA: true,
+  });
+  const handleChangeUseThermocycler = (event) => {
+    setStateUseThermocycler({ ...stateUseThermocycler, [event.target.name]: event.target.checked });
+  };
+  // BASIC
+  const basicReagentPlateHandleChange = (event) => {
+    setbasicReagentPlate({ ...basicReagentPlate, [event.target.name]: event.target.checked });
+  };
+  const basicTubeRackHandleChange = (event) => {
+    setbasicTubeRack({ ...basicTubeRack, [event.target.name]: event.target.checked });
+  };
+  const basicMagPlateHandleChange = (event) => {
+    setbasicMagPlate({ ...basicMagPlate, [event.target.name]: event.target.checked });
+  };
+  const basicAluminumBlockHandleChange = (event) => {
+    setbasicAluminumBlock({ ...basicAluminumBlock, [event.target.name]: event.target.checked });
+  };
+  const basicBeadContainerHandleChange = (event) => {
+    setbasicBeadContainer({ ...basicBeadContainer, [event.target.name]: event.target.checked });
+  };
+  const basicSocPlateHandleChange = (event) => {
+    setbasicSocPlate({ ...basicSocPlate, [event.target.name]: event.target.checked });
+  };
+  const basicAgarPlateHandleChange = (event) => {
+    setbasicAgarPlate({ ...basicAgarPlate, [event.target.name]: event.target.checked });
+  };
+
+  const basicEthanolWellHandleChange = (event) => {
+    setbasicEthanolWell({ ...basicEthanolWell, [event.target.name]: event.target.checked });
+  };
+  const basicDeepWellPlateHandleChange = (event) => {
+    setbasicDeepWellPlate({ ...basicDeepWellPlate, [event.target.name]: event.target.checked });
+  };
+  // BioBricks
+  const biobricksTransformationPlateHandleChange = (event) => {
+    setbiobricksTransformationPlate({ ...biobricksTransformationPlate, [event.target.name]: event.target.checked });
+  };
+  const biobricksTubeRackHandleChange = (event) => {
+    setbiobricksTubeRack({ ...biobricksTubeRack, [event.target.name]: event.target.checked });
+  };
+  const biobricksSocPlateHandleChange = (event) => {
+    setbiobricksSocPlate({ ...biobricksSocPlate, [event.target.name]: event.target.checked });
+  };
+  // MoClo (GoldenGate)
+  const moCloTroughHandleChange = (event) => {
+    setmoCloTrough({ ...moCloTrough, [event.target.name]: event.target.checked });
+  };
+  const moCloReagentPlateHandleChange = (event) => {
+    setmoCloReagentPlate({ ...moCloReagentPlate, [event.target.name]: event.target.checked });
+  };
+  const moCloAgarPlateHandleChange = (event) => {
+    setmoCloAgarPlate({ ...moCloAgarPlate, [event.target.name]: event.target.checked });
+  };
+  // */ Olive edits
+
+
   //to store output links
   const [opentronsOutputLinks, setOpentronsOutputLinks] = useState([]);
   //set state loading
@@ -100,13 +207,13 @@ export default function ExampleSpecification(props) {
   const [numRunPerPlate, setNumRunPerPlate] = useState('');
 
   const [wellLabels96 ] = useState(['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11','A12',
-                                                   'B1','B2','B3','B4','B5','B6','B7','B9','B9','B10','B11','B12',
-                                                   'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12',
-                                                   'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12',
-                                                   'E1','E2','E3','E4','E5','E6','E7','E8','E9','E10','E11','E12',
-                                                   'F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11','F12',
-                                                   'G1','G2','G3','G4','V5','G6','G7','G8','G9','G10','G11','G12',
-                                                   'H1','H2','H3','H4','H5','H6','H7','H8','H9','H10','H11','H12',])
+                                    'B1','B2','B3','B4','B5','B6','B7','B9','B9','B10','B11','B12',
+                                    'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10','C11','C12',
+                                    'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10','D11','D12',
+                                    'E1','E2','E3','E4','E5','E6','E7','E8','E9','E10','E11','E12',
+                                    'F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11','F12',
+                                    'G1','G2','G3','G4','V5','G6','G7','G8','G9','G10','G11','G12',
+                                    'H1','H2','H3','H4','H5','H6','H7','H8','H9','H10','H11','H12',])
   
   //Opentrons Labware states
   const [liquidHandler, setliquidHandler] = useState('opentronsOT2');
@@ -195,7 +302,6 @@ export default function ExampleSpecification(props) {
         "sbolFileString": btoa(window.sbolFile)
       }
     });
-
 
   //Run Specification Update functions
   const maxNumWellPerPlateHandleChange = (event) => {
@@ -294,20 +400,52 @@ export default function ExampleSpecification(props) {
             stateRemoveRepeats={stateRemoveRepeats}
           />
         </Grid>
-        <Grid item xs={4}>
-          <SpecCardOutput
-            outState={outState}
-            outputhandleChange={outputhandleChange}
-          />
-        </Grid>
-        <Grid item xs={5}>
-          <SpecCardLabhardware
+        <Grid item xs={12}>
+          {/* <SpecCardLabhardware     OLIVE EDIT*/}
+          <SpecCardLabhardwareEXP
             pipette1={pipette1}
             liquidHandler={liquidHandler}
             handleChangeLiquid={handleChangeLiquid}
             handleChangePipette={handleChangePipette}
+
+            // Common labware 
+            handleChangeP10={commonLabwareP10HandleChange}
+            handleChangeP300={commonLabwareP300HandleChange}
+            handleChangeP10Type={commonLabwareP10TypeHandleChange}
+            handleChangeP300Type={commonLabwareP300TypeHandleChange}
+            handleChange96WellPlate={commonLabware96WellPlateHandleChange}
+
+            handleChangeUseThermocycler={handleChangeUseThermocycler}
+            stateUseThermocycler={stateUseThermocycler}
+
+            // BASIC
+            handleChangeReagentPlate={basicReagentPlateHandleChange}
+            handleChangeBasicTubeRack={basicTubeRackHandleChange}
+            handleChangeMagPlate={basicMagPlateHandleChange}
+            handleChangeAluminumBlock={basicAluminumBlockHandleChange}
+            handleChangeBeadContainer={basicBeadContainerHandleChange}
+            handleChangeSocPlate={basicSocPlateHandleChange}
+            handleChangeAgarPlate={basicAgarPlateHandleChange}
+
+            handleChangeEthanolWell={basicEthanolWellHandleChange}
+            handleChangeDeepWellPlate={basicDeepWellPlateHandleChange}
+            // BioBricks
+            handleChangeTransformationPlate={biobricksTransformationPlateHandleChange}
+            handleChangeBiobricksTubeRack={biobricksTubeRackHandleChange}
+            handleChangeBiobricksSocPlate={biobricksSocPlateHandleChange}
+            // MoClo (GoldenGate)
+            handleChangeMoCloTrough={moCloTroughHandleChange}
+            handleChangeMoCloReagentPlate={moCloReagentPlateHandleChange}
+            handleChangeMoCloAgarPlate={moCloAgarPlateHandleChange}
           />
+          {/* end olive edits */}
         </Grid>
+        {/* <Grid item xs={4}>
+          <SpecCardOutput
+            outState={outState}
+            outputhandleChange={outputhandleChange}
+          />
+        </Grid> */}
         <Grid item xs={3}>
           <Button
             className={classes.button}
