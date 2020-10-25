@@ -31,7 +31,7 @@ export default function DownloadTemplate(props){
     const handleClickBasicLS = () => {
         setOpenBasicLS(true);
     };
-    
+
     const handleClickBasic = () => {
         setOpenBasic(true);
     };
@@ -91,7 +91,7 @@ export default function DownloadTemplate(props){
                 </a>
                 <Snackbar open={openBasicLS} autoHideDuration={6000} onClose={handleCloseBasicLS}>
                     <Alert onClose={handleCloseBasicLS} severity="success">
-                        Successfully Downloaded example Basic Linkers Standard SBOL File
+                        Successfully Downloaded example Basic Linkers Standard SBOL File.
                     </Alert>
                 </Snackbar>
             </Grid>
@@ -103,7 +103,7 @@ export default function DownloadTemplate(props){
                 </a>
                 <Snackbar open={openBasic} autoHideDuration={6000} onClose={handleCloseBasic}>
                     <Alert onClose={handleCloseBasic} severity="success">
-                        Successfully Downloaded example Basic assembly method SBOL File
+                        Successfully Downloaded example Basic assembly method SBOL File.
                     </Alert>
                 </Snackbar>
             </Grid>
@@ -115,7 +115,7 @@ export default function DownloadTemplate(props){
                 </a>
                 <Snackbar open={openMoclo} autoHideDuration={6000} onClose={handleCloseMoclo}>
                     <Alert onClose={handleCloseMoclo} severity="success">
-                        Successfully Downloaded example MoClo assembly method SBOL File
+                        Successfully Downloaded example MoClo assembly method SBOL File.
                     </Alert>
                 </Snackbar>
             </Grid>
@@ -127,7 +127,7 @@ export default function DownloadTemplate(props){
                 </a>
                 <Snackbar open={openBiobricks} autoHideDuration={6000} onClose={handleCloseBiobricks}>
                     <Alert onClose={handleCloseBiobricks} severity="success">
-                        Successfully Downloaded example BioBricks assembly method SBOL File
+                        Successfully Downloaded example BioBricks assembly method SBOL File.
                     </Alert>
                 </Snackbar>
             </Grid>
