@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -33,12 +33,12 @@ function PaperComponent(props) {
 
 export default function SBOLDesignerTutorial() {
     const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const [open2, setOpen2] = React.useState(false);
-  const [open3, setOpen3] = React.useState(false);
-  const [open4, setOpen4] = React.useState(false);
-  const [open5, setOpen5] = React.useState(false);
-  const [open6, setOpen6] = React.useState(false);
+  const [open, setOpen] = useState(true);
+  const [open2, setOpen2] = useState(false);
+  const [open3, setOpen3] = useState(false);
+  const [open4, setOpen4] = useState(false);
+  const [open5, setOpen5] = useState(false);
+  const [open6, setOpen6] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -86,6 +86,15 @@ export default function SBOLDesignerTutorial() {
 
   const handleClose5 = () => {
     setOpen5(false);
+    setOpen6(true);
+  };
+
+  const handleClose6Exit = () => {
+    setOpen6(false);
+  };
+
+  const handleClose6 = () => {
+    setOpen6(false);
   };
 
   return (
@@ -103,7 +112,7 @@ export default function SBOLDesignerTutorial() {
         aria-labelledby="draggable-dialog-title"
       >
         <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
-            Welcome to the Upload Tutorial
+            Welcome to the SBOL Designer Tutorial
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -193,9 +202,63 @@ export default function SBOLDesignerTutorial() {
           </Button>
         </DialogActions>
       </Dialog>
+      <Dialog
+          open={open4}
+          onClose={handleClose4Exit}
+          style={{left:'900px', top:'500px'}}
+          PaperComponent={PaperComponent}
+          aria-labelledby="draggable-dialog-title"
+      >
+        <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
+          Combinatorial Design
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            If you want to specify a variation on a part to make a combinatorial design, select the part you want to put variants on and click on the twisted DNA icon in the top bar (9th from the left).
+            <br/><br/>
+            You can then specify as many parts as you want as variants! For example if you are testing a lot of different promoters in the same pathway.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={handleClose4Exit} color="primary">
+            Exit
+          </Button>
+          <Button onClick={handleClose4} color="secondary">
+            Next
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog
+          open={open5}
+          onClose={handleClose6Exit}
+          style={{left:'900px', top:'500px'}}
+          PaperComponent={PaperComponent}
+          aria-labelledby="draggable-dialog-title"
+      >
+        <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
+          BASIC Assembly
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            If you're using BASIC assembly, make sure you download our set of linkers using the button to the right of the assembly methods (labelled "BASIC linker set").
+            <br/><br/>
+            To use these linkers, first add a "NGA (No Glyph Assigned)" Part into your design.
+            Then, select "Import Part" and choose the BASIC linker set you just downloaded.
+            You can sort the parts in this file by clicking on "Display Id". Select the linker you wish to use
+            (select linkers without the "_Prefix" and "_Suffix" in their Display IDs - they are automatically imported).
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={handleClose5Exit} color="primary">
+            Exit
+          </Button>
+          <Button onClick={handleClose5} color="secondary">
+            Next
+          </Button>
+        </DialogActions>
+      </Dialog>
     <Dialog
-        open={open5}
-        // onClose={handleClose5Exit}
+        open={open6}
         PaperComponent={PaperComponent}
         aria-labelledby="draggable-dialog-title"
       >
@@ -208,7 +271,7 @@ export default function SBOLDesignerTutorial() {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button autofocus onClick={handleClose5} color="secondary">
+        <Button autofocus onClick={handleClose6} color="secondary">
           End
         </Button>
       </DialogActions>
