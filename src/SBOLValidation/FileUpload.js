@@ -23,7 +23,6 @@ export default function FileUpload(props) {
                 const string = reader.result
                 //setFileString(string);
                 window.sbolFile = string
-                console.log(string)
             }
             reader.readAsText(file)
         });
@@ -54,41 +53,14 @@ export default function FileUpload(props) {
                 </Paper>
                 <List className={classes.list}>
                     {files.length > 0 && files.map((acceptedFile, index) => {
-                        return [<ListItem key={index} className={classes.listItem}>
+                        return (<ListItem key={index} className={classes.listItem}>
                                     <Paper elevation={3} className={classes.listItemPaper}>
                                         <a href={URL.createObjectURL(acceptedFile)}
                                         download={acceptedFile.name}>{acceptedFile.name}</a>
                                     </Paper>
-                                </ListItem>,
-                                <ListItem key={10}>
-                                    <SeqViz
-                                        style = {{height: '50vh', width:'100vw'}}
-                                        file ={acceptedFile}
-                                    /></ListItem>]})}
-                            {pythonLink1 !== "" && <ListItem key={11} className={classes.listItem}>
-                                <Paper elevation={3} className={classes.listItemPaper}>
-                                    <a href={pythonLink1}
-                                       download="1_clip.ot2.py">1_clip.ot2.py</a>
-                                </Paper>
-                            </ListItem>}
-                            {pythonLink2 !== "" && <ListItem key={12} className={classes.listItem}>
-                                <Paper elevation={3} className={classes.listItemPaper}>
-                                    <a href={pythonLink2}
-                                       download="2_purification.ot2.py">2_purification.ot2.py</a>
-                                </Paper>
-                            </ListItem>}
-                            {pythonLink3 !== "" && <ListItem key={13} className={classes.listItem}>
-                                <Paper elevation={3} className={classes.listItemPaper}>
-                                    <a href={pythonLink3}
-                                       download="3_assembly.ot2.py">3_assembly.ot2.py</a>
-                                </Paper>
-                            </ListItem>}
-                            {pythonLink4 !== "" && <ListItem key={14} className={classes.listItem}>
-                                <Paper elevation={3} className={classes.listItemPaper}>
-                                    <a href={pythonLink4}
-                                       download="4_transformation.ot2.py">4_transformation.ot2.py</a>
-                                </Paper>
-                            </ListItem>}
+                                </ListItem>)
+                        })
+                    }
                 </List>
             </div>
 

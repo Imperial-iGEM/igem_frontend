@@ -31,7 +31,7 @@ function PaperComponent(props) {
   );
 }
 
-export default function DraggableDialog() {
+export default function SBOLDesignerTutorial() {
     const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
@@ -86,11 +86,6 @@ export default function DraggableDialog() {
 
   const handleClose5 = () => {
     setOpen5(false);
-    setOpen6(true);
-  };
-
-  const handleClose6 = () => {
-    setOpen6(false);
   };
 
   return (
@@ -112,7 +107,7 @@ export default function DraggableDialog() {
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-          As you navigate through the tutorial by clicking "Next" in the bottom corner of the pop up box we will guide you though the features in this page
+          As you navigate through the tutorial by clicking "Next" in the bottom corner of the pop up box we will guide you though the features in this page.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -132,11 +127,11 @@ export default function DraggableDialog() {
         aria-labelledby="draggable-dialog-title"
       >
         <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
-          Page Tabs
+          Assembly Method
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            On this page there are three different tabs you can go to, stay here to upload a SBOL file you already have and know is constructed without errors
+            Here you can select the assembly method you will be using. <br/><br/>If you are using BASIC, please download the template Linkers file and use that as a starting point when creating your SBOL file.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -151,16 +146,18 @@ export default function DraggableDialog() {
       <Dialog
         open={open3}
         onClose={handleClose3Exit}
-        style={{bottom:'558px',left:'350px'}}
+        style={{right:'900px', top:'500px'}}
         PaperComponent={PaperComponent}
         aria-labelledby="draggable-dialog-title"
       >
         <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
-          Don't have a SBOL File?
+          Ready to start using the embedded SBOL Designer?
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
-            If you dont have a SBOL file but still want to trail the software navigate to the Tab below to download an example SBOL file
+            You can upload an existing SBOL file using the 2nd button from the left in SBOL Designer.
+            <br/><br/>
+            Make sure to save and download the updated document if you make any changes, using the 5th button from the left.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -175,7 +172,7 @@ export default function DraggableDialog() {
       <Dialog
         open={open4}
         onClose={handleClose4Exit}
-        style={{left:'900px'}}
+        style={{left:'900px', top:'500px'}}
         PaperComponent={PaperComponent}
         aria-labelledby="draggable-dialog-title"
       >
@@ -198,49 +195,24 @@ export default function DraggableDialog() {
       </Dialog>
     <Dialog
         open={open5}
-        onClose={handleClose5Exit}
-        style={{left:'900px', top:'300px'}}
+        // onClose={handleClose5Exit}
         PaperComponent={PaperComponent}
         aria-labelledby="draggable-dialog-title"
       >
-        <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
-          Upload file
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Here you can upload by drag and drop the SBOL file in which you would like to construct
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose5Exit} color="primary">
-            Exit
-          </Button>
-          <Button onClick={handleClose5} color="secondary">
-            Next
-          </Button>
-        </DialogActions>
-      </Dialog>
-      <Dialog
-        open={open6}
-        onClose={handleClose6}
-        style={{right:'900px', top:'500px'}}
-        PaperComponent={PaperComponent}
-        aria-labelledby="draggable-dialog-title"
-      >
-        <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
-          Thankyou for Listening
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Once you have finished input all the required data on this page click Next at the bottom of the screen to continue to the Specifications Page
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button autofocus onClick={handleClose6} color="secondary">
-            End
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
+        Thank you for Listening
+      </DialogTitle>
+      <DialogContent>
+        <DialogContentText>
+          Once you have finished input all the required data on this page click Next at the bottom of the screen to continue to the Specifications Page
+        </DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button autofocus onClick={handleClose5} color="secondary">
+          End
+        </Button>
+      </DialogActions>
+    </Dialog>
     </div>
   );
 }

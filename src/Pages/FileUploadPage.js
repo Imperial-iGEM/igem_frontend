@@ -42,7 +42,6 @@ export default function FileUploadPage(props) {
                 <div>
                     <DraggableDialog />
                 </div>
-                    <MethodChoice dnaAssembly={props.dnaAssembly} handleDnaAssemblyChange={props.handleDnaAssemblyChange}/>
             </div>
         )
       }
@@ -62,12 +61,15 @@ export default function FileUploadPage(props) {
                     <Tab label="Upload File and Validate" title={"Upload to SBOLDesigner after validating"} />
                     <Tab label="Download Example File" title={"Download Example SBOL files to test software"} />
                 </Tabs>
-
             </AppBar>
-            <TestnonDownload currentTab={selectedTab} />
+            <div>
+                <TestnonDownload currentTab={selectedTab} />
+            </div>
+            <div style={{marginTop: 60}}>
                 {selectedTab === 2 && <DownloadTemplate/>}
                 {selectedTab === 1 && <SBOLValidator/>}
                 {selectedTab === 0 && <FileUpload/>}
+            </div>
         </div>
     );
 }

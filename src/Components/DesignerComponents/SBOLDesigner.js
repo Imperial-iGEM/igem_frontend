@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import MethodChoice from "./SubComponents/MethodChoice.js";
 import {makeStyles} from "@material-ui/core";
+import SBOLDesignerTutorial from "../../Pages/UploadTutorialSBOLDesigner.js";
 
 const useStyles = makeStyles({
     root: {
@@ -38,6 +39,7 @@ function SBOLDesigner(props) {
     return (
         <div className={classes.radioAssembly}>
             <MethodChoice dnaAssembly={props.dnaAssembly} handleDnaAssemblyChange={props.handleDnaAssemblyChange}/>
+            <SBOLDesignerTutorial/>
             <div className="webswing-element" data-webswing-instance="webswingInstance0" style={{height: '100vh'}}></div>
         </div>
     )
