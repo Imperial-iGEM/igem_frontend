@@ -49,7 +49,7 @@ export default function SpecCardFinal(props) {
         const links = props.links;
         console.log('links before length check',links)
         if (links.length === 0) {
-          return <div>output links</div>;
+          return <div>Click Process Input to Generate Files</div>;
         }
         return props.links.map(link => linkGen(link));
       }
