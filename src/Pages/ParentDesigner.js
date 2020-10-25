@@ -88,9 +88,12 @@ export default function ParentDesigner() {
             <Button onClick={handleReset}>Reset</Button>
           </div>
         ) : (
-          <div>
+            <div style={{marginBottom: 10}}>
+          <div >
             <Typography className={classes.instructions}>{getStepContent(activeStep,handleDnaAssemblyChange,dnaAssembly)}</Typography>
-            <div className={classes.centerButtons}>
+            </div>
+            <div style={{marginTop: 10}}>
+              <div className={classes.centerButtons}>
               <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
@@ -103,6 +106,7 @@ export default function ParentDesigner() {
               </Button>
             </div>
           </div>
+            </div>
         )}
       </div>
     </div>
