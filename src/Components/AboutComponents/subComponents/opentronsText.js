@@ -29,10 +29,9 @@ export default function OpentronsText(props){
         <div className={classes.root}>
             <div className={classes.textSection}>
                 <Typography variant={"h2"}>
-                    Our iniative
+                    Our initiative
                 </Typography>
                 <Typography variant={"h6"}>
-                    Opentrons is cool for lots of reasons i will write below dolore magna aliqua. Ut enim ad minim
                     We are an Imperial College iGEM team of students from Bioengineering, Physics, Computing, 
                     and Biochemistry. Our project developed in line with a Tryptophan optimisation project we 
                     were working on that required a lot of combinatorial derivation. 
