@@ -59,7 +59,7 @@ export default function SpecCardFinal(props) {
     return (
         <Card className={classes.root} variant="outlined">
           <Typography variant="h5" component="h2">
-            Opentrons & Output Files
+            Output Files
           </Typography>
             <CardContent>
               <Grid container alignItems="stretch" spacing={3}>
