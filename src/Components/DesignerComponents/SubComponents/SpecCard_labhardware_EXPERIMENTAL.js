@@ -8,6 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles({
     root: {
@@ -27,6 +28,11 @@ const useStyles = makeStyles({
     },
     inputText: {
         minWidth: '15%'
+    },
+    inputText2: {
+        minWidth: '25%',
+        flexBasis:'calc(100% / 4)',
+        flex: 1
     }
 });
 
@@ -165,8 +171,9 @@ export default function SpecCardLabwareEXP(props) {
                             <div>
                                 <form className={classes.root} noValidate autoComplete="off">
                                     <CardActions>
-                                        <TextField   // BASIC: Reagent Plate
-                                            className={classes.inputText}
+                                        <Box flexWrap="wrap" flexGrow={1} style={{width:'100%'}}>
+                                            <TextField   // BASIC: Reagent Plate
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeReagentPlate(event)
                                                 checkPipError1(event)
@@ -177,7 +184,7 @@ export default function SpecCardLabwareEXP(props) {
                                             defaultValue="usascientific_12_reservoir_22ml"
                                             type="string"/>
                                         <TextField   // BASIC: Tube Rack
-                                            className={classes.inputText}
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeBasicTubeRack(event)
                                                 checkError1(event)
@@ -188,7 +195,7 @@ export default function SpecCardLabwareEXP(props) {
                                             defaultValue="opentrons_24_tuberack_nest_1.5ml_snapcap"
                                             type="string"/>
                                         <TextField   // BASIC: Purification Plate (called magPlate in DNA-BOT)
-                                            className={classes.inputText}
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeMagPlate(event)
                                                 checkError1(event)
@@ -199,7 +206,7 @@ export default function SpecCardLabwareEXP(props) {
                                             defaultValue="biorad_96_wellplate_200ul_pcr"
                                             type="string"/>
                                         <TextField   // BASIC: Aluminum Block
-                                            className={classes.inputText}
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeAluminumBlock(event)
                                                 checkError1(event)
@@ -210,7 +217,7 @@ export default function SpecCardLabwareEXP(props) {
                                             defaultValue="opentrons_96_aluminumblock_biorad_wellplate_200ul"
                                             type="string"/>
                                         <TextField   // BASIC: Bead Container
-                                            className={classes.inputText}
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeBeadContainer(event)
                                                 checkError1(event)
@@ -221,7 +228,7 @@ export default function SpecCardLabwareEXP(props) {
                                             defaultValue="usascientific_96_wellplate_2.4ml_deep"
                                             type="string"/>
                                         <TextField   // BASIC: SOC plate
-                                            className={classes.inputText}
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeSocPlate(event)
                                                 checkError1(event)
@@ -232,7 +239,7 @@ export default function SpecCardLabwareEXP(props) {
                                             defaultValue="usascientific_96_wellplate_2.4ml_deep"
                                             type="string"/>
                                         <TextField   // BASIC: Agar Plate
-                                            className={classes.inputText}
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeAgarPlate(event)
                                                 checkError1(event)
@@ -244,7 +251,7 @@ export default function SpecCardLabwareEXP(props) {
                                             type="string"/>
 
                                         <TextField   // BASIC: Ethanol well for purification
-                                            className={classes.inputText}
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeEthanolWell(event)
                                                 checkError1(event)
@@ -255,7 +262,7 @@ export default function SpecCardLabwareEXP(props) {
                                             defaultValue="A11"
                                             type="string"/>
                                         <TextField   // BASIC: Deep Well Plate no. for transformation
-                                            className={classes.inputText}
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeDeepWellPlate(event)
                                                 checkError1(event)
@@ -265,6 +272,7 @@ export default function SpecCardLabwareEXP(props) {
                                             label="Deep Well Plate no. for transformation"
                                             defaultValue="1"
                                             type="string"/>
+                                        </Box>
                                     </CardActions>
                                 </form>
                             </div>
@@ -278,8 +286,10 @@ export default function SpecCardLabwareEXP(props) {
                             <div>
                                 <form className={classes.root} noValidate autoComplete="off">
                                     <CardActions>
+                                        <Box flexWrap="wrap" flexGrow={1} style={{width:'100%'}}>
+
                                         <TextField   // BioBricks: Transformation  Plate
-                                            className={classes.inputText}
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeTransformationPlate(event)
                                                 checkError1(event)
@@ -290,7 +300,7 @@ export default function SpecCardLabwareEXP(props) {
                                             defaultValue="corning_96_wellplate_360ul_flat"
                                             type="string"/>
                                         <TextField   // BioBricks: Tube Rack
-                                            className={classes.inputText}
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeBiobricksTubeRack(event)
                                                 checkError1(event)
@@ -301,7 +311,7 @@ export default function SpecCardLabwareEXP(props) {
                                             defaultValue="opentrons_24_tuberack_nest_1.5ml_snapcap"
                                             type="string"/>
                                         <TextField   // BioBricks: Bead Container & SOC plate
-                                            className={classes.inputText}
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeBiobricksSocPlate(event)
                                                 checkError1(event)
@@ -311,6 +321,7 @@ export default function SpecCardLabwareEXP(props) {
                                             label="SOC plate"
                                             defaultValue="usascientific_96_wellplate_2.4ml_deep"
                                             type="string"/>
+                                        </Box>
                                     </CardActions>
                                 </form>
                             </div>
@@ -324,8 +335,9 @@ export default function SpecCardLabwareEXP(props) {
                             <div>
                                 <form className={classes.root} noValidate autoComplete="off">
                                     <CardActions>
+                                        <Box flexWrap="wrap" flexGrow={1} style={{width:'100%'}}>
                                         <TextField   // BioBricks: Transformation  Plate
-                                            className={classes.inputText}
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeMoCloReagentPlate(event)
                                                 checkError1(event)
@@ -336,7 +348,7 @@ export default function SpecCardLabwareEXP(props) {
                                             defaultValue="biorad_96_wellplate_200ul_pcr"
                                             type="string"/>
                                         <TextField   // MoClo: Trough
-                                            className={classes.inputText}
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeMoCloTrough(event)
                                                 checkError1(event)
@@ -347,7 +359,7 @@ export default function SpecCardLabwareEXP(props) {
                                             defaultValue="usascientific_12_reservoir_22ml"
                                             type="string"/>
                                         <TextField   // MoClo: Agar Plate
-                                            className={classes.inputText}
+                                            className={classes.inputText2}
                                             onChange={(event) => {
                                                 props.handleChangeMoCloAgarPlate(event)
                                                 checkError1(event)
@@ -357,6 +369,7 @@ export default function SpecCardLabwareEXP(props) {
                                             label="Agar Plate"
                                             defaultValue="thermofisher_96_wellplate_180ul"
                                             type="string"/>
+                                            </Box>
                                     </CardActions>
                                 </form>
                             </div>

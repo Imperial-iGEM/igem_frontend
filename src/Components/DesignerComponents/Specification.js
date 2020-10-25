@@ -432,7 +432,7 @@ export default function ExampleSpecification(props) {
             outputhandleChange={outputhandleChange}
           />
         </Grid> */}
-        <Grid item xs={3}>
+        <Grid item xs={12}    spacing={0}   direction="column"   alignItems="center"   justify="center">
           <Button
             className={classes.button}
             variant="contained"
