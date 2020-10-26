@@ -36,7 +36,6 @@ export default function DraggableDialog() {
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
   const [open3, setOpen3] = React.useState(false);
-  const [open4, setOpen4] = React.useState(false);
   const [open5, setOpen5] = React.useState(false);
   const [open6, setOpen6] = React.useState(false);
 
@@ -68,15 +67,6 @@ export default function DraggableDialog() {
 
   const handleClose3 = () => {
     setOpen3(false);
-    setOpen4(true);
-  };
-
-  const handleClose4Exit = () => {
-    setOpen4(false);
-  };
-
-  const handleClose4 = () => {
-    setOpen4(false);
     setOpen5(true);
   };
 
@@ -168,30 +158,6 @@ export default function DraggableDialog() {
             Exit
           </Button>
           <Button onClick={handleClose3} color="secondary">
-            Next
-          </Button>
-        </DialogActions>
-      </Dialog>
-      <Dialog
-        open={open4}
-        onClose={handleClose4Exit}
-        style={{left:'900px'}}
-        PaperComponent={PaperComponent}
-        aria-labelledby="draggable-dialog-title"
-      >
-        <DialogTitle style={{ cursor: 'move' }} id="draggable-dialog-title">
-          Select Assembly Component
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            To the right we have a radio select component for you to input the type of dna assembly you would like to use on your SBOL file
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose4Exit} color="primary">
-            Exit
-          </Button>
-          <Button onClick={handleClose4} color="secondary">
             Next
           </Button>
         </DialogActions>
