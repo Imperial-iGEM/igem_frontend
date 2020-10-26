@@ -29,7 +29,10 @@ export default function OpentronsText(props){
         <div className={classes.root}>
             <div className={classes.textSection}>
                 <Typography variant={"h6"}>
-                    SBOL (Synthetic Biology Open Language) is a fledgling standard data format for expressing genetic circuits in synthetic biology and increasing the shareability of designs. The adoption of SBOL symbolic visual ontology is already sweeping through academic journal ranks, while the digital ontology and the accompanying SBOL programming frameworks (pySBOL and libSBOLj) are slowly following behind. With the creation of more software tools that integrate and support SBOL, we hope to 
+                    Opentrons Robots were greatly useful to our project as a extremly cheap liquid handler compared to others on the market with a very self explanatory API. We found the API very easy to use and well documents and could use the liquid handlers proficiently and quickly.
+                </Typography>
+                <Typography variant={"h6"}>
+                    Currently the only liquid handler supported by our software is the OT2 liquid handler shown in the image to the left. To learn more about opentrons offerings visit their website below.
                 </Typography>
             </div>
         </div>

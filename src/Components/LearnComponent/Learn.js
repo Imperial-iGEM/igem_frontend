@@ -57,22 +57,22 @@ export default function Learn(props){
                 </Grid>
                 <Grid item xs={5}>
                     <div className={classes.generalSpacing}>
-                        <OpentronsPhoto />
-                    </div>
-                </Grid>
-                <Grid item xs={7}>
-                    <div className={classes.generalSpacing}>
-                        <OpentronsText />
-                    </div>
-                </Grid>
-                <Grid item xs={5}>
-                    <div className={classes.generalSpacing}>
                         <SBOLPhoto />
                     </div>
                 </Grid>
                 <Grid item xs={7}>
                     <div className={classes.generalSpacing}>
                         <SBOLText />
+                    </div>
+                </Grid>
+                <Grid item xs={5}>
+                    <div className={classes.generalSpacing}>
+                        <OpentronsPhoto />
+                    </div>
+                </Grid>
+                <Grid item xs={7}>
+                    <div className={classes.generalSpacing}>
+                        <OpentronsText />
                     </div>
                 </Grid>
                 <Grid item xs={12}>

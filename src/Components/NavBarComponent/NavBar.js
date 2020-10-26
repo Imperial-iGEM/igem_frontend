@@ -59,6 +59,9 @@ export default function NavBar() {
             <Link style={navStyle} to='/learn'>
               <Button >Learn</Button>
             </Link>
+            <a style={navStyle} href='https://imperial-igem.github.io/DJANGO-Assembly-Methods/'>
+              <Button >Docs</Button>
+            </a>
             <Link style={navStyle} to='/contact'>
               <Button >Contact</Button>
             </Link>
