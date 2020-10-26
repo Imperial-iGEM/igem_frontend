@@ -13,6 +13,7 @@ import DescriptionIcon from '@material-ui/icons/Description';
 import GestureIcon from '@material-ui/icons/Gesture';
 import PhoneIcon from '@material-ui/icons/Phone';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import PostAddIcon from '@material-ui/icons/PostAdd';
 import ThisWinkAnimation from './DrawImg';
 import {Grid } from "@material-ui/core";
 import { Link } from 'react-router-dom'
@@ -95,6 +96,14 @@ export default function TemporaryDrawer() {
                 <ListItemText primary={"Learn"} />
             </ListItem>
         </Link>
+        <a style={navStyle} href='https://imperial-igem.github.io/DJANGO-Assembly-Methods/'>
+          <ListItem button key={"Docs"}>
+                  <ListItemIcon>
+                    <PostAddIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={"Docs"} />
+              </ListItem>
+        </a>
         <Link style={navStyle} to='/contact'>
             <ListItem button key={"Contact"}>
                 <ListItemIcon>
