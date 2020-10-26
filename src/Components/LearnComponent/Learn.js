@@ -41,36 +41,36 @@ export default function Learn(props){
 
     return(
         <div className={classes.root}>
-            <Grid className={classes.mainGrid} container spacing={1}>
+            <Grid className={classes.mainGrid} container>
                 <Grid item xs={12}>
                     <LearnHeader />
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={12} md={5}>
                     <div className={classes.generalSpacing}>
                         <ModellingPhoto />
                     </div>
                 </Grid>
-                <Grid item xs={7}>
+                <Grid item xs={12} md={7}>
                     <div className={classes.generalSpacing}>
                         <ModellingText />
                     </div>
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={12} md={5}>
                     <div className={classes.generalSpacing}>
                         <SBOLPhoto />
                     </div>
                 </Grid>
-                <Grid item xs={7}>
+                <Grid item xs={12} md={7}>
                     <div className={classes.generalSpacing}>
                         <SBOLText />
                     </div>
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={12} md={5}>
                     <div className={classes.generalSpacing}>
                         <OpentronsPhoto />
                     </div>
                 </Grid>
-                <Grid item xs={7}>
+                <Grid item xs={12} md={7}>
                     <div className={classes.generalSpacing}>
                         <OpentronsText />
                     </div>
