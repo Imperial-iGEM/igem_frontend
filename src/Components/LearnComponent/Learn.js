@@ -8,6 +8,8 @@ import SBOLPhoto from './subcomponents/SBOLPhoto';
 import OpentronsText from './subcomponents/OpentronsText';
 import SBOLText from './subcomponents/SBOLText';
 import LearnFooter from './subcomponents/footer';
+import ModellingPhoto from './subcomponents/ModellingPhoto';
+import ModellingText from './subcomponents/ModellingText';
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -43,22 +45,32 @@ export default function Learn(props){
                 <Grid item xs={12}>
                     <LearnHeader />
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={5}>
+                    <div className={classes.generalSpacing}>
+                        <ModellingPhoto />
+                    </div>
+                </Grid>
+                <Grid item xs={7}>
+                    <div className={classes.generalSpacing}>
+                        <ModellingText />
+                    </div>
+                </Grid>
+                <Grid item xs={5}>
                     <div className={classes.generalSpacing}>
                         <OpentronsPhoto />
                     </div>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid item xs={7}>
                     <div className={classes.generalSpacing}>
                         <OpentronsText />
                     </div>
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={5}>
                     <div className={classes.generalSpacing}>
                         <SBOLPhoto />
                     </div>
                 </Grid>
-                <Grid item xs={9}>
+                <Grid item xs={7}>
                     <div className={classes.generalSpacing}>
                         <SBOLText />
                     </div>
