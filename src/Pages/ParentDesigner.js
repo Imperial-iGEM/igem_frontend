@@ -102,11 +102,11 @@ export default function ParentDesigner() {
         <DialogTitle id="alert-dialog-title">{"Warning!"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Please ensure you have saved and downloaded your SBOL file (if any) from the Designer before continuing. Changes made may be lost otherwise.
+            Ensure you have saved and downloaded your SBOL file (if any) from the Designer before continuing. Changes made may be lost otherwise.
             You can save and download your file using the 6th button from the left in the Designer. Please refer to the tutorial for more details.
             <br/>
             <br/>
-            Also please ensure you have selected the correct assembly method at the top of this page.
+            Also ensure you have selected the correct assembly method at the top of this page.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
