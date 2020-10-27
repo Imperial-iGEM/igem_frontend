@@ -191,7 +191,7 @@ console.log(state.non_compliant_URI)
                                                 <input {...getInputProps()}  />
                                                 <div className={classes.dropText}>
                                                     <p>Drag 'n' drop some files here, or click to select files</p>
-                                                </div>      
+                                                </div>
                                             </div>
                                         </section>
                                     )}
@@ -219,14 +219,14 @@ console.log(state.non_compliant_URI)
                     <Paper elevation={1} >
                         <Paper style={{padding:20, marginTop:10, marginBottom:10, overflow:'scroll',maxHeight:"224px" }} >
                             <Typography variant="h7"  style = {{padding:20}} id={"errorBox"} font={"Roboto"}>
-                                Errors
+                                {files.length > 0 ? "Processing" : "Errors Will Appear Here" }
                             </Typography>
                         </Paper>
 
                         <Paper style={{padding:20, marginTop:10, marginBottom:10}}  elevation={0}>
 
                             <Typography variant="h7"  style = {{padding:20}}  id={"outPutFile"}>
-                                <Link  id={"OUTPUTFILEID"} a={""}>OutputFile</Link>
+                                <Link  id={"OUTPUTFILEID"} a={""}>{files.length > 0 ? "Processing" : "Validate Files Will Appear Here" }</Link>
                             </Typography>
                         </Paper>
                     </Paper>

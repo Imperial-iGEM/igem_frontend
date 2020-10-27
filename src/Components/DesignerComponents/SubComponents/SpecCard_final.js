@@ -29,7 +29,7 @@ export default function SpecCardFinal(props) {
     function linkGen(link){
         return ( <Typography variant="h5" component="h2">
                     <Grid item xs={2} spacing={3} className={classes.Button}>
-                      <a href={"http://app.soaplab.io:8081/"+link.substr(33)} download style={{ textDecoration: 'none' }}>
+                      <a href={"http://app.soaplab.io:8081/"+link.substr(33)} download style={{ textDecoration: 'none' }} target="_blank">
                         <Button variant="outlined" color="secondary">
                           {generateFileName(link)}
                         </Button>

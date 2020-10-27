@@ -9,6 +9,11 @@ import Typography from '@material-ui/core/Typography';
 import FileUploadPage from "./FileUploadPage";
 import ExampleSpecification from '../Components/DesignerComponents/Specification'
 import SBOLDesigner from '../Components/DesignerComponents/SBOLDesigner';
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogActions from "@material-ui/core/DialogActions";
+import Dialog from "@material-ui/core/Dialog";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,7 +56,7 @@ export default function ParentDesigner() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const steps = getSteps();
-
+  const [dialogOpen, setDialogOpen] = useState(false);
   // Storing DNA assembly selection
   const [dnaAssembly, setDnaAssembly] = useState('basic');
 
@@ -60,7 +65,17 @@ export default function ParentDesigner() {
     setDnaAssembly(event.target.value);
   };
 
+  const handleNextDesigner = () => {
+    setDialogOpen(false);
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
   const handleNext = () => {
+    if(activeStep === 0){
+      setDialogOpen(true);
+      return;
+    }
+    setDialogOpen(false);
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
@@ -72,8 +87,37 @@ export default function ParentDesigner() {
     setActiveStep(0);
   };
 
+  const handleCancel = () => {
+    setDialogOpen(false);
+  }
+
   return (
     <div className={classes.root}>
+      <div><Dialog
+          open={dialogOpen}
+          onClose={handleCancel}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Warning!"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Please ensure you have saved and downloaded your SBOL file (if any) from the Designer before continuing. Changes made may be lost otherwise.
+            You can save and download your file using the 6th button from the left in the Designer. Please refer to the tutorial for more details.
+            <br/>
+            <br/>
+            Also please ensure you have selected the correct assembly method at the top of this page.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCancel} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={handleNextDesigner} color="primary" autoFocus>
+            Continue
+          </Button>
+        </DialogActions>
+      </Dialog></div>
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
@@ -104,6 +148,10 @@ export default function ParentDesigner() {
               <Button variant="contained" color="primary" onClick={handleNext}>
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>
+                {/*{activeStep === 0 &&*/}
+                {/*<Button style={{marginLeft: 10}} variant="contained" color="primary" onClick={handleNext}>*/}
+                {/*  Skip*/}
+                {/*</Button>}*/}
             </div>
           </div>
             </div>
