@@ -83,6 +83,8 @@ export default function ExampleSpecification(props) {
 
   // /* Olive const's
   // Common labware
+  const [APIError, setAPIError] = useState('false');
+
   const [commonLabwareP10, setCommonLabwareP10] = useState('right');
   const [commonLabwareP300, setCommonLabwareP300] = useState('left');
   const [commonLabwareP10Type, setCommonLabwareP10Type] = useState('p10_single');
@@ -353,11 +355,32 @@ export default function ExampleSpecification(props) {
 
   const handleCloseGenerate = async () => {
     console.log(props.dnaAssembly)
-    let outputLinks = await finalSpec()
-    console.log('output links',outputLinks)
-    console.log('array',outputLinks.data.finalSpec.outputLinks)
-    setOpentronsOutputLinks(outputLinks.data.finalSpec.outputLinks)
-    setOpen(false);
+    try {
+      let outputLinks = await finalSpec()
+      setAPIError('false');
+      console.log('output links',outputLinks)
+      console.log('array',outputLinks.data.finalSpec.outputLinks)
+      setOpentronsOutputLinks(outputLinks.data.finalSpec.outputLinks)
+      setOpen(false);
+    } catch(error) {
+      setAPIError(JSON.stringify(error))
+      console.log('error',error);
+      setOpen(false);
+    }
+    //if (finalSpecError) {
+    //  console.log('error',finalSpecError);
+    //  setOpen(false);
+    //} else {
+    //  console.log('output links',outputLinks)
+    //  console.log('array',outputLinks.data.finalSpec.outputLinks)
+    //  setOpentronsOutputLinks(outputLinks.data.finalSpec.outputLinks)
+    // setOpen(false);
+    //}
+    //console.log('error',finalSpecError);
+    //console.log('output links',outputLinks)
+    //console.log('array',outputLinks.data.finalSpec.outputLinks)
+    //setOpentronsOutputLinks(outputLinks.data.finalSpec.outputLinks)
+    //setOpen(false);
   }
 
   // Repeats
@@ -475,9 +498,7 @@ export default function ExampleSpecification(props) {
             </DialogActions>
           </Dialog>
         </Grid>
-        <Grid item xs={12}>
-          <SpecCardFinal links={opentronsOutputLinks} />
-        </Grid>
+        {APIError!='false' ? APIError: <Grid item xs={12}><SpecCardFinal links={opentronsOutputLinks}/></Grid>}
       </Grid>
     </div>
   );
