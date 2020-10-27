@@ -83,19 +83,7 @@ export default function DownloadTemplate(props){
         spacing={2}
         className={classes.myGrid}
         >
-            <Grid item xs={12} sm={6} md={3} >
-                <a href={process.env.PUBLIC_URL + 'SBOL/basic_linkers_standard.xml'} download style={{ textDecoration: 'none' }}>
-                    <Button onClick={handleClickBasicLS} className={classes.myButton} variant="outlined" color="secondary">
-                        Basic Linkers Standard
-                    </Button>
-                </a>
-                <Snackbar open={openBasicLS} autoHideDuration={6000} onClose={handleCloseBasicLS}>
-                    <Alert onClose={handleCloseBasicLS} severity="success">
-                        Successfully Downloaded example Basic Linkers Standard SBOL File.
-                    </Alert>
-                </Snackbar>
-            </Grid>
-            <Grid item xs={12} sm={6} md={3} >
+            <Grid item xs={12} sm={6} md={4} >
                 <a href={process.env.PUBLIC_URL + 'SBOL/basic_validation.xml'} download style={{ textDecoration: 'none' }}>
                     <Button onClick={handleClickBasic} className={classes.myButton} variant="outlined" color="secondary">
                         Basic
@@ -107,7 +95,7 @@ export default function DownloadTemplate(props){
                     </Alert>
                 </Snackbar>
             </Grid>
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid item xs={12} sm={6} md={4}>
                 <a href={process.env.PUBLIC_URL + 'SBOL/moclo_validation.xml'} download style={{ textDecoration: 'none' }}>
                     <Button onClick={handleClickMoclo} className={classes.myButton} variant="outlined" color="secondary">
                         MoClo (Golden Gate)
@@ -119,7 +107,7 @@ export default function DownloadTemplate(props){
                     </Alert>
                 </Snackbar>
             </Grid>
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid item xs={12} sm={6} md={4}>
                 <a href={process.env.PUBLIC_URL + 'SBOL/bb_validation_level1.xml'} download style={{ textDecoration: 'none' }}>
                     <Button onClick={handleClickBiobricks} className={classes.myButton} variant="outlined" color="secondary">
                         BioBricks
