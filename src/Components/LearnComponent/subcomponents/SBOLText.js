@@ -29,7 +29,7 @@ export default function SBOLText(props){
         <div className={classes.root}>
             <div className={classes.textSection}>
                 <Typography variant={"h6"}>
-                    SBOL (Synthetic Biology Open Language) is a fledgling standard data format for expressing genetic circuits in synthetic biology and increasing the shareability of designs. The adoption of SBOL symbolic visual ontology is already sweeping through academic journal ranks, while the digital ontology and the accompanying SBOL programming frameworks (pySBOL and libSBOLj) are slowly following behind. With the creation of more software tools that integrate and support SBOL, we hope to 
+                    SBOL (Synthetic Biology Open Language) is a fledgling standard data format for expressing genetic circuits in synthetic biology and increasing the shareability of designs. The adoption of SBOL symbolic visual ontology is already sweeping through academic journal ranks, while the digital ontology and the accompanying SBOL programming frameworks (pySBOL and libSBOLj) are slowly following behind. With the creation of more software tools that integrate and support SBOL, we hope to promote its use and help make it a widespread standard.
                 </Typography>
             </div>
         </div>
