@@ -12,7 +12,7 @@
     "@testing-library/user-event": "^7.2.1",
     "ag-grid-community": "^24.0.0",
     "ag-grid-react": "^24.0.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "create-react-app": "^3.4.1",
     "graphql": "^15.3.0",
     "graphql-tag": "^2.11.0",
